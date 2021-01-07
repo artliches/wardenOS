@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: black;
+    height: 100vh;  
+    color: white;
+    font: 1.3rem Inconsolata, monospace;
+}
+
+.warden-banner {
+    font-family: 'Monoton';
+    text-shadow: none;
+    margin: 0;
+}
