@@ -1,3 +1,17 @@
 <h1 class='warden-banner'>
     WARDEN OS 
 </h1>
+
+<section class='basic-grid warden-homescreen'>
+    <section class='basic-grid button-section main-section'>
+        <button (click)='displayInfo("patch")'>LOOT PATCH</button>
+        <button (click)='displayInfo("trinket")'>LOOT TRINKET</button>
+        <!-- <button (click)='displayInfo("patch")'>HAIL SPACE STATION PATCH</button> -->
+    </section>
+
+    <section class='display-section main-section'>
+        <!-- <app-space-station-generator></app-space-station-generator> -->
+        <app-patch-generator [getPatch]='triggerChanges["patch"]' *ngIf='displaySection["patch"]'></app-patch-generator>
+        <app-trinket-generator [getTrinket]='triggerChanges["trinket"]' *ngIf='displaySection["trinket"]'></app-trinket-generator>
+    </section>
+</section>
