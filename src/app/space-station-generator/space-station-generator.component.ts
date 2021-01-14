@@ -10,6 +10,7 @@ import { SPACE_STATION } from '../services/random-tables.constants';
 })
 export class SpaceStationGeneratorComponent implements OnChanges {
   @Input() genSpaceStation = false;
+  @Input() coreOrRim = false;
   amalgamationStructure = [];
   commonIssues = '';
   coreStationMarketStatus = '';
@@ -32,14 +33,30 @@ export class SpaceStationGeneratorComponent implements OnChanges {
 
   composeCoreStationText() {
     this.stationName = this.getStationName();
-    const coreStationDescription = this.getStationInfo('core_station');
-    const coreLeader = this.getStationInfo('core_leader');
-    const backingGroup = this.getStationInfo('group');
 
-    return `<b>${this.stationName}</b> is a(n) <b>${coreStationDescription}</b>. It\'s run by
-      a(n) <b>${coreLeader}</b> backed by <b>${backingGroup}</b>. Docking costs
-      <b>${this.randNum.getRandomNumber(1, 10) * 100}</b>cr, and a cheap room is
-      <b>${this.randNum.getRandomSum(2, 0, 99)}</b>cr/night.`;
+    if (!this.coreOrRim) {
+      const coreStationDescription = this.getStationInfo('core_station').trim();
+      const coreLeader = this.getStationInfo('core_leader').trim();
+      const backingGroup = this.getStationInfo('group').trim();
+
+      return `<b>${this.stationName}</b> is a(n) <b>${coreStationDescription}</b>. It\'s run by
+        a(n) <b>${coreLeader}</b> backed by <b>${backingGroup}</b>. Docking costs
+        <b>${this.randNum.getRandomNumber(1, 10) * 100}</b>cr, and a cheap room is
+        <b>${this.randNum.getRandomSum(2, 0, 99)}</b>cr/night.`;
+    } else {
+      const rimLandmark = this.getStationInfo('rim_landmarks').trim();
+      const rimStation = this.getStationInfo('rim_station').trim();
+      const controlFaction = this.getStationInfo('control_faction').trim();
+      const rivalFaction = this.getStationInfo('rival_faction').trim();
+      const rivalLeader = this.getStationInfo('rival_leader').trim();
+      return `
+        Out on the rim, near a(n) <b>${rimLandmark}</b>, a(n) <b>${rimStation}</b> station
+        (call-sign <b>${this.stationName}</b>) spins. It\'s outwardly controlled by
+        <b>${controlFaction}</b>, though subtly undermined by <b>${rivalFaction}</b>,
+        led by a(n) <b>${rivalLeader}</b>.
+      `;
+    }
+
   }
 
   composeMarketStatus() {
@@ -49,7 +66,10 @@ export class SpaceStationGeneratorComponent implements OnChanges {
     let marketText = '';
     let resourceText = '';
 
-    if (this.randNum.getRandomNumber(1, 100) <= 5) {
+    const crisisPercent = this.randNum.getRandomNumber(1, 100);
+    const crisisOccurred = this.coreOrRim ? crisisPercent <= 20 : crisisPercent <= 5;
+
+    if (crisisOccurred) {
       crisisText = this.getStationInfo('crisis');
       crisisSection = `
         <div><b>!!WARNING!!</b></div>
@@ -59,12 +79,20 @@ export class SpaceStationGeneratorComponent implements OnChanges {
     } else {
       marketText = this.getStationInfo('goods');
       resourceText = this.getStationInfo('resource');
-      marketSection = `
+      if (!this.coreOrRim) {
+        marketSection = `
         You can buy supplies and fuel as per normal, though at a hefty markup of
         <b>${this.randNum.getRandomSum(2, 1, 100)}%</b>. They also buy <b>${marketText}</b> at
         <b>${this.randNum.getRandomNumber(1, 100) - 10}%</b> off and local free-traders
         have a line on where to find <b>${resourceText}</b>.
       `;
+      } else {
+        marketSection = `
+          You can by fuel as per normal, but they are currently only offering
+          <b>${marketText}</b> for sale and there's a rumor going around that the station
+          is in dire need of <b>${resourceText}</b>.
+        `;
+      }
     }
 
     return `
@@ -119,12 +147,18 @@ export class SpaceStationGeneratorComponent implements OnChanges {
   }
 
   getStationName() {
-    const stationFirstName = SPACE_STATION.station_name1
+    if (!this.coreOrRim) {
+      const stationFirstName = SPACE_STATION.station_name1
       [this.randNum.getRandomNumber(0, SPACE_STATION.station_name1.length - 1)];
-    const stationLastName = SPACE_STATION.station_name2
-      [this.randNum.getRandomNumber(0, SPACE_STATION.station_name2.length - 1)];
+      const stationLastName = SPACE_STATION.station_name2
+        [this.randNum.getRandomNumber(0, SPACE_STATION.station_name2.length - 1)];
 
-    return `${stationFirstName} ${stationLastName}`;
+      return `${stationFirstName} ${stationLastName}`;
+    } else {
+      const callSign = this.getStationInfo('call_sign').trim();
+      return this.randNum.rollStringDice(callSign, '[d');
+    }
+
   }
 
 }

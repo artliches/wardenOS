@@ -6,12 +6,14 @@
     <section class='basic-grid button-section main-section'>
         <button (click)='displayInfo("patch")'>LOOT PATCH</button>
         <button (click)='displayInfo("trinket")'>LOOT TRINKET</button>
-        <button class='pofTheme' (click)='displayInfo("space")'>HAIL CORESPACE STATION</button>
+        <button class='pofTheme' (click)='displayInfo("core")'>HAIL CORESPACE STATION</button>
+        <button class='pofTheme' (click)='displayInfo("rim")'>HAIL RIMSPACE STATION</button>
     </section>
 
     <section class='display-section main-section'>
-        <app-space-station-generator [genSpaceStation]='triggerChanges["space"]' *ngIf='displaySection["space"]'></app-space-station-generator>
         <app-patch-generator [getPatch]='triggerChanges["patch"]' *ngIf='displaySection["patch"]'></app-patch-generator>
         <app-trinket-generator [getTrinket]='triggerChanges["trinket"]' *ngIf='displaySection["trinket"]'></app-trinket-generator>
+        <app-space-station-generator [genSpaceStation]='triggerChanges["core"]' [coreOrRim]='false' *ngIf='displaySection["core"]'></app-space-station-generator>
+        <app-space-station-generator [genSpaceStation]='triggerChanges["rim"]' [coreOrRim]='true' *ngIf='displaySection["rim"]'></app-space-station-generator>
     </section>
 </section>

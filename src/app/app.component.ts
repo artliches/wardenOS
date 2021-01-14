@@ -6,17 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'wardenOS';
   displaySection = {
     patch: false,
     trinket: false,
-    space: false,
+    core: false,
+    rim: false,
   };
 
   triggerChanges = {
     patch: false,
     trinket: false,
-    space: false,
+    core: false,
+    rim: false,
   };
 
   displayInfo(name: string) {

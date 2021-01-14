@@ -659,6 +659,7 @@ export const SPACE_STATION = {
         'The Sindec Alloyed Metals Corporation ',
         'SEBACO Mining Ltd.                    ',
         'The Limited Colonial Government     ',
+        'The Stratmeyer Syndicate',
       ],
 
       rival_faction: [
