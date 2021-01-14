@@ -206,10 +206,8 @@ export const TRINKET_TABLE = [
     { num: 99, descrip: 'Miniature Chess Set, Bone, Pieces Missing'},
   ];
 
-export const SPACE_STATION = [
-    {
-      title: 'station_name1',
-      table: [
+export const SPACE_STATION = {
+      station_name1: [
         'Azreal\'s',
         'Dunmah\'s',
         'Marut\'s',
@@ -220,11 +218,9 @@ export const SPACE_STATION = [
         'Iblis\'s',
         'Al-\'Uzza\'s',
         'Vanth\'s'
-      ]
-    },
-    {
-      title: 'station_name2',
-      table: [
+      ],
+
+      station_name2: [
         'Price',
         'Sorrow',
         'Redemption',
@@ -235,11 +231,9 @@ export const SPACE_STATION = [
         'Shield',
         'Cross',
         'Herald'
-      ]
-    },
-    {
-      title: 'core_station',
-      table: [
+      ],
+
+      core_station: [
         'overcrowded habitat colony',
         'palatial estate',
         'secret corporate research facility',
@@ -250,11 +244,9 @@ export const SPACE_STATION = [
         'semi-autonomous shipyard',
         'solitary monastary',
         'ancient jump gate'
-      ]
-    },
-    {
-      title: 'celestial_body',
-      table: [
+      ],
+
+      celestial_body: [
         'still terraforming planet',
         'overpopulated slumworld',
         'resource rich planet',
@@ -265,11 +257,9 @@ export const SPACE_STATION = [
         'giant asteroid cluster',
         'red supergiant',
         'black hole, past event horizon'
-      ]
-    },
-    {
-      title: 'core_leader',
-      table: [
+      ],
+
+      core_leader: [
         'first-colony descendent',
         'asteroid mining oligarch',
         'reclusive intellectual',
@@ -280,11 +270,9 @@ export const SPACE_STATION = [
         'rimwar veteran commander',
         'reformed criminal outcast',
         'dynastic child-heir'
-      ]
-    },
-    {
-      title: 'group',
-      table: [
+      ],
+
+      group: [
         'radical colonial separatists',
         'The Valecore Mining Consortium',
         'The Exo-Credit Federated Union',
@@ -295,11 +283,9 @@ export const SPACE_STATION = [
         'The Principality of Christian XII',
         'The Decanon Caliphate',
         'The House of Tarkhan'
-      ]
-    },
-    {
-      title: 'goods',
-      table: [
+      ],
+
+      goods: [
         'equipment',
         'asteroid ore',
         'weapons',
@@ -310,11 +296,9 @@ export const SPACE_STATION = [
         'ship parts',
         'used ships',
         'fuel'
-      ]
-    },
-    {
-      title: 'resource',
-      table: [
+      ],
+
+      resource: [
         'android laborers',
         'asteroid mining machinery',
         'hardened mercenaries',
@@ -325,56 +309,48 @@ export const SPACE_STATION = [
         'out of work scientists',
         'oxygen reserves',
         'recreational drugs'
-      ]
-    },
-    {
-      title: 'crisis',
-      table: [
-        '<b class="magenta">Hostage Situation</b>. Command of the station has been taken by a rival faction who demand <u>1d10kcr</u> ransom.',
-        '<b class="magenta">Refugee Crisis</b>. The station is overrun with refugees. Everything is 1d10 + 1x more expensive than usual.',
-        '<b class="magenta">Food Shortage</b>. The station will pay 1d10 + 1kcr for food and another random resource. Theft is rampant.',
-        '<b class="magenta">Quarantine</b>. After boarding the station you learn that it has been quarantined. No one is allowed to leave.',
-        '<b class="magenta">Bout of Civil Unrest</b>. Rioting and looting. Mercenary death squads roam the corridors executing collaborators.',
-        '<b class="magenta">Disaster</b>. Crash landing, mass explosion or sabotage. Station is on full alert and going down without repairs.',
-        '<b class="magenta">General Strike</b>. Unions have organized. Protests, picket lines and intense riots. Commerce is shut down.',
-        '<b class="magenta">Uncanny Abandonment</b>. The station hosts the aftermath of some bloody, haunted or mysterious happening.',
-        '<b class="magenta">Martial Law Edict</b>. All ships are boarded and inspected, station visas are issued and a curfew is in effect.',
-        '<b class="magenta">Blockade</b>. The station is under siege by the rival faction and access has been cut off. Your ship will be boarded.'
-      ]
-    },
-    {
-      title: 'structure',
-      table: [
-        '<b class="magenta">Asteroid Surface</b>. This station has been built on the outside surface of the asteroid, much the same way a building rests on the surface of a planet',
-        '<b class="magenta">Asteroid Interior</b>. While there may be structures on the outside of the asteroid the majority of the station exists "underground" as a series of tunnels, caves, or similar structures',
-        '<b class="magenta">Spindle</b>. A common design, shaped like a spinning top with towers rising from the top and/or bottom',
-        '<b class="magenta">Cylinder</b>. The cylinder\'s rotation could provide a rationale for artificial gravity and the station could be quite large, like an O\'Neill Cylinder',
-        '<b class="magenta">Sphere</b>. Can be as big as a Dyson or Bernal Sphere or as small as a single pod-station',
-        '<b class="magenta">Torus/Ring</b>. The most common design. Like the Standford Torus or Bishop Ring, the outer ring could provide enough centrifugal force to provide artifical gravity',
-        '<b class="magenta">Tower</b>. A station with an angular or blocky design, like a skyscraper flung into space',
-        '<b class="magenta">Modular</b>. Built from discrete modules or "beads" that can be removed or added on to',
-        '<b class="magenta">Platform</b>. Design based on a large ship with clearly defined levels/decks',
-        '<b class="magenta">Amalgamation</b>.'
-      ]
-    },
-    {
-      title: 'common_problems',
-      table: [
-        '<b class="magenta">No Artificial Gravity</b>. Zero-G Skill Check for complex maneuvers',
-        '<b class="magenta">Resource Scarcity</b>. Food, water, oxygen, shelter is hard to find',
-        '<b class="magenta">Trade Good Scarcity</b>. Lack of fuel, warp cores, ammunition',
-        '<b class="magenta">Oxygen Poor</b>. Strenuous activities at [-]. O2 taxation',
-        '<b class="magenta">Non-standard Day/Night Cycle</b>. Resting at [-]',
-        '<b class="magenta">Poor Water Treatment Facilities</b>. Healing at [-]',
-        '<b class="magenta">Low Security</b>. High risk of theft, threat of violence, piracy, etc',
-        '<b class="magenta">High Secuirty</b>. High risk of authoritarian police, taxation, prison, etc.',
-        '<b class="magenta">Xenophobic Population</b>. Suspicious/hostile to stranger/outsiders',
-        '<b class="magenta">Poor Maintenance</b>. Minimum Stress +1. Resting and Healing at [-]. High risk of damage to the station during combat',
-      ]
-    },
-    {
-      title: 'noteworthy_locations',
-      table: [
+      ],
+
+      crisis: [
+        '<b>Hostage Situation</b>. Command of the station has been taken by a rival faction who demand <u>1d10kcr</u> ransom.',
+        '<b>Refugee Crisis</b>. The station is overrun with refugees. Everything is 1d10 + 1x more expensive than usual.',
+        '<b>Food Shortage</b>. The station will pay 1d10 + 1kcr for food and another random resource. Theft is rampant.',
+        '<b>Quarantine</b>. After boarding the station you learn that it has been quarantined. No one is allowed to leave.',
+        '<b>Bout of Civil Unrest</b>. Rioting and looting. Mercenary death squads roam the corridors executing collaborators.',
+        '<b>Disaster</b>. Crash landing, mass explosion or sabotage. Station is on full alert and going down without repairs.',
+        '<b>General Strike</b>. Unions have organized. Protests, picket lines and intense riots. Commerce is shut down.',
+        '<b>Uncanny Abandonment</b>. The station hosts the aftermath of some bloody, haunted or mysterious happening.',
+        '<b>Martial Law Edict</b>. All ships are boarded and inspected, station visas are issued and a curfew is in effect.',
+        '<b>Blockade</b>. The station is under siege by the rival faction and access has been cut off. Your ship will be boarded.'
+      ],
+
+      structure: [
+        '<b>Asteroid Surface</b>. This station has been built on the outside surface of the asteroid, much the same way a building rests on the surface of a planet',
+        '<b>Asteroid Interior</b>. While there may be structures on the outside of the asteroid the majority of the station exists "underground" as a series of tunnels, caves, or similar structures',
+        '<b>Spindle</b>. A common design, shaped like a spinning top with towers rising from the top and/or bottom',
+        '<b>Cylinder</b>. The cylinder\'s rotation could provide a rationale for artificial gravity and the station could be quite large, like an O\'Neill Cylinder',
+        '<b>Sphere</b>. Can be as big as a Dyson or Bernal Sphere or as small as a single pod-station',
+        '<b>Torus/Ring</b>. The most common design. Like the Standford Torus or Bishop Ring, the outer ring could provide enough centrifugal force to provide artifical gravity',
+        '<b>Tower</b>. A station with an angular or blocky design, like a skyscraper flung into space',
+        '<b>Modular</b>. Built from discrete modules or "beads" that can be removed or added on to',
+        '<b>Platform</b>. Design based on a large ship with clearly defined levels/decks',
+        '<b>Amalgamation</b>.'
+      ],
+
+      common_problems: [
+        '<b>No Artificial Gravity</b>. Zero-G Skill Check for complex maneuvers',
+        '<b>Resource Scarcity</b>. Food, water, oxygen, shelter is hard to find',
+        '<b>Trade Good Scarcity</b>. Lack of fuel, warp cores, ammunition',
+        '<b>Oxygen Poor</b>. Strenuous activities at [-]. O2 taxation',
+        '<b>Non-standard Day/Night Cycle</b>. Resting at [-]',
+        '<b>Poor Water Treatment Facilities</b>. Healing at [-]',
+        '<b>Low Security</b>. High risk of theft, threat of violence, piracy, etc',
+        '<b>High Secuirty</b>. High risk of authoritarian police, taxation, prison, etc.',
+        '<b>Xenophobic Population</b>. Suspicious/hostile to stranger/outsiders',
+        '<b>Poor Maintenance</b>. Minimum Stress +1. Resting and Healing at [-]. High risk of damage to the station during combat',
+      ],
+
+      noteworthy_locations: [
         ...Array(3).fill('repair'),
         'port',
         'colony',
@@ -384,6 +360,7 @@ export const SPACE_STATION = [
         'prison',
         'religious'
       ],
+
       location_descrip: {
         repair: [
           ...Array(5).fill('dry dock'),
@@ -415,6 +392,7 @@ export const SPACE_STATION = [
           'holding cells',
           'power station'
         ],
+
         port: [
           ...Array(5).fill('food stand'),
           ...Array(5).fill('dry dock'),
@@ -445,6 +423,7 @@ export const SPACE_STATION = [
           'custom androids',
           'ship designer'
         ],
+
         colony: [
           ...Array(5).fill('Farming Unit              '),
           ...Array(5).fill('Food Court                '),
@@ -475,6 +454,7 @@ export const SPACE_STATION = [
           'Landing Strip             ',
           'Communication Array       ',
         ],
+
         military: [
           ...Array(5).fill('Admin Offices'),
           ...Array(5).fill('Drop Station'),
@@ -505,6 +485,7 @@ export const SPACE_STATION = [
           'Exomech Hangar',
           'Massive Weapon',
         ],
+
         mining: [
           ...Array(5).fill('Material Processing    '),
           ...Array(5).fill('Shipping Warehouse     '),
@@ -535,6 +516,7 @@ export const SPACE_STATION = [
           'Laser Drilling Array   ',
           'Company Store          ',
         ],
+
         corporate: [
           ...Array(5).fill('Offices                 '),
           ...Array(5).fill('Open Floor Plan Office  '),
@@ -565,6 +547,7 @@ export const SPACE_STATION = [
           'Experiment #237         ',
           'Mega-AI Brain           ',
         ],
+
         prison: [
           ...Array(5).fill('Ruined Cellblock      '),
           ...Array(5).fill('Administration Offices'),
@@ -595,6 +578,7 @@ export const SPACE_STATION = [
           'Comissary             ',
           'Crematorium           ',
         ],
+
         religious: [
           ...Array(5).fill('Prayer Gardens'),
           ...Array(5).fill('Observatory'),
@@ -624,12 +608,9 @@ export const SPACE_STATION = [
           'Scourging Room',
           'Bishop’s Manor',
           'Unmarked Prison Cell',
-        ]
-      }
-    },
-    {
-      title: 'rim_landmarks',
-      table: [
+        ],
+
+      rim_landmarks: [
         'Heavily Guarded Corporate DMZ  ',
         'Battered Asteroid Field        ',
         'Uninhabitable Desert Planet    ',
@@ -640,11 +621,9 @@ export const SPACE_STATION = [
         'Massive Jump-5 Derelict Hulk   ',
         'Burgeoning Off‑World Colony    ',
         'Ship Graveyard',
-      ]
-    },
-    {
-      title: 'rim_station',
-      table: [
+      ],
+
+      rim_station: [
         'Independent Colony ',
         'Run Down Factory   ',
         'Military Base      ',
@@ -655,11 +634,9 @@ export const SPACE_STATION = [
         'Rest & Refuel      ',
         'Black Market       ',
         'Abandoned Derelict ',
-      ]
-    },
-    {
-      title: 'call_sign',
-      table: [
+      ],
+
+      call_sign: [
         'Remote Site-[d100]-[Letter]',
         '[d100]-[d10]',
         'Forward Base-[d10]-[Letter]',
@@ -670,11 +647,9 @@ export const SPACE_STATION = [
         'Command-[d10]-[d10]',
         'Outpost [d100]-[Letter]-[d10]',
         'Bridle-[d10]',
-      ]
-    },
-    {
-      title: 'control_faction',
-      table: [
+      ],
+
+      control_faction: [
         'The Anders-Klimt Mining Corporation   ',
         'The Gaff Android Labor Syndicate      ',
         'The 601st Colonial Marine Regiment    ',
@@ -685,11 +660,9 @@ export const SPACE_STATION = [
         'The Sindec Alloyed Metals Corporation ',
         'SEBACO Mining Ltd.                    ',
         'The Limited Colonial Government     ',
-      ]
-    },
-    {
-      title: 'rival_faction',
-      table: [
+      ],
+
+      rival_faction: [
         'The Synthetic Liberation Front',
         'Altruistic Scientists         ',
         'Neo-Haram Anarchists          ',
@@ -700,11 +673,9 @@ export const SPACE_STATION = [
         'Secret Union Instigators      ',
         'Black Dawn Mercenaries        ',
         'The Family of Eleven          ',
-      ]
-    },
-    {
-      title: 'rival_leader',
-      table: [
+      ],
+
+      rival_leader: [
         'Renegade Android',
         'Powerful Rogue AI',
         'Ruthless Criminal Despot',
@@ -717,4 +688,4 @@ export const SPACE_STATION = [
         'Relentless Warrant Officer',
       ]
     }
-  ];
+  };

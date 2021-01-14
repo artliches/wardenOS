@@ -10,11 +10,13 @@ export class AppComponent {
   displaySection = {
     patch: false,
     trinket: false,
+    space: false,
   };
 
   triggerChanges = {
     patch: false,
     trinket: false,
+    space: false,
   };
 
   displayInfo(name: string) {
