@@ -361,7 +361,6 @@ export const SPACE_STATION = {
         'religious'
       ],
 
-      location_descrip: {
         repair: [
           ...Array(5).fill('dry dock'),
           ...Array(5).fill('vehicle repair'),
@@ -687,5 +686,4 @@ export const SPACE_STATION = {
         'Stalwart Union Organizer',
         'Relentless Warrant Officer',
       ]
-    }
   };

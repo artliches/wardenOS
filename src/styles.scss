@@ -32,7 +32,7 @@ body {
     display: grid;
     grid-template-rows: 1fr .5fr;
     grid-template-columns: 1fr;
-    border: solid #f06 5px;
+    border: solid darkgrey 5px;
     .card-header {
         background-color: white;
         color: black;
@@ -46,8 +46,8 @@ body {
     }
 }
 .pofTheme {
-    background-color: magenta;
-    color: white; 
+    background-color: #f06;
+    color: black; 
 }
 
 button {

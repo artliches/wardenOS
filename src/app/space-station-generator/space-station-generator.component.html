@@ -1,1 +1,32 @@
-<span [innerHtml]='coreStationText'></span>
+<section class='station-card'>
+    <h2 class='station-card-inner'>{{stationName}}</h2>
+    <article class='station-card-inner-dark' [innerHtml]='coreStationText'></article>
+
+    <section>
+        <h3 class='station-card-inner'>Market Status</h3>
+        <article class='station-card-inner-dark' [innerHtml]='coreStationMarketStatus'></article>
+    </section>
+
+    <section>
+        <h3 class='station-card-inner'>Issues</h3>
+        <article class='station-card-inner-dark' [innerHTML]='commonIssues'></article>
+    </section>
+
+    <section>
+        <h3 class='station-card-inner'>Station Structure</h3>
+        <article class='station-card-inner-dark' [innerHtml]='stationStructure'></article>
+        <article class='station-card-inner-dark' *ngIf='amalgamationStructure.length > 0'>
+            <div *ngFor='let structure of amalgamationStructure' [innerHTML]='structure'>
+            </div>
+        </article>
+    </section>
+
+    <section>
+        <h3 class='station-card-inner'>Notable Locations</h3>
+        <article class='station-card-inner-dark'>
+            <div *ngFor='let local of notableLocations; let i = index'>
+                {{i+1}}. {{local | titlecase}}
+            </div>
+        </article>
+    </section>
+</section>
