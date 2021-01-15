@@ -1,29 +1,29 @@
-<section class='station-card'>
-    <h2 class='station-card-inner'>{{stationName}}</h2>
-    <article class='station-card-inner-dark' [innerHtml]='coreStationText'></article>
+<section class='pof-card'>
+    <h2 class='pof-card-inner'>{{stationName}}</h2>
+    <article class='pof-card-inner-dark' [innerHtml]='coreStationText'></article>
 
     <section>
-        <h3 class='station-card-inner'>Market Status</h3>
-        <article class='station-card-inner-dark' [innerHtml]='coreStationMarketStatus'></article>
+        <h3 class='pof-card-inner'>Market Status</h3>
+        <article class='pof-card-inner-dark' [innerHtml]='coreStationMarketStatus'></article>
     </section>
 
     <section>
-        <h3 class='station-card-inner'>Issues</h3>
-        <article class='station-card-inner-dark' [innerHTML]='commonIssues'></article>
+        <h3 class='pof-card-inner'>Issues</h3>
+        <article class='pof-card-inner-dark' [innerHTML]='commonIssues'></article>
     </section>
 
     <section>
-        <h3 class='station-card-inner'>Station Structure</h3>
-        <article class='station-card-inner-dark' [innerHtml]='stationStructure'></article>
-        <article class='station-card-inner-dark' *ngIf='amalgamationStructure.length > 0'>
+        <h3 class='pof-card-inner'>Station Structure</h3>
+        <article class='pof-card-inner-dark' [innerHtml]='stationStructure'></article>
+        <article class='pof-card-inner-dark' *ngIf='amalgamationStructure.length > 0'>
             <div *ngFor='let structure of amalgamationStructure' [innerHTML]='structure'>
             </div>
         </article>
     </section>
 
     <section>
-        <h3 class='station-card-inner'>Notable Locations</h3>
-        <article class='station-card-inner-dark'>
+        <h3 class='pof-card-inner'>Notable Locations</h3>
+        <article class='pof-card-inner-dark'>
             <div *ngFor='let local of notableLocations; let i = index'>
                 {{i+1}}. {{local | titlecase}}
             </div>

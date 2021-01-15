@@ -8,6 +8,8 @@
         <button (click)='displayInfo("trinket")'>LOOT TRINKET</button>
         <button class='pofTheme' (click)='displayInfo("core")'>HAIL CORESPACE STATION</button>
         <button class='pofTheme' (click)='displayInfo("rim")'>HAIL RIMSPACE STATION</button>
+        <button class='pofTheme' (click)='displayInfo("generic", "cyber", "pof")'>CYBERNETIC MUTATION</button>
+        <button class='pofTheme' (click)='displayInfo("generic", "lootPOF", "pof")'>LOOT FROM THE PROSPERO</button>
     </section>
 
     <section class='display-section main-section'>
@@ -15,5 +17,6 @@
         <app-trinket-generator [getTrinket]='triggerChanges["trinket"]' *ngIf='displaySection["trinket"]'></app-trinket-generator>
         <app-space-station-generator [genSpaceStation]='triggerChanges["core"]' [coreOrRim]='false' *ngIf='displaySection["core"]'></app-space-station-generator>
         <app-space-station-generator [genSpaceStation]='triggerChanges["rim"]' [coreOrRim]='true' *ngIf='displaySection["rim"]'></app-space-station-generator>
+        <app-generic-random-search [tableToSearch]='tableToSearch' [generateSearch]='triggerChanges["generic"]' [styleToUse]='styleToPass' *ngIf='displaySection["generic"]'></app-generic-random-search>
     </section>
 </section>

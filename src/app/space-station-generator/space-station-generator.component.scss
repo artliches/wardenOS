@@ -1,22 +1,3 @@
 b {
     color: #f06;
 }
-
-.station-card {
-    display: grid;
-    grid-gap: 1rem;
-    background-color: #f06;
-    padding: 0.5rem;
-
-    .station-card-inner {
-        background-color: white;
-        color: black;
-        margin-top: 0rem;
-        margin-bottom: 0rem;
-    }
-
-    .station-card-inner-dark {
-        background-color: black;
-        padding: 0.5rem;
-    }
-}

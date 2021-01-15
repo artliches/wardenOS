@@ -8,13 +8,15 @@ import { environment } from '../environments/environment';
 import { SpaceStationGeneratorComponent } from './space-station-generator/space-station-generator.component';
 import { TrinketGeneratorComponent } from './trinket-generator/trinket-generator.component';
 import { PatchGeneratorComponent } from './patch-generator/patch-generator.component';
+import { GenericRandomSearchComponent } from './generic-random-search/generic-random-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpaceStationGeneratorComponent,
     TrinketGeneratorComponent,
-    PatchGeneratorComponent
+    PatchGeneratorComponent,
+    GenericRandomSearchComponent
   ],
   imports: [
     BrowserModule,

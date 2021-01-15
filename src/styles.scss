@@ -32,7 +32,7 @@ body {
     display: grid;
     grid-template-rows: 1fr .5fr;
     grid-template-columns: 1fr;
-    border: solid darkgrey 5px;
+    border: solid darkgrey 0.5rem;
     .card-header {
         background-color: white;
         color: black;
@@ -48,6 +48,25 @@ body {
 .pofTheme {
     background-color: #f06;
     color: black; 
+}
+
+.pof-card {
+    display: grid;
+    grid-gap: 1rem;
+    background-color: #f06;
+    padding: 0.5rem;
+
+    .pof-card-inner {
+        background-color: white;
+        color: black;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    .pof-card-inner-dark {
+        background-color: black;
+        padding: 0.5rem;
+    }
 }
 
 button {
