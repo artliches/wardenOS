@@ -79,4 +79,66 @@ export class RandomNumberService {
     } while (numberRegex.test(stringToParse[tempEndIndex]));
     return tempEndIndex;
   }
+
+  getRandomSaying(previousNum: number, sayingsIndex: number) {
+    const randomSayings = [
+      'T-MINUS 10...',
+      'GIVE ME A POUND OF FLESH',
+      'ONCE MORE UNTO THE BREACH',
+      'ONE SMALL STEP FOR MAN',
+      'SHOOT FOR THE MOON',
+      'A TIME TO LIVE',
+      'A TIME TO DIE',
+      'A LAMB FOR THE SLAUGHTER',
+      '01110011 01101111 01110011',
+      'GAME OVER MAN!',
+      'ALLMOTHER, ARE YOU AWAKE?',
+      'IF DREAMS CAN COME TRUE, WHAT DOES THAT SAY ABOUT NIGHTMARES?',
+      'LIKE TEARS IN THE RAIN',
+      'A BLACK BLOOD NOTHINGNESS BEGAN TO SPIN',
+      'A SYSTEM OF CELLS INTERLINKED WITHIN CELLS INTERLINKED WITHIN CELLS INTERLINKED WITHIN ONE STEM',
+      'AND DREADFULLY DISTINCT AGAINST THE DARK A TALL WHITE FOUNTAIN PLAYED',
+      'YOU\'RE NOT HELPING. WHY IS THAT?',
+      'I DREAMT I WAS A BUTTERFLY...',
+      'GROUND CONTROL, PLEASE COME IN...I BEG OF YOU',
+      'IT\'S YOUR GOOD FRIEND W1N6D1N6$!'
+    ];
+
+    const randomPerson = [
+      'HERO',
+      'LAMB',
+      'MEATBAG',
+      'MEAT-POPSICLE',
+      'MULTIPASS',
+      'ASTRONAUT',
+      'EXPLORER',
+      'SACRIFICE',
+      'FOOL',
+      'VILLIAN',
+      'WANDERER',
+      'SPACER',
+      'REPLICANT',
+      'POUND OF FLESH'
+    ];
+
+    const randomDerelict = [
+      'DERELICT',
+      'HUSK',
+      'GRAVE',
+      'COFFIN',
+      'DEATH-TRAP',
+      'SEPULCHER',
+    ];
+
+    const sayings = [
+      randomSayings, randomPerson, randomDerelict
+    ];
+
+    let chosenSaying: number;
+    do {
+      chosenSaying = this.getRandomNumber(0, sayings[sayingsIndex].length - 1);
+    } while (chosenSaying === previousNum);
+
+    return {num: chosenSaying, text: sayings[sayingsIndex][chosenSaying]};
+  }
 }

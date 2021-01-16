@@ -1,0 +1,19 @@
+<section class='ship-card'>
+    <h2 class='ship-title'>{{shipName}}</h2>
+    <section class='ship-grid'>
+        <div [ngClass]="{
+            ruin: shipObj.key === 'cause_of_ruination',
+            shipClass: shipObj.key === 'ship_class',
+            engine: shipObj.key === 'engine_status',
+            habit: shipObj.key === 'habitation_status',
+            salvage1: shipObj.key === 'salvage_1',
+            salvage2: shipObj.key === 'salvage_2',
+            survivors: shipObj.key === 'survivors',
+            weird: shipObj.key === 'weird',
+            cargo_type: shipObj.key === 'cargo_type'
+        }" *ngFor='let shipObj of shipProp | keyvalue'>
+            <h3 class='ship-title'>{{titlesObj[shipObj.key]}}</h3>
+            <article class='ship-info' [innerHTML]='shipObj.value'></article>
+        </div>
+    </section>
+</section>

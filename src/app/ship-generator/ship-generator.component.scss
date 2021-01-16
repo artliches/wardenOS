@@ -1,0 +1,81 @@
+b {
+    color: red;
+}
+
+.ship-card {
+    background-color: #bd0000;
+    padding: 0.5rem;
+
+    .ship-title {
+        background-color: white;
+        color: black;
+        margin: 0rem;
+    
+        grid-area: title;
+    }
+    
+    h2.ship-title {
+        margin-bottom: 1rem;
+    }
+    
+    .ship-info {
+        background-color: black;
+        color: white;
+        grid-area: info;
+        padding: 0.5rem;
+    }
+    
+    .ship-grid {
+        display: grid;
+        grid-gap: 1rem;
+
+        grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
+        grid-template-areas: 
+            "shipClass"
+            "habit"
+            "survivors"
+            "engine"
+            "salvage1"
+            "cargo_type"
+            "ruin"
+            "weird";
+
+        .ruin {
+            grid-area: ruin;
+        }
+        .shipClass {
+            grid-area: shipClass;
+        }
+        .habit {
+            grid-area: habit;
+        }
+        .survivors {
+            grid-area: survivors;
+        }
+        .engine {
+            grid-area: engine;
+        }
+        .salvage1 {
+            grid-area: salvage1;
+        }
+        .weird {
+            grid-area: weird;
+        }
+        .cargo_type {
+            grid-area: cargo_type;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .ship-card {
+        .ship-grid {
+            // grid-template-rows: repeat(auto, 1fr);
+            grid-template-areas:
+                "shipClass shipClass habit habit"
+                "engine engine survivors survivors"
+                "salvage1 salvage1 cargo_type cargo_type"
+                "ruin ruin weird weird";
+        }
+    }
+}

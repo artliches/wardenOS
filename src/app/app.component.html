@@ -1,6 +1,7 @@
 <h1 class='warden-banner'>
     WARDEN OS 
 </h1>
+<span (click)='getRandomWardenSubtext()' class='warden-subtext clickable'><i>"{{wardenSubtext}}"</i></span>
 
 <section class='basic-grid warden-homescreen'>
     <section class='basic-grid button-section main-section'>
@@ -10,6 +11,7 @@
         <button class='pofTheme' (click)='displayInfo("rim")'>HAIL RIMSPACE STATION</button>
         <button class='pofTheme' (click)='displayInfo("generic", "cyber", "pof")'>CYBERNETIC MUTATION</button>
         <button class='pofTheme' (click)='displayInfo("generic", "lootPOF", "pof")'>LOOT FROM THE PROSPERO</button>
+        <button class='deadTheme' (click)='displayInfo("ship")'>SCAN THE DERELICT SHIP</button>
     </section>
 
     <section class='display-section main-section'>
@@ -18,5 +20,6 @@
         <app-space-station-generator [genSpaceStation]='triggerChanges["core"]' [coreOrRim]='false' *ngIf='displaySection["core"]'></app-space-station-generator>
         <app-space-station-generator [genSpaceStation]='triggerChanges["rim"]' [coreOrRim]='true' *ngIf='displaySection["rim"]'></app-space-station-generator>
         <app-generic-random-search [tableToSearch]='tableToSearch' [generateSearch]='triggerChanges["generic"]' [styleToUse]='styleToPass' *ngIf='displaySection["generic"]'></app-generic-random-search>
+        <app-ship-generator [genShip]='triggerChanges["ship"]' *ngIf='displaySection["ship"]'></app-ship-generator>
     </section>
 </section>

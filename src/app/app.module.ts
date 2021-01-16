@@ -9,6 +9,7 @@ import { SpaceStationGeneratorComponent } from './space-station-generator/space-
 import { TrinketGeneratorComponent } from './trinket-generator/trinket-generator.component';
 import { PatchGeneratorComponent } from './patch-generator/patch-generator.component';
 import { GenericRandomSearchComponent } from './generic-random-search/generic-random-search.component';
+import { ShipGeneratorComponent } from './ship-generator/ship-generator.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GenericRandomSearchComponent } from './generic-random-search/generic-ra
     SpaceStationGeneratorComponent,
     TrinketGeneratorComponent,
     PatchGeneratorComponent,
-    GenericRandomSearchComponent
+    GenericRandomSearchComponent,
+    ShipGeneratorComponent
   ],
   imports: [
     BrowserModule,
