@@ -4,7 +4,7 @@
 <span (click)='getRandomWardenSubtext()' class='warden-subtext clickable'><i>"{{wardenSubtext}}"</i></span>
 
 <section class='basic-grid warden-homescreen'>
-    <section class='basic-grid button-section main-section'>
+    <section class='basic-grid button-section main-section hidden-print'>
         <button (click)='displayInfo("patch")'>LOOT PATCH</button>
         <button (click)='displayInfo("trinket")'>LOOT TRINKET</button>
         <button class='pofTheme' (click)='displayInfo("core")'>HAIL CORESPACE STATION</button>
@@ -21,5 +21,15 @@
         <app-space-station-generator [genSpaceStation]='triggerChanges["rim"]' [coreOrRim]='true' *ngIf='displaySection["rim"]'></app-space-station-generator>
         <app-generic-random-search [tableToSearch]='tableToSearch' [generateSearch]='triggerChanges["generic"]' [styleToUse]='styleToPass' *ngIf='displaySection["generic"]'></app-generic-random-search>
         <app-ship-generator [genShip]='triggerChanges["ship"]' *ngIf='displaySection["ship"]'></app-ship-generator>
+    </section>
+
+    <section class='print-section hidden-print'>
+        <button *ngIf='showPrint' class='print-button' (click)='print()'>PRINT THIS</button>
+    </section>
+
+    <section class='version-section'>
+        <article>
+            Web app by <a href='https://twitter.com/codeLiches' class='magenta'>@codeLiches</a>
+        </article>
     </section>
 </section>

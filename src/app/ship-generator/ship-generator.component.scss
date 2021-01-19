@@ -79,3 +79,17 @@ b {
         }
     }
 }
+
+@media print {
+    .ship-card {      
+        border: solid 0.5rem black;
+        .ship-title {
+            border: solid 0.3rem black;
+        }
+
+        .ship-info {
+            border: solid 0.1rem black;
+            color: black;
+        }
+    }
+}

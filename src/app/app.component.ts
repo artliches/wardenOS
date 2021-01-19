@@ -28,6 +28,7 @@ export class AppComponent {
   previousSaying = [];
   tableToSearch = '';
   randomSaying = [];
+  showPrint = false;
   styleToPass = '';
   wardenSubtext = this.random.getRandomSaying(99, 0).text;
 
@@ -52,6 +53,7 @@ export class AppComponent {
       this.styleToPass = styleToPass;
     }
 
+    this.showPrint = true;
     this.getRandomWardenSubtext();
   }
 
@@ -59,5 +61,9 @@ export class AppComponent {
     this.randomSaying[2] = this.random.getRandomSaying(this.previousSaying[2], 0);
     this.wardenSubtext = this.randomSaying[2].text;
     this.previousSaying[2] = this.randomSaying[2].num;
+  }
+
+  print() {
+    window.print();
   }
 }

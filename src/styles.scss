@@ -27,11 +27,28 @@ body {
     grid-gap: 1rem;
     grid-template-areas:
         "button"
-        "display-section";
+        "display-section"
+        "print-section"
+        "version-section";
     
     .button-section {
         grid-template-columns: 1fr;
         grid-gap: 1rem;
+    }
+
+    .print-section {
+        place-self: center;
+    }
+
+    .version-section {
+        font-size: .8rem;
+        color: white;
+        grid-area: version-section;
+        place-self: center;
+
+        a {
+            color: magenta;
+        }
     }
 }
 
@@ -58,8 +75,6 @@ body {
     color: black; 
 
     &:hover {
-        background-color: black;
-        color: white;
         border: solid 0.1rem #f06;
     }
 }
@@ -69,9 +84,16 @@ body {
     color: white;
 
     &:hover {
-        background-color: black;
-        color: white;
         border: solid 0.1rem #bd0000;
+    }
+}
+
+.print-button {
+    background-color: goldenrod;
+    color: black;
+
+    &:hover {
+        border: solid 0.1rem goldenrod;
     }
 }
 
@@ -115,7 +137,9 @@ button {
         grid-template-columns: 0.5fr 3fr 0.5fr;
         grid-template-areas: 
             ". button ."
-            ". display-section .";
+            ". display-section ."
+            ". print-section ."
+            ". version-section .";
         
         .button-section {
             grid-area: button;
@@ -123,6 +147,38 @@ button {
         }
         .display-section {
             grid-area: display-section;
+        }
+        .print-section {
+            grid-area: print-section;
+        }
+    }
+}
+
+@media print {
+    .hidden-print {
+        display: none;
+    }
+
+    body {
+        color: black;
+    }
+
+    .basic-card {
+        border: solid black 0.5rem;
+        .card-body {
+            border: solid 0.1rem black;
+            color: black;
+        }
+    }
+
+    .pof-card {
+        border: solid 0.5rem black;
+        .pof-card-inner {
+            border: solid 0.3rem black;
+        }
+    
+        .pof-card-inner-dark {
+            border: solid 0.1rem black;
         }
     }
 }
