@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611088341071,
+  "timestamp": 1611089238584,
   "index": "/wardenOS/index.html",
   "assetGroups": [
     {
@@ -61,7 +61,7 @@
     "/wardenOS/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/wardenOS/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/wardenOS/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/wardenOS/index.html": "dfb6241be6332ba559cfc715dc252556e7054ef5",
+    "/wardenOS/index.html": "20b2642bd950fd4345a551e99762e7717397daba",
     "/wardenOS/main-es2015.d3ca20751cee805947a6.js": "3b891d1093d48bb9587c479a750b8f9d184a86bf",
     "/wardenOS/main-es5.d3ca20751cee805947a6.js": "aed4d862e6ad1e2279076456f895e1c437db0be5",
     "/wardenOS/manifest.webmanifest": "b1873e7a7170ff9c3c602dabe2d075d98da54275",
