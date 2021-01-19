@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
 import { SPACE_STATION } from '../services/random-tables.constants';
 
@@ -11,6 +11,7 @@ import { SPACE_STATION } from '../services/random-tables.constants';
 export class SpaceStationGeneratorComponent implements OnChanges {
   @Input() genSpaceStation = false;
   @Input() coreOrRim = false;
+  @Output() pageTitle = new EventEmitter<string>();
   amalgamationStructure = [];
   commonIssues = '';
   coreStationMarketStatus = '';
@@ -29,6 +30,7 @@ export class SpaceStationGeneratorComponent implements OnChanges {
     this.stationStructure = this.createStationStructure(this.stationName);
     this.commonIssues = this.getStationInfo('common_problems');
     this.notableLocations = this.getNotableLocations();
+    this.pageTitle.emit(this.stationName.toUpperCase());
   }
 
   composeCoreStationText() {

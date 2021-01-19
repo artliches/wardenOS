@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, ViewEncapsulation, } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation, } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
 import { DERELICT, SHIP_NAMES } from '../services/random-tables.constants';
 
@@ -10,6 +10,7 @@ import { DERELICT, SHIP_NAMES } from '../services/random-tables.constants';
 })
 export class ShipGeneratorComponent implements OnChanges {
   @Input() genShip = false;
+  @Output() pageTitle = new EventEmitter<string>();
 
   shipName = '';
 
@@ -45,6 +46,8 @@ export class ShipGeneratorComponent implements OnChanges {
   ngOnChanges() {
     this.getShipName();
     this.getShipProperties();
+
+    this.pageTitle.emit(this.shipName);
   }
 
   private getShipProperties() {

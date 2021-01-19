@@ -1,5 +1,4 @@
-import { style } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RandomNumberService } from './services/random-number.service';
 
 @Component({
@@ -7,7 +6,7 @@ import { RandomNumberService } from './services/random-number.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   displaySection = {
     patch: false,
     trinket: false,
@@ -26,6 +25,7 @@ export class AppComponent {
   };
 
   previousSaying = [];
+  pagePrintTitle = '';
   tableToSearch = '';
   randomSaying = [];
   showPrint = false;
@@ -36,7 +36,12 @@ export class AppComponent {
     private random: RandomNumberService,
   ) {}
 
+  ngOnInit() {
+    document.title = 'WARDEN OS ONLINE';
+  }
+
   displayInfo(name: string, searchString?: string, styleToPass?: string) {
+    this.pagePrintTitle = '';
     this.tableToSearch = '';
     this.styleToPass = '';
     // tslint:disable-next-line: forin
@@ -57,6 +62,10 @@ export class AppComponent {
     this.getRandomWardenSubtext();
   }
 
+  getPageTitle(event: string) {
+    this.pagePrintTitle = event;
+  }
+
   getRandomWardenSubtext() {
     this.randomSaying[2] = this.random.getRandomSaying(this.previousSaying[2], 0);
     this.wardenSubtext = this.randomSaying[2].text;
@@ -64,6 +73,8 @@ export class AppComponent {
   }
 
   print() {
+    document.title = `WARDEN OS_${this.pagePrintTitle}`;
     window.print();
+    document.title = 'WARDEN OS ONLINE';
   }
 }

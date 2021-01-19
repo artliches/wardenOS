@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
 import { PATCH_TABLE } from '../services/random-tables.constants';
 
@@ -9,6 +9,7 @@ import { PATCH_TABLE } from '../services/random-tables.constants';
 })
 export class PatchGeneratorComponent implements OnChanges {
   @Input() getPatch = false;
+  @Output() pageTitle = new EventEmitter<string>();
   patchInfo: any;
 
   constructor(
@@ -18,5 +19,6 @@ export class PatchGeneratorComponent implements OnChanges {
   ngOnChanges() {
     const rand = this.randNum.getRandomNumber(0, 99);
     this.patchInfo = PATCH_TABLE[rand];
+    this.pageTitle.emit('PATCH');
   }
 }

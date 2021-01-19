@@ -15,16 +15,16 @@
     </section>
 
     <section class='display-section main-section'>
-        <app-patch-generator [getPatch]='triggerChanges["patch"]' *ngIf='displaySection["patch"]'></app-patch-generator>
-        <app-trinket-generator [getTrinket]='triggerChanges["trinket"]' *ngIf='displaySection["trinket"]'></app-trinket-generator>
-        <app-space-station-generator [genSpaceStation]='triggerChanges["core"]' [coreOrRim]='false' *ngIf='displaySection["core"]'></app-space-station-generator>
-        <app-space-station-generator [genSpaceStation]='triggerChanges["rim"]' [coreOrRim]='true' *ngIf='displaySection["rim"]'></app-space-station-generator>
-        <app-generic-random-search [tableToSearch]='tableToSearch' [generateSearch]='triggerChanges["generic"]' [styleToUse]='styleToPass' *ngIf='displaySection["generic"]'></app-generic-random-search>
-        <app-ship-generator [genShip]='triggerChanges["ship"]' *ngIf='displaySection["ship"]'></app-ship-generator>
+        <app-patch-generator (pageTitle)='getPageTitle($event)' [getPatch]='triggerChanges["patch"]' *ngIf='displaySection["patch"]'></app-patch-generator>
+        <app-trinket-generator (pageTitle)='getPageTitle($event)' [getTrinket]='triggerChanges["trinket"]' *ngIf='displaySection["trinket"]'></app-trinket-generator>
+        <app-space-station-generator (pageTitle)='getPageTitle($event)' [genSpaceStation]='triggerChanges["core"]' [coreOrRim]='false' *ngIf='displaySection["core"]'></app-space-station-generator>
+        <app-space-station-generator (pageTitle)='getPageTitle($event)' [genSpaceStation]='triggerChanges["rim"]' [coreOrRim]='true' *ngIf='displaySection["rim"]'></app-space-station-generator>
+        <app-generic-random-search (pageTitle)='getPageTitle($event)' [tableToSearch]='tableToSearch' [generateSearch]='triggerChanges["generic"]' [styleToUse]='styleToPass' *ngIf='displaySection["generic"]'></app-generic-random-search>
+        <app-ship-generator (pageTitle)='getPageTitle($event)' [genShip]='triggerChanges["ship"]' *ngIf='displaySection["ship"]'></app-ship-generator>
     </section>
 
     <section class='print-section hidden-print'>
-        <button *ngIf='showPrint' class='print-button' (click)='print()'>PRINT THIS</button>
+        <button *ngIf='showPrint' class='print-button' (click)='print()'>PRINT {{pagePrintTitle}}</button>
     </section>
 
     <section class='version-section'>

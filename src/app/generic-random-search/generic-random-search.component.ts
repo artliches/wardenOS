@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, ViewEncapsulation, } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation, } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
 import { LOOT_POF, CYBERNETIC_MUTATIONS } from '../services/random-tables.constants';
 
@@ -13,6 +13,7 @@ export class GenericRandomSearchComponent implements OnChanges {
   @Input() tableToSearch = '';
   @Input() generateSearch = false;
   @Input() styleToUse = '';
+  @Output() pageTitle = new EventEmitter<string>();
 
   title = '';
   results = '';
@@ -42,6 +43,7 @@ export class GenericRandomSearchComponent implements OnChanges {
         break;
       }
     }
+    this.pageTitle.emit(this.title.toUpperCase());
  }
 
  explodingCybermutations(mutationNumber: number) {
