@@ -82,10 +82,12 @@ export class SpaceStationGeneratorComponent implements OnChanges {
       marketText = this.getStationInfo('goods');
       resourceText = this.getStationInfo('resource');
       if (!this.coreOrRim) {
+        const marketDiscount = this.randNum.getRandomNumber(1, 100) - 10;
+
         marketSection = `
         You can buy supplies and fuel as per normal, though at a hefty markup of
         <b>${this.randNum.getRandomSum(2, 1, 100)}%</b>. They also buy <b>${marketText}</b> at
-        <b>${this.randNum.getRandomNumber(1, 100) - 10}%</b> off and local free-traders
+        <b>${marketDiscount < 0 ? 0 : marketDiscount}%</b> off and local free-traders
         have a line on where to find <b>${resourceText}</b>.
       `;
       } else {
