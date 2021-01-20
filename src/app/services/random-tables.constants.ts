@@ -946,6 +946,110 @@ export const DERELICT = {
     ]
 };
 
+export const HULL_SIZE = {
+  'Blockade Runner': {
+    die: 15,
+    levels: 1
+  },
+  'Colony Ship': {
+    die: 20,
+    levels: 3
+  },
+  Courier: {
+    die: 4,
+    levels: 1
+  },
+  Cutter: {
+    die: 10,
+    levels: 2,
+  },
+  Freighter: {
+    die: 17,
+    levels: 2
+  },
+  'Mining Frigate': {
+    die: 12,
+    levels: 2
+  },
+  'Research Vessel': {
+    die: 8,
+    levels: 1
+  },
+  Shuttle: {
+    die: 7,
+    levels: 1
+  },
+  Troopship: {
+    die: 15,
+    levels: 2
+  }
+};
+
+export const ROOM_INFO = {
+  1: [
+    '<b>COMMAND</b>: Single cockpit, scarred by gunfire.',
+    '<b>COMMAND</b>: Bridge with working comm station.',
+    '<b>LIFE SUPPORT</b>: Functional.',
+    '<b>LIFE SUPPORT</b>: Repairable.',
+    '<b>LIFE SUPPORT</b>: Non-repairable.',
+    '<b>LIFE SUPPORT</b>: Radioactive (Body Save or 1d10 dmg).',
+    '<b>COMPUTER</b>: Contains an intact map of the current sector.',
+    '<b>COMPUTER</b>: Contains an intact map of a random sector.',
+    ...Array(2).fill('<b>WEAPON</b>:')
+  ],
+  2: [
+    '<b>JUMP DRIVE</b>: Intact and salveageable',
+    '<b>JUMP DRIVE</b>: Completely smelted.',
+    '<b>THRUSTERS</b>: Intact and salveageable.',
+    ...Array(2).fill('<b>THRUSTERS</b>: Completely smelted.'),
+    ...Array(2).fill('<b>ENGINE</b>: Intact and salveageable. 1d10 Fuel units.'),
+    ...Array(2).fill('<b>ENGINE</b>: Completely destroyed and unuseable.'),
+    '<b>ENGINE</b>: Rigged to explode in 1d10 minutes.'
+  ],
+  3: [
+    ...Array(2).fill('<b>GALLEY</b>: 1d10 supply units remaining.'),
+    '<b>GALLEY</b>: Completely barren, booby trapped.',
+    '<b>GALLEY</b>: Roll on Weapon Cache table on page 13.',
+    '<b>BARRACKS</b>: One survivor unconscious',
+    '<b>BARRACKS</b>: Roll on Weapon Cache table on page 13.',
+    '<b>BARRACKS</b>: Corpses.',
+    '<b>LIVING QUARTERS</b>: Roll on Weapon Cache table on page 13.',
+    '<b>LIVING QUARTERS</b>: Booby trapped.',
+    '<b>LIVING QUARTERS</b>: Stowaway squatting here'
+  ],
+  4: [
+    '<b>MEDBAY</b>: Stocked to the gills. Roll twice on Weapon Cache.',
+    '<b>MEDBAY</b>: Completely picked over.',
+    '<b>MEDBAY</b>: 3d10 Pain Pills, 2d10 Stimpaks',
+    '<b>SCIENCE LAB</b>: Strange creature in containment.',
+    '<b>SCIENCE LAB</b>: Quarantined. Body Save or 2d10 dmg.',
+    '<b>CRYOCHAMBER</b>: Filled with corpses. Fear Save or 1 stress.',
+    ...Array(2).fill('<b>CRYOCHAMBER</b>: 3d10 working cryopods'),
+    '<b>CRYOCHAMBER</b>: 1d10 Cryopods that seem fine. 25% failure.',
+    '<b>COMPLETELY DESTROYED ROOM</b>'
+  ],
+  5: [
+    ...Array(7).fill('<b>CARGO HOLD</b>: Roll on Cargo table on page 9.'),
+    '<b>CARGO HOLD</b>: Completely and totally empty.',
+    ...Array(2).fill('<b>CARGO HOLD</b>: Currently being picked through by 2d10 armed scavengers. Roll on Cargo table on page 9.')
+  ],
+  6: [
+    ...Array(4).fill('<b>CARGO HOLD</b>: Roll on Cargo table on page 9.'),
+    ...Array(3).fill('<b>ENGINES</b>: 1d10/2 squatters in Vaccsuits huddling around the warmth of the engines.'),
+    '<b>ENGINES</b>: Strange creature infestation.',
+    ...Array(2).fill('<b>BARRACKS</b>: Fight between 2d10 scavengers and crewmembers of the ship’s original crew.')
+  ],
+};
+
+export const SHIP_WEAPONS = [
+  'Laser Cannon',
+  'Autocannon',
+  'Railgun',
+  'MG Turret',
+  'Torpedoes',
+  'Rigging Gun'
+];
+
 export const SHIP_NAMES = [
   [
     'IAGO',

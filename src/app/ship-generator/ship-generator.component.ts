@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation, } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
-import { DERELICT, SHIP_NAMES } from '../services/random-tables.constants';
+import { DERELICT, HULL_SIZE, ROOM_INFO, SHIP_NAMES, SHIP_WEAPONS } from '../services/random-tables.constants';
 
 @Component({
   selector: 'app-ship-generator',
@@ -12,8 +12,8 @@ export class ShipGeneratorComponent implements OnChanges {
   @Input() genShip = false;
   @Output() pageTitle = new EventEmitter<string>();
 
+  roomArray = [];
   shipName = '';
-
   shipProp = {
     cause_of_ruination : '',
     ship_class : '',
@@ -46,8 +46,33 @@ export class ShipGeneratorComponent implements OnChanges {
   ngOnChanges() {
     this.getShipName();
     this.getShipProperties();
+    this.roomArray = this.getRoomArray();
+    console.log(this.roomArray);
 
     this.pageTitle.emit(this.shipName);
+  }
+
+  private getRoomArray() {
+    this.roomArray = [];
+    const shipHullObj = HULL_SIZE[this.shipProp.ship_class];
+    const hullInfo = this.randNum.getRandomNumberArray(1, 6, shipHullObj.die);
+    const tempRoomArray = [];
+
+    hullInfo.forEach((hullIndex, index) => {
+      let roomInfo = ROOM_INFO[hullIndex][this.randNum.getRandomNumber(0, ROOM_INFO[hullIndex].length - 1)];
+
+      if (roomInfo.includes('WEAPON')) {
+        roomInfo = `${roomInfo} ${SHIP_WEAPONS[this.randNum.getRandomNumber(0, SHIP_WEAPONS.length - 1)]}`;
+      } else if (roomInfo.toLowerCase().includes('cargo table')) {
+        roomInfo = roomInfo.slice(0, roomInfo.indexOf(':') + 1);
+        roomInfo = `${roomInfo} ${DERELICT.cargo_type[this.randNum.getRandomNumber(0, DERELICT.cargo_type.length - 1)]}`;
+      } else {
+        roomInfo = this.randNum.rollStringDice(roomInfo, 'd1');
+      }
+
+      tempRoomArray.push(`${index + 1}. ${roomInfo}`);
+    });
+    return tempRoomArray;
   }
 
   private getShipProperties() {

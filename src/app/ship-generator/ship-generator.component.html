@@ -15,5 +15,10 @@
             <h3 class='ship-title'>{{titlesObj[shipObj.key]}}</h3>
             <article class='ship-info' [innerHTML]='shipObj.value'></article>
         </div>
+
+        <section class='room-section'>
+            <h3 class='ship-title'>ROOM INFORMATION</h3>
+            <article class='ship-info' *ngFor='let room of roomArray' [innerHTML]='room'></article>
+        </section>
     </section>
 </section>

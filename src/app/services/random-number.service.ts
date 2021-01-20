@@ -8,6 +8,13 @@ export class RandomNumberService {
     getRandomNumber(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
+    getRandomNumberArray(min: number, max: number, numDie: number) {
+      const dieArray = [];
+      for (let i = 0; i < numDie; i++) {
+        dieArray.push(this.getRandomNumber(min, max));
+      }
+      return dieArray;
+    }
 
     getRandomSum(numDice: number, min: number, max: number) {
         let sumOfDice = 0;
