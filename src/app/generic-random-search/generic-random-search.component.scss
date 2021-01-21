@@ -3,3 +3,12 @@
         color: #f06;
     }
 }
+
+.dead {
+    b {
+        color: #bd0000;
+    }
+    &.pof-card {
+        background-color: #bd0000;
+    }
+}

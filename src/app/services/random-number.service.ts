@@ -51,7 +51,7 @@ export class RandomNumberService {
               stringToParse = stringToParse.replace('[Letter]', randAlpha);
             }
           } while (stringToParse.indexOf('[') > -1);
-        } else if (parseKey === 'd1') {
+        } else {
           if (stringToParse.indexOf('dmg') === -1) {
             const numberRegex = /[0-9]/;
             let stringToReplace = '';
