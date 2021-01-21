@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation, } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
-import { DERELICT, HULL_SIZE, ROOM_INFO, SHIP_NAMES, SHIP_WEAPONS } from '../services/random-tables.constants';
+import { DERELICT, HULL_SIZE, ROOM_INFO, SHIP_NAMES, SHIP_WEAPONS, CACHE } from '../services/random-tables.constants';
 
 @Component({
   selector: 'app-ship-generator',
@@ -64,6 +64,15 @@ export class ShipGeneratorComponent implements OnChanges {
       } else if (roomInfo.toLowerCase().includes('cargo table')) {
         roomInfo = roomInfo.slice(0, roomInfo.indexOf(':') + 1);
         roomInfo = `${roomInfo} ${DERELICT.cargo_type[this.randNum.getRandomNumber(0, DERELICT.cargo_type.length - 1)]}`;
+      } else if (roomInfo.toLowerCase().includes('weapon cache')) {
+        if (roomInfo.toLowerCase().includes('roll twice')) {
+          roomInfo = roomInfo.slice(0, roomInfo.indexOf(':') + 1);
+          roomInfo = `${roomInfo} Within you find ${CACHE[this.randNum.getRandomNumber(0, CACHE.length - 1)]}
+          and also ${CACHE[this.randNum.getRandomNumber(0, CACHE.length - 1)]}`;
+        } else {
+          roomInfo = roomInfo.slice(0, roomInfo.indexOf(':') + 1);
+          roomInfo = `${roomInfo} Within you find ${CACHE[this.randNum.getRandomNumber(0, CACHE.length - 1)]}`;
+        }
       } else {
         roomInfo = this.randNum.rollStringDice(roomInfo, 'd1');
       }
