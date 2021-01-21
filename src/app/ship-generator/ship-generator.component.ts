@@ -23,7 +23,6 @@ export class ShipGeneratorComponent implements OnChanges {
     salvage_2 : '',
     survivors : '',
     weird : '',
-    cargo_type: '',
   };
 
   titlesObj = {
@@ -35,7 +34,6 @@ export class ShipGeneratorComponent implements OnChanges {
     shipName : 'Ship Name',
     survivors : 'Survivors\'s Status',
     weird : 'Weird',
-    cargo_type: 'Cargo Type'
   };
 
 
@@ -47,7 +45,6 @@ export class ShipGeneratorComponent implements OnChanges {
     this.getShipName();
     this.getShipProperties();
     this.roomArray = this.getRoomArray();
-    console.log(this.roomArray);
 
     this.pageTitle.emit(this.shipName);
   }
@@ -59,7 +56,8 @@ export class ShipGeneratorComponent implements OnChanges {
     const tempRoomArray = [];
 
     hullInfo.forEach((hullIndex, index) => {
-      let roomInfo = ROOM_INFO[hullIndex][this.randNum.getRandomNumber(0, ROOM_INFO[hullIndex].length - 1)];
+      let roomInfo = ROOM_INFO[index === 0 ? 'command' : hullIndex]
+        [this.randNum.getRandomNumber(0, ROOM_INFO[index === 0 ? 'command' : hullIndex].length - 1)];
 
       if (roomInfo.includes('WEAPON')) {
         roomInfo = `${roomInfo} ${SHIP_WEAPONS[this.randNum.getRandomNumber(0, SHIP_WEAPONS.length - 1)]}`;
@@ -72,15 +70,32 @@ export class ShipGeneratorComponent implements OnChanges {
 
       tempRoomArray.push(`${index + 1}. ${roomInfo}`);
     });
+
+    let count = 0;
+    tempRoomArray.forEach((roomString) => {
+      if (roomString.includes('THRUSTERS')) {
+        count ++;
+      }
+    });
+
+    if (count === 0) {
+      const stringToReplace = tempRoomArray[tempRoomArray.length - 1];
+      tempRoomArray[tempRoomArray.length - 1] =
+        `${stringToReplace.slice(0, stringToReplace.indexOf('.') + 1)} ${ROOM_INFO.thrusters
+          [this.randNum.getRandomNumber(0, ROOM_INFO.thrusters.length - 1)]}`;
+    }
+
     return tempRoomArray;
   }
 
   private getShipProperties() {
     Object.keys(DERELICT).forEach(key => {
-      const tableInfo = DERELICT[key];
+      if (key !== 'cargo_type') {
+        const tableInfo = DERELICT[key];
 
-      this.shipProp[key] = tableInfo[this.randNum.getRandomNumber(0, tableInfo.length - 1)];
-      this.shipProp[key] = this.randNum.rollStringDice(this.shipProp[key], 'd1').trim();
+        this.shipProp[key] = tableInfo[this.randNum.getRandomNumber(0, tableInfo.length - 1)];
+        this.shipProp[key] = this.randNum.rollStringDice(this.shipProp[key], 'd1').trim();
+      }
     });
 
     this.shipProp.salvage_1 = `${this.shipProp.salvage_1}, ${this.shipProp.salvage_2}`;

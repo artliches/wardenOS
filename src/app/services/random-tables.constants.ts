@@ -948,47 +948,45 @@ export const DERELICT = {
 
 export const HULL_SIZE = {
   'Blockade Runner': {
-    die: 15,
+    die: 14,
     levels: 1
   },
   'Colony Ship': {
-    die: 20,
+    die: 19,
     levels: 3
   },
   Courier: {
-    die: 4,
+    die: 3,
     levels: 1
   },
   Cutter: {
-    die: 10,
+    die: 9,
     levels: 2,
   },
   Freighter: {
-    die: 17,
+    die: 16,
     levels: 2
   },
   'Mining Frigate': {
-    die: 12,
+    die: 11,
     levels: 2
   },
   'Research Vessel': {
-    die: 8,
-    levels: 1
-  },
-  Shuttle: {
     die: 7,
     levels: 1
   },
+  Shuttle: {
+    die: 6,
+    levels: 1
+  },
   Troopship: {
-    die: 15,
+    die: 14,
     levels: 2
   }
 };
 
 export const ROOM_INFO = {
   1: [
-    '<b>COMMAND</b>: Single cockpit, scarred by gunfire.',
-    '<b>COMMAND</b>: Bridge with working comm station.',
     '<b>LIFE SUPPORT</b>: Functional.',
     '<b>LIFE SUPPORT</b>: Repairable.',
     '<b>LIFE SUPPORT</b>: Non-repairable.',
@@ -1039,6 +1037,14 @@ export const ROOM_INFO = {
     '<b>ENGINES</b>: Strange creature infestation.',
     ...Array(2).fill('<b>BARRACKS</b>: Fight between 2d10 scavengers and crewmembers of the ship’s original crew.')
   ],
+  command: [
+    '<b>COMMAND</b>: Single cockpit, scarred by gunfire.',
+    '<b>COMMAND</b>: Bridge with working comm station.',
+  ],
+  thrusters: [
+    '<b>THRUSTERS</b>: Intact and salveageable.',
+    ...Array(2).fill('<b>THRUSTERS</b>: Completely smelted.'),
+  ]
 };
 
 export const SHIP_WEAPONS = [
