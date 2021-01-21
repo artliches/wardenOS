@@ -57,7 +57,7 @@ export class GenericRandomSearchComponent implements OnChanges {
         if (this.results.includes('AQUARIUM')) {
           this.results = `${this.results} <b>${WARP_WEIRD.fish[this.randNum.getRandomNumber(0, WARP_WEIRD.fish.length - 1)]}</b>`;
         } else if (this.results.includes('TIME RIPPLE')) {
-          this.results = `${this.results} ${WARP_WEIRD.time_ripple[this.randNum.getRandomNumber(0, WARP_WEIRD.time_ripple.length - 1)]}`
+          this.results = `${this.results} ${WARP_WEIRD.time_ripple[this.randNum.getRandomNumber(0, WARP_WEIRD.time_ripple.length - 1)]}`;
         } else if (this.results.includes('PHYSICAL CONTINUITY')) {
           this.results = `${this.results} ${WARP_WEIRD.room_orientation
             [this.randNum.getRandomNumber(0, WARP_WEIRD.room_orientation.length - 1)]}`;
