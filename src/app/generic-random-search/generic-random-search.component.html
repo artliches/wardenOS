@@ -3,5 +3,11 @@
     dead: styleToUse === 'dead'
     }" class='pof-card'>
     <h2 class='pof-card-inner'>{{title}}</h2>
-    <article class='pof-card-inner-dark' [innerHTML]='results'></article>
+    <article *ngIf='tableToSearch !== "necro"; else NECROBLOCK' class='pof-card-inner-dark' [innerHTML]='results'></article>
+    <ng-template #NECROBLOCK>
+        <section *ngFor='let part of results | keyvalue'>
+            <h2 class='pof-card-inner'>{{part.key.toUpperCase()}}</h2>
+            <article class='pof-card-inner-dark' [innerHTML]='part.value'></article>
+        </section>
+    </ng-template>
 </section>

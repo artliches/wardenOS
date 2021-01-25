@@ -24,7 +24,7 @@ export class RandomNumberService {
         return sumOfDice;
     }
 
-    rollStringDice(stringToParse: string, parseKey: string): string {
+    rollStringDice(stringToParse: string, parseKey?: string): string {
         let iterations = 0;
         let units = 0;
         let dieEndIndex: number;
@@ -52,39 +52,40 @@ export class RandomNumberService {
             }
           } while (stringToParse.indexOf('[') > -1);
         } else {
-          if (stringToParse.indexOf('dmg') === -1) {
-            const numberRegex = /[0-9]/;
-            let stringToReplace = '';
-
-            dieEndIndex = this.getNumberEndIndex(dieIndex, numberRegex, stringToParse);
-            dieSize = Number(stringToParse.slice(dieIndex + 1, dieEndIndex));
-            iterations = Number(stringToParse[dieIndex - 1]);
-            units = this.getRandomNumber(iterations, dieSize);
-
-            stringToReplace = `${stringToParse[dieIndex - 1]}d${dieSize}`;
-
-            if (stringToParse[dieEndIndex] === '*') {
-              const multiplierStartIndex = dieEndIndex;
-              dieEndIndex = this.getNumberEndIndex(dieEndIndex, numberRegex, stringToParse);
-              const multiplier = Number(stringToParse.slice(multiplierStartIndex + 1, dieEndIndex));
-
-              units = units * multiplier;
-              stringToReplace = `${stringToReplace}*${multiplier}`;
-            }
-            stringToParse = stringToParse.replace(stringToReplace, `<b>${units}</b>`);
-          }
+          stringToParse = this.rollAnyDie(stringToParse);
         }
         return stringToParse;
       }
 
-  private getNumberEndIndex(dieIndex: number, numberRegex: RegExp, stringToParse: string) {
-    let count = 0;
-    let tempEndIndex = -1;
-    do {
-      count += 1;
-      tempEndIndex = dieIndex + count;
-    } while (numberRegex.test(stringToParse[tempEndIndex]));
-    return tempEndIndex;
+  private rollAnyDie(stringToParse: string): string {
+    // roll any die
+    const dieRegex = /[0-9]+d[0-9]+/gi;
+    const divisorRegex = /\/[0-9]+/gi;
+    const multiplierRegex = /\*[0-9]+/gi;
+
+    if (!stringToParse.includes('dmg') && dieRegex.test(stringToParse)) {
+      const die = stringToParse.match(dieRegex);
+
+      die.forEach(dice => {
+        const dIndex = /d/i.exec(dice).index;
+        const iterator = dice.slice(0, dIndex);
+        const dieSize = dice.slice(dIndex + 1);
+        const rolledNumber = this.getRandomNumber(Number(iterator), Number(dieSize));
+
+        stringToParse = stringToParse.replace(dice, `<b>${rolledNumber}</b>`);
+
+        if (divisorRegex.exec(stringToParse)) {
+          const divisor = Number(stringToParse.match(divisorRegex)[0].slice(1));
+          const newNum = Math.ceil(rolledNumber / divisor);
+          stringToParse = stringToParse.replace(`<b>${rolledNumber}</b>/${divisor}`, `<b>${newNum}</b>`);
+        } else if (multiplierRegex.exec(stringToParse)) {
+          const mulitplier = Number(stringToParse.match(multiplierRegex)[0].slice(1));
+          const newNum = Math.ceil(rolledNumber * mulitplier);
+          stringToParse = stringToParse.replace(`<b>${rolledNumber}</b>*${mulitplier}`, `<b>${newNum}</b>`);
+        }
+      });
+    }
+    return stringToParse;
   }
 
   getRandomSaying(previousNum: number, sayingsIndex: number) {

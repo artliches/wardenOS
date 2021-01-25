@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation, } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
-import { LOOT_POF, CYBERNETIC_MUTATIONS, CACHE, WARP_DRIVE, WARP_WEIRD, VAULT, NIGHTMARES } from '../services/random-tables.constants';
+// tslint:disable-next-line: max-line-length
+import { LOOT_POF, CYBERNETIC_MUTATIONS, CACHE, WARP_DRIVE, WARP_WEIRD, VAULT, NIGHTMARES, DEAD_SEARCH, MOON_COLONY, RED_TOWER, NECROPOLIS } from '../services/random-tables.constants';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class GenericRandomSearchComponent implements OnChanges {
   @Output() pageTitle = new EventEmitter<string>();
 
   title = '';
-  results = '';
+  results: any;
 
   constructor(
     private randNum: RandomNumberService,
@@ -74,6 +75,34 @@ export class GenericRandomSearchComponent implements OnChanges {
         this.title = 'The Nightmare';
         this.results = NIGHTMARES
           [this.randNum.getRandomNumber(0, NIGHTMARES.length - 1)];
+        break;
+      }
+      case 'lootDP': {
+        this.title = 'Loot from the Dead Planet';
+        this.results = DEAD_SEARCH
+          [this.randNum.getRandomNumber(0, DEAD_SEARCH.length - 1)];
+        this.results = this.randNum.rollStringDice(this.results, 'd1');
+        break;
+      }
+      case 'moonColony': {
+        this.title = 'Loot from the Moon Colony';
+        this.results = MOON_COLONY
+          [this.randNum.getRandomNumber(0, MOON_COLONY.length - 1)];
+        break;
+      }
+      case 'redTower': {
+        this.title = 'Loot from the Red Tower';
+        this.results = RED_TOWER
+          [this.randNum.getRandomNumber(0, RED_TOWER.length - 1)];
+        break;
+      }
+      case 'necro': {
+        this.results = {};
+        this.title = 'Search results of the Necropolis';
+        for (const [key, value] of Object.entries(NECROPOLIS)) {
+          this.results[key] = this.randNum.rollStringDice
+            (value[this.randNum.getRandomNumber(0, value.length - 1)]);
+        }
         break;
       }
     }
