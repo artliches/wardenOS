@@ -30,7 +30,7 @@
         <button class='deadTheme' (click)='displayInfo("generic", "necro", "dead")'>EXPLORE THE NECROPOLIS</button>
     </section>
 
-    <section class='display-section main-section'>
+    <section *ngIf='openDisplaySection' class='display-section main-section'>
         <app-patch-generator (pageTitle)='getPageTitle($event)' [getPatch]='triggerChanges["patch"]' *ngIf='displaySection["patch"]'></app-patch-generator>
         <app-trinket-generator (pageTitle)='getPageTitle($event)' [getTrinket]='triggerChanges["trinket"]' *ngIf='displaySection["trinket"]'></app-trinket-generator>
         <app-space-station-generator (pageTitle)='getPageTitle($event)' [genSpaceStation]='triggerChanges["core"]' [coreOrRim]='false' *ngIf='displaySection["core"]'></app-space-station-generator>
@@ -39,13 +39,13 @@
         <app-ship-generator (pageTitle)='getPageTitle($event)' [genShip]='triggerChanges["ship"]' *ngIf='displaySection["ship"]'></app-ship-generator>
     </section>
 
-    <section class='print-section hidden-print'>
-        <button *ngIf='showPrint' class='print-button' (click)='print()'>PRINT {{pagePrintTitle}}</button>
+    <section *ngIf='showPrint' class='print-section hidden-print'>
+        <button class='print-button' (click)='print()'>PRINT {{pagePrintTitle}}</button>
     </section>
 
     <section class='version-section'>
         <article>
-            v.0.4 - Explore the Necropolis...and loot more of the Dead Planet
+            v.0.5 - Created sub-sections to reduce clutter.
         </article>
         <article>
             Web app by <a href='https://twitter.com/codeLiches' class='magenta'>@codeLiches</a>

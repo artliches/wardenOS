@@ -8,6 +8,7 @@ import { RandomNumberService } from './services/random-number.service';
 })
 export class AppComponent implements OnInit {
   isClicked = true;
+  openDisplaySection = false;
   displaySection = {
     patch: false,
     trinket: false,
@@ -52,6 +53,7 @@ export class AppComponent implements OnInit {
   }
 
   displayInfo(name: string, searchString?: string, styleToPass?: string) {
+    this.openDisplaySection = true;
     this.pagePrintTitle = '';
     this.tableToSearch = '';
     this.styleToPass = '';
