@@ -83,6 +83,7 @@ export class AppComponent implements OnInit {
   }
 
   openSection(name: string) {
+    this.showPrint = false;
     this.hideDisplaySection();
     this.hideButtonSubSection(name);
     this.buttonSectionObj[name] = !this.buttonSectionObj[name];
