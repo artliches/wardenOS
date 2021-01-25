@@ -4,9 +4,10 @@ import { RandomNumberService } from './services/random-number.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  isClicked = true;
   displaySection = {
     patch: false,
     trinket: false,
@@ -14,6 +15,12 @@ export class AppComponent implements OnInit {
     rim: false,
     generic: false,
     ship: false,
+  };
+
+  buttonSectionObj = {
+    pof: false,
+    dead: false,
+    grad: false
   };
 
   triggerChanges = {
@@ -40,14 +47,15 @@ export class AppComponent implements OnInit {
     document.title = 'WARDEN OS ONLINE';
   }
 
+  toggle() {
+    this.isClicked = !this.isClicked;
+  }
+
   displayInfo(name: string, searchString?: string, styleToPass?: string) {
     this.pagePrintTitle = '';
     this.tableToSearch = '';
     this.styleToPass = '';
-    // tslint:disable-next-line: forin
-    for (const key in this.displaySection) {
-      this.displaySection[key] = false;
-    }
+    this.hideDisplaySection();
     this.displaySection[name] = true;
     this.triggerChanges[name] = !this.triggerChanges[name];
 
@@ -72,9 +80,31 @@ export class AppComponent implements OnInit {
     this.previousSaying[2] = this.randomSaying[2].num;
   }
 
+  openSection(name: string) {
+    this.hideDisplaySection();
+    this.hideButtonSubSection(name);
+    this.buttonSectionObj[name] = !this.buttonSectionObj[name];
+  }
+
   print() {
     document.title = `WARDEN OS_${this.pagePrintTitle}`;
     window.print();
     document.title = 'WARDEN OS ONLINE';
+  }
+
+  private hideDisplaySection() {
+    // tslint:disable-next-line: forin
+    for (const key in this.displaySection) {
+      this.displaySection[key] = false;
+    }
+  }
+
+   hideButtonSubSection(ignore?: string) {
+    // tslint:disable-next-line: forin
+    for (const key in this.buttonSectionObj) {
+      if (key !== ignore) {
+        this.buttonSectionObj[key] = false;
+      }
+    }
   }
 }

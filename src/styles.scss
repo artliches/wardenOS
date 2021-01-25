@@ -27,6 +27,7 @@ body {
     grid-gap: 1rem;
     grid-template-areas:
         "button"
+        "sub-button"
         "display-section"
         "print-section"
         "version-section";
@@ -34,6 +35,11 @@ body {
     .button-section {
         grid-template-columns: 1fr;
         grid-gap: 1rem;
+    }
+
+    .sub-button {
+        grid-area: sub-button;
+        grid-template-columns: 1fr;
     }
 
     .print-section {
@@ -137,6 +143,7 @@ button {
         grid-template-columns: 0.5fr 3fr 0.5fr;
         grid-template-areas: 
             ". button ."
+            ". sub-button ."
             ". display-section ."
             ". print-section ."
             ". version-section .";
@@ -147,6 +154,9 @@ button {
         }
         .display-section {
             grid-area: display-section;
+        }
+        .sub-button {
+            grid-template-columns: repeat(3, 1fr);
         }
         .print-section {
             grid-area: print-section;

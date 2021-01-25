@@ -5,12 +5,20 @@
 
 <section class='basic-grid warden-homescreen'>
     <section class='basic-grid button-section main-section hidden-print'>
-        <button (click)='displayInfo("patch")'>LOOT PATCH</button>
-        <button (click)='displayInfo("trinket")'>LOOT TRINKET</button>
+        <button (click)='displayInfo("patch"); hideButtonSubSection();'>LOOT PATCH</button>
+        <button (click)='displayInfo("trinket"); hideButtonSubSection()'>LOOT TRINKET</button>
+        <button class='pofTheme' (click)='openSection("pof")'>A POUND OF FLESH</button>
+        <button class='deadTheme' (click)='openSection("dead")'>DEAD PLANET</button>
+    </section>
+
+    <section *ngIf='buttonSectionObj["pof"]' class='basic-grid sub-button hidden-print'>
         <button class='pofTheme' (click)='displayInfo("core")'>HAIL CORESPACE STATION</button>
         <button class='pofTheme' (click)='displayInfo("rim")'>HAIL RIMSPACE STATION</button>
         <button class='pofTheme' (click)='displayInfo("generic", "cyber", "pof")'>CYBERNETIC MUTATION</button>
         <button class='pofTheme' (click)='displayInfo("generic", "lootPOF", "pof")'>LOOT FROM THE PROSPERO</button>
+    </section>
+
+    <section *ngIf='buttonSectionObj["dead"]' class='basic-grid sub-button hidden-print'>
         <button class='deadTheme' (click)='displayInfo("ship")'>SCAN THE DERELICT SHIP</button>
         <button class='deadTheme' (click)='displayInfo("generic", "warp", "dead")'>WARP CORE MALFUNCTION</button>
         <button class='deadTheme' (click)='displayInfo("generic", "cache", "dead")'>LOOT THE CACHE</button>
