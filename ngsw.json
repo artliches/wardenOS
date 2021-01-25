@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611539539406,
+  "timestamp": 1611593267364,
   "index": "/wardenOS/index.html",
   "assetGroups": [
     {
@@ -10,14 +10,14 @@
       "urls": [
         "/wardenOS/favicon.ico",
         "/wardenOS/index.html",
-        "/wardenOS/main-es2015.190a6b0ef4814f256967.js",
-        "/wardenOS/main-es5.190a6b0ef4814f256967.js",
+        "/wardenOS/main-es2015.44fa370661d1eaa2b1e6.js",
+        "/wardenOS/main-es5.44fa370661d1eaa2b1e6.js",
         "/wardenOS/manifest.webmanifest",
         "/wardenOS/polyfills-es2015.ffa9bb4e015925544f91.js",
         "/wardenOS/polyfills-es5.0290b245fbcca09184ac.js",
         "/wardenOS/runtime-es2015.cdfb0ddb511f65fdc0a0.js",
         "/wardenOS/runtime-es5.cdfb0ddb511f65fdc0a0.js",
-        "/wardenOS/styles.ec8b50252ab7566bd49f.css"
+        "/wardenOS/styles.08efd5737bb652e9fdec.css"
       ],
       "patterns": []
     },
@@ -61,15 +61,15 @@
     "/wardenOS/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/wardenOS/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/wardenOS/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/wardenOS/index.html": "dfd10737aa7a9d61b616e969f0ec9ce5aaa4c0d0",
-    "/wardenOS/main-es2015.190a6b0ef4814f256967.js": "1e560b8935b8cddefff8bad636cb5e17232850ce",
-    "/wardenOS/main-es5.190a6b0ef4814f256967.js": "ee03325801e13a9c9e4ba599bfe9614e3001d658",
+    "/wardenOS/index.html": "a3d73bcf84e14b701b4ce73be672833882f21aff",
+    "/wardenOS/main-es2015.44fa370661d1eaa2b1e6.js": "c77a8e480e8e73ec63c404c5e1b9817c3f9b981d",
+    "/wardenOS/main-es5.44fa370661d1eaa2b1e6.js": "e264cdbca46c6cf611e4ebfc4bf29caeb0fbe68d",
     "/wardenOS/manifest.webmanifest": "b1873e7a7170ff9c3c602dabe2d075d98da54275",
     "/wardenOS/polyfills-es2015.ffa9bb4e015925544f91.js": "79b2ff5ba292ae9e56f0b43982b9e76d9ddcf285",
     "/wardenOS/polyfills-es5.0290b245fbcca09184ac.js": "a7bfe75cfe39caaf5bc4c64b35dd9f1f0918a25f",
     "/wardenOS/runtime-es2015.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/wardenOS/runtime-es5.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/wardenOS/styles.ec8b50252ab7566bd49f.css": "d6bd080fd1c7bb8727d97e5f8b1e184cf28d518f"
+    "/wardenOS/styles.08efd5737bb652e9fdec.css": "8a753f807b9be40fc046064949465c3d99c9ceb5"
   },
   "navigationUrls": [
     {
