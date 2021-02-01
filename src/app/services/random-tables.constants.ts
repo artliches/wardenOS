@@ -1096,61 +1096,61 @@ export const SHIP_NAMES = [
 ];
 
 export const CACHE = [
-  ...Array(15).fill('A ROTTING WOODEN BOX: ROSCO 556 NAIL GUN, 4 BOXES OF NAILS, MNC MODEL A LASER CUTTER, SPARE BATTERY, PEABODY FLARE GUN, 6 FLARES (HUNTER GREEN)'),
-  ...Array(10).fill('A PICKED CLEAN ESCAPE POD: EVA MK-II HAND WELDER, HALLS B SERIES FOAM GUN, EMERGENCY BEACON, CROWBAR, INFRARED GOGGLES, FLASHLIGHT, STRAY BULLETS'),
-  ...Array(3).fill('INSIDE A ROTTED TREE: A PRESERVED PRIMITIVE HUMANOID CORPSE CLUTCHES HARD METAL SPEAR (1D10 DAMAGE)'),
-  ...Array(7).fill('A PAIR OF RUSTED FOOTLOCKERS: AUTOMED(X6), FIELD RECORDER, MEDSCANNER, HAZARD SUIT (4X), SCALPEL, MEDKIT, D&C 7 TRANQUILIZER PISTOL (2X)'),
-  ...Array(5).fill('BLACK SYNTHETIC LEATHER SUITCASE: ELECTRONIC TOOLKIT, FLASHLIGHT, LOCKPICK SET, MRE (X7), PAIN PILLS (X18), FN “SLUG GUN” REVOLVER, SPEEDLOADER (X2), BOOK: IVY LEAGUE GUIDE TO BYPASSING SECURITY'),
-  ...Array(10).fill('A TARP STITCHED SHUT: SURVEY KIT, VIBECHETE, WATER FILTER, RADIO JAMMER, REBREATHER, SK 109 SEEKER SMARTRIFLE, GHILLIE SUIT (WHEN UNMOVING: SEARCHING FOR YOU IS AN INTELLECT CHECK WITH DISADVANTAGE)'),
-  ...Array(8).fill('LYING ATOP AN OCTAGONAL ALTAR, BEDECKED IN ORNATE BELLS: A PAIR OF CRUEL LOOKING ENERGY WHIPS (INTELLECT INSTEAD OF COMBAT, 2D10, 10% BREAK CHANCE)'),
-  ...Array(10).fill('A WATER RESISTANT DUFFEL BAG: BINOCULARS, CAMPING GEAR, STIMPACK (X2), WATER FILTER, LOCATOR, REBREATHER, SK 109 SEEKER SMART RIFLE (2X), SPARE MAGAZINES (X8, JUNGLE CLIPPED), 4X EROTIC PICTORIAL MAGAZINES'),
-  ...Array(2).fill('AN OILCLOTH WRAPPING CONTAINS: HAN-290 RIGGING GUN (X2), D&C 7 TRANQUILIZER GUN (X4), A GUIDE TO BIG GAME HUNTING (MANFUL CONQUEST)'),
-  ...Array(10).fill('CANVAS “DOCTOR” BAG (CADUCEUS): BIOSCANNER, PAIN PILLS (X6), FIRST AID KIT, STIMPACK (X2), CYBERNETIC DIAGNOSTIC SCANNER, D&C 7 TRANQUILIZER PISTOL, ROSCO 556, BOOK: QUIETING THE SCREAMS: A PRIMER ON BEDSIDE MANNER'),
-  ...Array(5).fill('A HUMANOID HUSK—TALL, WITH FOUR CLUSTERED EYES—WEARS ONLY A PAIR OF ORNATE BRACERS (1D10 DAMAGE, BLASTER OR EXTENDABLE BLADE; 10% BREAK CHANCE)'),
-  ...Array(4).fill('BADLY CHARRED ASBESTOS FIRE SAFE: RAMHORN 1 FLAMETHROWER, FUEL TANK (X4), 1 GALLON KEROSENE, ZIPPO (ENGRAVED: “WHAT THE HAND, DARE SEIZE THE FIRE?”)'),
-  ...Array(3).fill('A GEOMETRIC STACK OF UNKNOWN PURPOSE AROUND AN INTRICATELY WROUGHT METAL STAVE (2D10 DAMAGE BLAST OR 1D10 STRIKE)'),
-  ...Array(5).fill('A HARDBODY GUITAR CASE: AZUREGLO RICKENBACKER 4001C64 ELECTRIC BASS IN CHERRY RED FINISH, ARMA 29 SUBMACHINE GUN, SPARE MAGAZINE (4X)'),
-  ...Array(3).fill('RUSTED 10 FOOT SHIPPING CONTAINER (STENCILLED WITH PRIVATE MILITARY CONTRACTOR LOGO): KANO X9 COMBAT SHOTGUN (X4), ARMA 29 SUBMACHINE GUN (X4), F20 “ARBITER” PULSE RIFLE (X2) RAMHORN 1 FLAMETHROWER; BOXES: 200 SLUGS, 1 PULSE MAGAZINES, 20 ULTRA CAPACITY MAGAZINES, 4 FUEL TANKS'),
+  ...Array(15).fill('A rotting wooden box: Rosco 556 Nail Gun, 4 boxes of nails, MNC Model A Laser Cutter, spare battery, Peabody Flare Gun, 6 flares (hunter green)'),
+  ...Array(10).fill('A picked clean escape pod: EVA MK-II Hand Welder, Halls B Series Foam Gun, emergency beacon, crowbar, infrared goggles, flashlight, stray bullets'),
+  ...Array(3).fill('Inside a rotted tree: a preserved primitive humanoid corpse clutches hard metal spear (1d10 damage)'),
+  ...Array(7).fill('A pair of rusted footlockers: Automed(x6), field recorder, Medscanner, Hazard Suit (4x), scalpel, medkit, D&C 7 Tranquilizer Pistol (2x)'),
+  ...Array(5).fill('Black synthetic leather suitcase: electronic toolkit, flashlight, lockpick set, MRE (x7), pain pills (x18), FN “Slug Gun” revolver, speedloader (x2), book: Ivy League Guide to Bypassing Security'),
+  ...Array(10).fill('A tarp stitched shut: survey kit, vibechete, water filter, radio jammer, rebreather, SK 109 Seeker Smartrifle, ghillie suit (when unmoving: searching for you is an INTELLECT CHECK with disadvantage)'),
+  ...Array(8).fill('Lying atop an octagonal altar, bedecked in ornate bells: a pair of cruel looking energy whips (INTELLECT instead of COMBAT, 2d10, 10% break chance)'),
+  ...Array(10).fill('A water resistant duffel bag: binoculars, camping gear, stimpack (x2), water filter, locator, rebreather, SK 109 Seeker Smart Rifle (2x), spare magazines (x8, jungle clipped), 4x erotic pictorial magazines'),
+  ...Array(2).fill('An oilcloth wrapping contains: HAN-290 Rigging Gun (x2), D&C 7 Tranquilizer Gun (x4), a Guide to Big Game Hunting (Manful Conquest)'),
+  ...Array(10).fill('Canvas “doctor” bag (caduceus): bioscanner, pain pills (x6), first aid kit, stimpack (x2), cybernetic diagnostic scanner, D&C 7 Tranquilizer Pistol, Rosco 556, Book: Quieting The Screams: A Primer on Bedside Manner'),
+  ...Array(5).fill('A humanoid husk—tall, with four clustered eyes—wears only a pair of ornate bracers (1d10 damage, blaster or extendable blade; 10% break chance)'),
+  ...Array(4).fill('Badly charred asbestos fire safe: Ramhorn 1 Flamethrower, fuel tank (x4), 1 gallon kerosene, Zippo (engraved: “What the Hand, Dare Seize the Fire?”)'),
+  ...Array(3).fill('A geometric stack of unknown purpose around an intricately wrought metal stave (2d10 damage blast or 1d10 strike)'),
+  ...Array(5).fill('A hardbody guitar case: Azureglo Rickenbacker 4001C64 Electric Bass in Cherry Red finish, Arma 29 Submachine Gun, spare magazine (4x)'),
+  ...Array(3).fill('Rusted 10 foot shipping container (stencilled with private military contractor logo): Kano x9 Combat Shotgun (x4), Arma 29 Submachine gun (x4), F20 “arbiter” Pulse Rifle (x2) Ramhorn 1 Flamethrower; Boxes: 200 slugs, 1 pulse magazines, 20 ultra capacity magazines, 4 fuel tanks'),
 ];
 
 export const WARP_DRIVE = [
-  ...Array(5).fill('A LARGE AQUARIUM IN THE MESS IS FILLED WITH:'),
-  ...Array(5).fill('THREE BEFUDDLED SPACEFARERS LOUNGE ABOUT THE DECK, PERPLEXED THIS IS NOT THE GOLDEN HEART. THEY ARE: <b>RIO URIBE</b>, <b>CARA DELEVINGE</b> AND <b>IRINA LAZAREANU</b> (FASHIONABLE SOCIALITES). THEY WEAR CORSETED JACKETS, CRINOLINED BALLERINA SKIRTS AND TOWERING STILETTOS AND MAKE EXCELLENT NEGOTIATORS AND ALWAYS HAVE A CONTACT ANYWHERE THE CREW MAY WIND UP. THEIR SALARY IS 7,000 CREDITS AND THEY ONLY WORK AS A TEAM.'),
-  ...Array(5).fill('PASS YOUR CHARACTER SHEET ONE SPACE CLOCKWISE; YOU ARE NOW THE CHARACTER PASSED TO YOU (IF APPLICABLE, AN NPC CONTROLLED BY THE DM IS PART OF THIS CIRCLE).'),
-  ...Array(5).fill('WITHIN THE SHIP: GRAVITY IS DELAYED 3 SECONDS (OBJECTS REMAIN SUSPENDED FOR 3 SECONDS BEFORE FALLING) FOR 1d4 HOURS.'),
-  ...Array(5).fill('TIME MOVES DIFFERENTLY FOR EVERYONE. TIME TO PHYSICALLY TRAVEL FOR EACH CREW MEMBER IS MEASURED IN (ROLLED INDIVIDUALLY): 1d4 SECONDS, MINUTES, HOURS, DAYS. LASTS 24 HOURS.'),
-  ...Array(5).fill('IN THE POCKET OF EVERY CREW MEMBER IS A SEALED LETTER SIGNED BY A CREW MEMBER SELECTED AT RANDOM. THE LETTER IS AN ARDUOUS CONFESSION TO ACTS SO SINGULARLY VILE AND UNCONSCIONABLE THAT READING THEM TRIGGERS A STRESS TEST (D10/2). TO AID THE CREW MEMBER WHO “WROTE” EACH LETTER REQUIRES A FEAR SAVE.'),
-  ...Array(5).fill('THERE IS AN ELABORATE LACQUERED BOX. INSIDE IS A BLACK CAT WITH WHITE EYES; ALL SCANS SHOW IT TO BE DEAD. IT IS PERFECTLY ALIVE AND SOMEWHAT FRIENDLY.'),
-  ...Array(5).fill('A “BIRD”—THAT LOOKS LIKE A CUBIST PAINTING—FLUTTERS ABOUT, RECITING THE DIGITS TO PI. AT AN ARBITRARY POINT THE BIRD EXPLODES IN A SOFT HISS OF INK. THE NEXT MATHEMATICS CHECK EACH CREWMEMBER MAKES IS WITH ADVANTAGE.'),
-  ...Array(5).fill('MOVEMENT IS BLINDINGLY FAST. YOU ACCELERATE AT BREAKNECK SPEED. YOU CAN VAPORIZE YOURSELF RUNNING INTO A WALL—BODY[-] SAVE TO NOT SMASH INTO A WALL FOR 4D10 DAMAGE. THIS ENDS IN WHAT FEELS LIKE SECONDS BUT IS ACTUALLY 4 HOURS.'),
-  ...Array(5).fill('THE CREW ARE WHOLLY CONVINCED THEY ARE SOMEONE ELSE’S DREAM; THAT THEIR ENTIRE EXISTENCE IS SIMPLY FRAGMENTS OF A DREAMING STATE. THEY ARE IMMUNE TO STRESS CHECKS UNLESS SOMEONE SUGGESTS THE DREAMER MAY AWAKEN. IT ALSO REQUIRES A SANITY SAVE TO TAK RAPID SELF PRESERVING ACTION.'),
-  ...Array(5).fill('PHYSICAL CONTINUITY IS OUT OF WHACK. WHEN THE CREW WALKS INTO A ROOM, INDIVIDUALLY ROLL FOR WHAT ROOM THEY WIND UP IN. THE ROOM’S ORIENTATION IS:'),
-  ...Array(5).fill('EXITING WARP: THERE IS A TABLE SET WITH A FEAST AND A MARBLE BUST OF EACH CREW MEMBER ON THE TABLE FACING THEIR SEAT.'),
-  ...Array(5).fill('EVERYONE BECOMES A MIRROR VERSION OF THEMSELVES (RIGHT HANDED PEOPLE BECOME LEFT HANDED, SCARS ARE ON OPPOSITE SIDE, ETC.). GAIN 2 STRESS. SOME GEAR MAY BE DIFFICULT TO USE.'),
-  ...Array(5).fill('THE SHIP AND CREW HAVE BEEN BOUNCED BACKWARD BY A TIME RIPPLE.'),
-  ...Array(5).fill('A DUPLICATE OF EVERY CREW MEMBER APPEARS. THE WARDEN ROLLS SECRETLY TO DETERMINE WHETHER EACH PLAYER IS THE ORIGINAL OR DUPLICATE.'),
-  ...Array(5).fill('THERE’S A HEAVY MIST THROUGHOUT THE SHIP AND ALL SOUNDS ECHO FOR THE NEXT D10/2 HOURS.'),
-  ...Array(5).fill('EVERYONE’S CLOTHING IS WORN THIN AND PATCHED UP AND IT WASN’T LIKE THAT BEFORE THEY ENTERED THE CRYOPODS.'),
-  ...Array(5).fill('SHADOWS SEPARATE FROM THEIR OWNER, MOVING AHEAD OF THEM UNTIL A SANITY SAVE IS MADE.'),
-  ...Array(5).fill('EVERY WOUND EVER RECEIVED REOPENS AND BLEEDS. PANIC CHECK. EVERYONE IS COVERED IN BLOOD UNTIL A SANITY SAVE IS MADE AND THE CREW REALIZES IT’S AN ILLUSION.'),
-  ...Array(5).fill('EVERYONE THE CREWMEMBERS HAVE EVER LOVED AND LEFT BEHIND IS LOOKING AT THEM IN EVERY REFLECTION. THIS FADES GRADUALLY AFTER D10 DAYS. ROLL A DIE; EVEN RESULT: SANITY CHECK OR 1D10 STRESS EACH TIME THEY LOOK INTO A MIRROR, ODD RESULT: GAIN ADVANTAGE ON FEAR CHECKS FOR ONE DAY.'),
+  ...Array(5).fill('A large aquarium in the mess is filled with:'),
+  ...Array(5).fill('Three befuddled spacefarers lounge about the deck, perplexed this is not the Golden Heart. They are: <b>Rio Uribe</b>, <b>Cara Delevinge</b> and <b>Irina Lazareanu</b> (fashionable socialites). They wear corseted jackets, crinolined ballerina skirts and towering stilettos and make excellent negotiators and always have a contact anywhere the crew may wind up. Their salary is 7,000 credits and they only work as a team.'),
+  ...Array(5).fill('Pass your character sheet one space clockwise; you are now the character passed to you (if applicable, an NPC controlled by the WARDEN is part of this circle).'),
+  ...Array(5).fill('Within the ship: gravity is delayed 3 seconds (objects remain suspended for 3 seconds before falling) for 1d4 hours.'),
+  ...Array(5).fill('Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): d4 seconds, minutes, hours, days. Lasts 24 hours.'),
+  ...Array(5).fill('In the pocket of every crew member is a sealed letter signed by a crew member selected at random. The letter is an arduous confession to acts so singularly vile and unconscionable that reading them triggers a STRESS TEST or gain 1d10/2 STRESS. To aid the crew member who “wrote” each letter requires a FEAR SAVE.'),
+  ...Array(5).fill('There is an elaborate lacquered box. Inside is a black cat with white eyes; all scans show it to be dead. It is perfectly alive and somewhat friendly.'),
+  ...Array(5).fill('A “bird”—that looks like a cubist painting—flutters about, reciting the digits to pi. At an arbitrary point the bird explodes in a soft hiss of ink. The next mathematics check each crewmember makes is with advantage.'),
+  ...Array(5).fill('Movement is blindingly fast. You accelerate at breakneck speed. You can vaporize yourself running into a wall—BODY[-] save to not smash into a wall for 4d10 damage. This ends in what feels like seconds but is actually 4 hours.'),
+  ...Array(5).fill('The crew are wholly convinced they are someone else’s dream; that their entire existence is simply fragments of a dreaming state. They are immune to STRESS CHECKS unless someone suggests the dreamer may awaken. It also requires a SANITY SAVE to take rapid self preserving action.'),
+  ...Array(5).fill('Physical continuity is out of whack. When the crew walks into a room, individually roll for what room they wind up in. The room’s orientation is:'),
+  ...Array(5).fill('Exiting Warp: There is a table set with a feast and a marble bust of each crew member on the table facing their seat.'),
+  ...Array(5).fill('Everyone becomes a mirror version of themselves (right handed people become left handed, scars are on opposite side, etc.). Gain 2 STRESS. Some gear may be difficult to use.'),
+  ...Array(5).fill('The ship and crew have been bounced backward by a time ripple.'),
+  ...Array(5).fill('A duplicate of every crew member appears. The WARDEN rolls secretly to determine whether each player is the original or duplicate.'),
+  ...Array(5).fill('There’s a heavy mist throughout the ship and all sounds echo for the next 1d10/2 hours.'),
+  ...Array(5).fill('Everyone’s clothing is worn thin and patched up and it wasn’t like that before they entered the cryopods.'),
+  ...Array(5).fill('Shadows separate from their owner, moving ahead of them until a SANITY SAVE is made.'),
+  ...Array(5).fill('Every wound ever received reopens and bleeds. PANIC CHECK. Everyone is covered in blood until a SANITY SAVE is made and the crew realizes it’s an illusion.'),
+  ...Array(5).fill('Everyone the crewmembers have ever loved and left behind is looking at them in every reflection. This fades gradually after 1d10 days. Roll a die; EVEN result: SANITY CHECK or 1d10 STRESS each time they look into a mirror, ODD result: gain advantage on FEAR CHECKS for one day.'),
 ];
 
 export const WARP_WEIRD = {
   fish: [
-    'TILAPIA', 'TROUT', 'SALMON', 'JELLYFISH', 'CATFISH', 'OYSTERS', 'OCTOPI', 'SQUID', 'SNAILS', 'STRANGE MASS'
+    '<b>TILAPIA</b>', '<b>TROUT</b>', '<b>SALMON</b>', '<b>JELLYFISH</b>', '<b>CATFISH</b>', '<b>OYSTERS</b>', '<b>OCTOPI</b>', '<b>SQUID</b>', '<b>SNAILS</b>', '<b>STRANGE MASS</b>'
   ],
   time_ripple: [
-    ...Array(4).fill('THEY EACH HAVE <b>5</b> MORE XP'),
-    ...Array(2).fill('THEY CAN ROLL ADVANTAGE ON ALL SAVES THIS SESSION'),
-    ...Array(2).fill('THEY CAN ROLL ADVANTAGE ON ALL CHECKS THIS SESSION.'),
-    'THE SHIP HAS A NEW MODULE THAT WAS NEVER THERE BEFORE',
-    'EVERYONE HAS d10 MORE STRESS.'
+    ...Array(4).fill('They each have <b>5</b> more XP.'),
+    ...Array(2).fill('They can roll advantage on all SAVES this session.'),
+    ...Array(2).fill('They can roll advantage on all CHECKS this session.'),
+    'The ship has a new module that was never there before.',
+    'Everyone has 1d10 more STRESS.'
   ],
   room_orientation: [
-    ...Array(5).fill('NORMAL'),
-    ...Array(3).fill('INVERTED (LEFT-RIGHT)'),
-    ...Array(2).fill('INVERTED (UPSIDE DOWN)')
+    ...Array(5).fill('<b>NORMAL</b>'),
+    ...Array(3).fill('<b>INVERTED (LEFT-RIGHT)</b>'),
+    ...Array(2).fill('<b>INVERTED (UPSIDE DOWN)</b>')
   ]
 };
 

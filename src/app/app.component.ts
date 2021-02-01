@@ -7,6 +7,7 @@ import { RandomNumberService } from './services/random-number.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  theme = 'dark';
   isClicked = true;
   openDisplaySection = false;
   displaySection = {
@@ -46,6 +47,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     document.title = 'WARDEN OS ONLINE';
+  }
+
+  changeTheme(themeName: string) {
+    const body = document.body;
+    const prevTheme = body.classList.value;
+
+    body.classList.replace(prevTheme, themeName);
   }
 
   toggle() {
