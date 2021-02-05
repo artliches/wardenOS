@@ -237,12 +237,12 @@ button {
                     grid-area: trinket;
                 }
                 .upload-button {
-                    background-color: #fc0;
+                    background-color: goldenrod;
                     grid-area: upload;
 
                     &:hover {
                         background-color: black;
-                        border-color: #fc0;
+                        border-color: goldenrod;
                     }
                 }
             }
