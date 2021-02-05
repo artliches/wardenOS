@@ -1,0 +1,220 @@
+$card-border: solid 0.5rem white;
+$thin-card-border: solid 0.1rem white;
+$tabs-height: 50px;
+
+.flint-grid {
+    grid-template-columns: 411px;
+    grid-template-rows: 622px auto;
+    grid-gap: 0.5rem;
+
+    grid-template-areas:
+        "char-card"
+        "scl"
+        "rfg";
+    
+    .cb-char-card {
+        grid-area: char-card;
+        background-color: cyan;
+        color: black;
+
+        column-gap: 0.5rem;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: 
+            "non-stats stats";
+
+        .non-stats-section {
+            border: $card-border;
+            grid-area: non-stats;
+
+            grid-template-columns: 1fr;
+            grid-template-rows: 5fr repeat(5, 1fr);
+
+            &>div {
+                border: $thin-card-border;
+            }
+        }
+        .stats-section {
+            border: $card-border;
+            grid-area: stats;
+
+
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(10, 1fr);
+
+            &>div {
+                border: $thin-card-border;
+            }
+        }
+    }
+
+    .cb-scl-card {
+        grid-area: scl;
+        background-color: magenta;
+
+        grid-gap: 0.5rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: $tabs-height auto;
+        grid-template-areas:
+            "tabs"
+            "text-area";
+        
+        .tabs-section {
+            border: $card-border;
+            grid-area: tabs;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            .skills-tab {
+                border: $thin-card-border;
+            }
+            .cyber-tab {
+                border: $thin-card-border;
+            }
+            .lifepath-tab {
+                border: $thin-card-border;
+            }
+        }
+
+        .text-section {
+            grid-area: text-area;
+
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+                "text-left"
+                "text-right";
+            
+            .text-block-left {
+                border: $card-border;
+                grid-area: text-left;
+            }
+
+            .text-block-right {
+                border: $card-border;
+                grid-area: text-right;
+            }
+        }
+    }
+    .cb-rfg-card {
+        grid-area: rfg;
+        background-color: goldenrod;
+
+        grid-gap: 0.5rem;
+        grid-template-rows: $tabs-height auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "tabs"
+            "text-area";
+        
+        .tabs-section {
+            border: $card-border;
+            grid-area: tabs;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            .role-tab {
+                border: $thin-card-border;
+            }
+            .fight-tab {
+                border: $thin-card-border;
+            }
+            .gear-tab {
+                border: $thin-card-border;
+            }
+        }
+
+        .text-section {
+            grid-area: text-area;
+            grid-template-areas:
+                "small-box-left"
+                "small-box-right"
+                "long-box";
+            
+            &>div {
+                border: $card-border
+            }
+
+            .rfg-box {
+                .rfg-box-details {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(4, 1fr);
+                    &>div {
+                        border: $thin-card-border;
+                    }
+                }
+            }
+            
+            .small-box-left {
+                grid-area: small-box-left;
+            }
+            .small-box-right {
+                grid-area: small-box-right;
+            }
+            .long-box {
+                grid-area: long-box;
+            }
+        }
+    }
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+}
+
+.box-header {
+    background-color: black;
+    color: white;
+    border: $thin-card-border;
+}
+
+.tab {
+    background-color: black;
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    .flint-grid {
+        grid-template-columns: 411px repeat(2, 1fr);
+        grid-template-rows: 622px 1fr;
+
+        grid-template-areas:
+        "char-card scl scl"
+        "rfg rfg rfg";
+
+        .cb-scl-card {
+            grid-template-columns: 1fr;
+            grid-template-rows: $tabs-height auto;
+            grid-template-areas:
+                "tabs"
+                "text-area";
+            
+            .tabs-section {
+                grid-template-columns: repeat(3, 1fr);
+            }
+    
+            .text-section {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-areas: 
+                    "text-left text-right";
+            }
+        }
+        .cb-rfg-card {
+            grid-template-rows: $tabs-height auto;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "tabs"
+                "text-area";
+            
+            .tabs-section {
+                grid-template-columns: repeat(3, 1fr);
+            }
+    
+            .text-section {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: 1fr;
+                grid-template-areas:
+                    "small-box-left small-box-right long-box long-box";
+            }
+        }
+    }
+}

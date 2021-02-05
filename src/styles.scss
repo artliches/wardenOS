@@ -74,6 +74,7 @@ body {
         "sub-button"
         "display-section"
         "print-section"
+        "cb-red"
         "version-section";
     
     .button-section {
@@ -114,6 +115,11 @@ body {
         a {
             color: magenta;
         }
+    }
+
+    .cb-red {
+        grid-area: cb-red;
+        place-self: center;
     }
 }
 
@@ -212,6 +218,7 @@ button {
             ". sub-button ."
             ". display-section ."
             ". print-section ."
+            "cb-red cb-red cb-red"
             ". version-section .";
         
         .button-section {

@@ -1,0 +1,105 @@
+<section class='flint-grid basic-grid'>
+    <div class='cb-char-card card basic-grid'>
+        <div class='non-stats-section basic-grid'>
+            <div class='photo-section'>
+                PHOTO
+            </div>
+
+            <div class='handle-section'>
+                HANDLE
+            </div>
+
+            <div class='role-rank-section'>
+                ROLE/RANK
+            </div>
+
+            <div class='hitpoints-section'>
+                HIT POINTS
+            </div>
+
+            <div class='wound-death-section'>
+                WOUNDED/DEATH
+            </div>
+
+            <div class='humanity-section'>
+                HUMANITY
+            </div>
+        </div>
+
+        <div class='stats-section basic-grid'>
+            <div *ngFor='let stat of statsArray'>
+                {{stat}}
+            </div>
+        </div>
+    </div>
+    <div class='cb-scl-card card basic-grid'>
+        <div class='tabs-section basic-grid'>
+            <div class='skills-tab tab'>
+                SKILLS
+            </div>
+            <div class='cyber-tab tab'>
+                CYBER
+            </div>
+            <div class='lifepath-tab tab'>
+                LIFEPATH
+            </div>
+        </div>
+
+        <div class='text-section basic-grid'>
+            <div class='text-block-left'>
+                {{lorem}}
+            </div>
+            <div class='text-block-right'>
+                {{lorem}}
+            </div>
+        </div>
+    </div>
+    <div class='cb-rfg-card card basic-grid'>
+        <div class='tabs-section basic-grid'>
+            <div class='role-tab tab'>
+                ROLE
+            </div>
+            <div class='fight-tab tab'>
+                FIGHT
+            </div>
+            <div class='gear-tab tab'>
+                GEAR
+            </div>
+        </div>
+
+        <div class='text-section basic-grid'>
+            <div class='rfg-box small-box-left'>
+                <div class='box-header'>
+                    SMALL-BOX-HEADER
+                </div>
+                <div class='rfg-box-details basic-grid'>
+                    <div *ngFor='let r of rows'>
+                        {{r}}
+                    </div>
+                </div>
+            </div>
+    
+            <div class='rfg-box small-box-right'>
+                <div class='box-header'>
+                    SMALL-BOX-HEADER
+                </div>
+                <div class='rfg-box-details'>
+                    <div *ngFor='let r of rows'>
+                        {{r}}
+                    </div>
+                </div>
+            </div>
+    
+            <div class='rfg-box long-box'>
+                <div class='box-header'>
+                    LONG-BOX-HEADER
+                </div>
+                <div class='rfg-box-details'>
+                    <div *ngFor='let r of rows'>
+                        {{r}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

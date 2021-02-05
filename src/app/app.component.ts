@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     generic: false,
     ship: false,
     char: false,
+    cb: false,
   };
 
   buttonSectionObj = {
@@ -86,7 +87,7 @@ export class AppComponent implements OnInit {
       this.showDownload = true;
     }
 
-    this.showPrint = true;
+    this.showPrint = name === 'cb' ? false : true;
     this.getRandomWardenSubtext();
   }
 

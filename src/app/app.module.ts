@@ -12,6 +12,7 @@ import { GenericRandomSearchComponent } from './generic-random-search/generic-ra
 import { ShipGeneratorComponent } from './ship-generator/ship-generator.component';
 import { CharacterGeneratorComponent } from './character-generator/character-generator.component';
 import { FormsModule } from '@angular/forms';
+import { CbRedMockComponent } from './cb-red-mock/cb-red-mock.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     PatchGeneratorComponent,
     GenericRandomSearchComponent,
     ShipGeneratorComponent,
-    CharacterGeneratorComponent
+    CharacterGeneratorComponent,
+    CbRedMockComponent
   ],
   imports: [
     FormsModule,
