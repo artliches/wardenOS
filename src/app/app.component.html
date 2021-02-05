@@ -17,8 +17,8 @@
 
     <section *ngIf='buttonSectionObj["mosh"]' class='basic-grid sub-button mosh-grid hidden-print'>
         <button class='patch-button' (click)='displayInfo("patch")'>LOOT PATCH</button>
-        <button class='create-button' (click)='clearUploads(); displayInfo("char")'>CREATE A CREW MEMBER</button>
         <button class='trinket-button' (click)='displayInfo("trinket")'>LOOT TRINKET</button>
+        <button class='create-button' (click)='clearUploads(); displayInfo("char")'>CREATE A CREW MEMBER</button>
         <button class='upload-button' onclick="document.querySelector('#hiddenInput').click()">UPLOAD A CHARACTER</button>
     </section>
 
