@@ -1,0 +1,276 @@
+<section class='charSheet-grid basic-grid dark'>
+    <section class='char-subsection intro-section'>
+        <section class='title-section'>
+            HELLO, MY NAME IS:
+        </section>
+        <section class='details-section name-job-section basic-grid'>
+            <section class='name-section'>
+                <input class='moshInput hidden-print'
+                    (keyup)='growWidth($event)'
+                    [(ngModel)]='charSheet.name' (ngModelChange)='changeField($event, "name")'
+                    type="text"
+                    style="text-transform:uppercase"
+                >
+                <span class='print-only'>
+                    {{charSheet.name | uppercase}}
+                </span>
+                THE {{charSheet.job | uppercase}}
+            </section>
+
+            <section class='level-section'>
+                LEVEL:
+                <input class='moshInput hidden-print'
+                    [(ngModel)]='charSheet.level' (ngModelChange)='changeField($event, "level")'
+                    type="number" min='0'
+                    style='width: 3rem'
+                >
+                <span class='print-only'>
+                    {{charSheet.level}}
+                </span>
+            </section>
+
+            <section class='rank-section'>
+                RANK:
+                <input class='moshInput hidden-print'
+                    (keyup)='growWidth($event)'
+                    [(ngModel)]='charSheet.rank' (ngModelChange)='changeField($event, "rank")'
+                    type="text"
+                    style="text-transform:uppercase; width: 10rem"
+                >
+                <span class='print-only'>
+                    {{charSheet.rank}}
+                </span>
+            </section>
+
+            <section class='stress-section'>
+                STRESS 
+                <input class='moshInput hidden-print'
+                    [(ngModel)]='charSheet.curStress' (ngModelChange)='changeField($event, "curStress")'
+                    type="number" min='0'
+                    style='width: 3rem'
+                >
+                <span class='print-only'>
+                    {{charSheet.curStress}}
+                </span>
+            </section>
+
+            <section class='resolve-section'>
+                RESOLVE
+                <input class='moshInput hidden-print'
+                    [(ngModel)]='charSheet.resolve' (ngModelChange)='changeField($event, "resolve")'
+                    type="number" min='0'
+                    style='width: 3rem'
+                >
+                <span class='print-only'>
+                    {{charSheet.resolve}}
+                </span>
+            </section>
+
+            <section class='health-section'>
+                HEALTH 
+                <input class='moshInput hidden-print'
+                    [(ngModel)]='charSheet.curHealth' (ngModelChange)='changeField($event, "curHealth")'
+                    type="number" min='0'
+                    style='width: 3rem'
+                > /
+                <input class='moshInput hidden-print'
+                    [(ngModel)]='charSheet.maxHealth' (ngModelChange)='changeField($event, "maxHealth")'
+                    type="number" min='0'
+                    style='width: 3rem'
+                >
+                <span class='print-only'>
+                    {{charSheet.curHealth}} / {{charSheet.maxHealth}}
+                </span>
+            </section>
+        </section>
+    </section>
+
+    <section class='char-subsection stress-section'>
+        <section class='title-section'>
+            HOW DO I DEAL WITH STRESS?
+        </section>
+        <section class='details-section'>
+            <div *ngFor='let stress of charSheet.stress'>
+                >> {{stress}}
+            </div>
+        </section>
+    </section>
+
+    <section class='char-subsection stats-section'>
+        <section class='title-section'>
+            STATS
+        </section>
+
+        <section class='details-section'>
+            <div class='stats-grid basic-grid' *ngFor='let stat of charSheet.stats | keyvalue'>
+
+                <section class='stat-saves-layout'>
+                    <section class='title'>
+                        <b class='title clickable' (click)='rollStatSave(stat.key, true)'>{{stat.key | uppercase}}</b>
+                    </section>
+
+                    <section class='mods-section basic-grid'>
+                        <section class='base-stat'>
+                            <input style='width: 3rem' class='moshInput base hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.stats[stat.key]' type="number" min="0">
+                            <span class='print-only base'>
+                                {{stat.value}}
+                            </span>
+                        </section>
+                        <section class='plus'>
+                            +
+                        </section>
+                        <section class='modifier'>
+                            <span class='hidden-print'>
+                                <input style='width: 3rem' class='moshInput' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.statMods[stat.key]' type="number" min="0">
+                            </span>
+                            <span class='print-only'>
+                                {{charSheet.statMods[stat.key]}}
+                            </span>
+                        </section>
+                    </section>
+
+                    <section *ngIf='statsResults[stat.key].display' class='hidden-print result'
+                        [ngClass]="{
+                            pass: statsResults[stat.key].passFail.includes('PASS'),
+                            fail: statsResults[stat.key].passFail.includes('FAIL')
+                        }"
+                    >
+                        {{statsResults[stat.key].result}}|<b>{{statsResults[stat.key].passFail}}</b>
+                    </section>
+                </section>
+
+                <span class='tinyText'>
+                    {{statsFlavorText[stat.key]}}
+                </span>
+            </div>
+        </section>
+    </section>
+
+    <section class='char-subsection saves-section'>
+        <section class='title-section'>
+            SAVES
+        </section>
+
+        <section class='details-section'>
+            <div class='saves-grid basic-grid' *ngFor='let save of charSheet.saves | keyvalue'>
+
+                <section class='stat-saves-layout'>
+                    <section class='title'>
+                        <b class='clickable' (click)='rollStatSave(save.key, false)'>{{save.key | uppercase}}</b>
+                    </section>
+
+                    <section class='mods-section basic-grid'>
+                        <section class='base-stat'>
+                            <input style='width: 3rem' class='moshInput base hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.saves[save.key]' type="number" min="0">
+                            <span class='print-only base'>
+                                {{save.value}}
+                            </span>
+                        </section>
+                        <section class='plus'>
+                            +
+                        </section>
+                        <section class='modifier'>
+                            <span class='hidden-print'>
+                                <input style='width: 3rem' class='moshInput' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.saveMods[save.key]' type="number" min="0">
+                            </span>
+                            <span class='print-only'>
+                                {{charSheet.saveMods[save.key]}}
+                            </span>
+                        </section>
+                    </section>
+
+                    <section class='results-section' *ngIf='savesResults[save.key].display' class='hidden-print result'
+                        [ngClass]="{
+                            pass: savesResults[save.key].passFail.includes('PASS'),
+                            fail: savesResults[save.key].passFail.includes('FAIL')
+                        }"
+                    >
+                        {{savesResults[save.key].result}}|<b>{{savesResults[save.key].passFail}}</b>
+                    </section>
+                </section>
+
+                <span class='tinyText'>
+                    {{savesFlavorText[save.key]}}
+                </span>
+            </div>
+        </section>
+    </section>
+
+    <section class='char-subsection skills-section'>
+        <section class='title-section'>
+            SKILLS
+        </section>
+
+        <section class='details-section skills basic-grid'>
+            <div class='skill-descrip basic-grid' *ngFor='let skill of charSheet.skills | keyvalue'>
+                <span>
+                    >> <b>{{skill.value.title | uppercase}}</b> | {{skill.value.percent}}
+                </span>
+                <span class='tinyText'>{{skill.value.descrip}}</span>
+            </div>
+        </section>
+    </section>
+
+    <section class='char-subsection loadout-section'>
+        <section class='title-section'>
+            {{charSheet.loadoutName | uppercase}} LOADOUT
+        </section>
+
+        <section class='loadout basic-grid details-section'>
+            <div *ngFor='let equip of charSheet.loadout | keyvalue'>
+                >> <b>{{equip.value.title | uppercase}}</b>
+                <section class='tinyText'>
+                    <span *ngIf='equip.value.dmg'>
+                        <b>DMG</b>: <span [innerHTML]='equip.value.dmg'></span>
+                    </span>
+                    <span *ngIf='equip.value.crit !== "" && equip.value.crit'>
+                        | <b>CRIT</b>: {{equip.value.crit}}
+                    </span>
+                    <span *ngIf='equip.value.range'>
+                        | <b>RANGE</b>: {{equip.value.range}}
+                    </span>
+                    <span *ngIf='equip.value.ammo'>
+                        | <b>AMMO</b>: {{equip.value.ammo}}
+                    </span>
+                    <span *ngIf='equip.value.shots'>
+                        | <b>MAG SIZE</b>: {{equip.value.shots}}
+                    </span>
+                    <span *ngIf='equip.value.special'>
+                        | <span [innerHTML]='equip.value.special'></span>
+                    </span>
+                    <span *ngIf='equip.value.descrip'>
+                        <span [innerHTML]='equip.value.descrip'></span>
+                    </span>
+                </section>
+            </div>
+            <span>
+                <b>CREDITS</b>: 
+                <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.credits' type="number" min="0">
+                <span class='print-only'>
+                    {{charSheet.credits}}
+                </span>
+            </span>
+        </section>
+    </section>
+
+    <section class='char-subsection patch-trinket-section'>
+        <app-patch-generator [getPatch]='genChar'></app-patch-generator>
+        <app-trinket-generator [getTrinket]='genChar'></app-trinket-generator>
+    </section>
+
+    <section class='char-subsection notes-xp-section'>
+        <section class='title-section'>
+            NOTES
+        </section>
+        <section class='details-section notes-section basic-grid'>
+            <textarea (ngModelChange)='changeField($event)' (keyup)='growTextArea($event)' [(ngModel)]='charSheet.notes'></textarea>
+            <span>
+                XP: 
+                <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.xp' type="number" min="0">
+                <span class='print-only'>
+                    {{charSheet.xp}}
+                </span>
+            </span>
+        </section>
+    </section>
+</section>

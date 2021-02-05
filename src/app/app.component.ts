@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RandomNumberService } from './services/random-number.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { RandomNumberService } from './services/random-number.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  @ViewChild('fileUploadInput', {static: false}) inputRef;
+
   theme = 'dark';
   isClicked = true;
   openDisplaySection = false;
@@ -17,6 +19,7 @@ export class AppComponent implements OnInit {
     rim: false,
     generic: false,
     ship: false,
+    char: false,
   };
 
   buttonSectionObj = {
@@ -31,15 +34,18 @@ export class AppComponent implements OnInit {
     core: false,
     rim: false,
     generic: false,
+    char: false,
   };
-
+  jsonToDownload: any;
   previousSaying = [];
   pagePrintTitle = '';
   tableToSearch = '';
   randomSaying = [];
+  showDownload = false;
   showPrint = false;
   styleToPass = '';
   wardenSubtext = this.random.getRandomSaying(99, 0).text;
+  uploadedSheet: any;
 
   constructor(
     private random: RandomNumberService,
@@ -60,7 +66,8 @@ export class AppComponent implements OnInit {
     this.isClicked = !this.isClicked;
   }
 
-  displayInfo(name: string, searchString?: string, styleToPass?: string) {
+  displayInfo(name: string, searchString?: string, styleToPass?: string, charUpload?: any) {
+    this.showDownload = false;
     this.openDisplaySection = true;
     this.pagePrintTitle = '';
     this.tableToSearch = '';
@@ -75,9 +82,23 @@ export class AppComponent implements OnInit {
     if (styleToPass) {
       this.styleToPass = styleToPass;
     }
+    if (name === 'char') {
+      this.showDownload = true;
+    }
 
     this.showPrint = true;
     this.getRandomWardenSubtext();
+  }
+
+  clearUploads() {
+    this.uploadedSheet = null;
+  }
+
+  download() {
+    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.jsonToDownload));
+    const dlAnchorElem = document.getElementById('downloadAnchorElem');
+    dlAnchorElem.setAttribute('href', dataStr);
+    dlAnchorElem.setAttribute('download', `${this.pagePrintTitle}.json`);
   }
 
   getPageTitle(event: string) {
@@ -88,6 +109,10 @@ export class AppComponent implements OnInit {
     this.randomSaying[2] = this.random.getRandomSaying(this.previousSaying[2], 0);
     this.wardenSubtext = this.randomSaying[2].text;
     this.previousSaying[2] = this.randomSaying[2].num;
+  }
+
+  getUploadedCharSheet(event: any) {
+    this.jsonToDownload = event;
   }
 
   openSection(name: string) {
@@ -101,6 +126,25 @@ export class AppComponent implements OnInit {
     document.title = `WARDEN OS_${this.pagePrintTitle}`;
     window.print();
     document.title = 'WARDEN OS ONLINE';
+  }
+
+  uploadFile(event: any) {
+    const selectedFile = event.target.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.readAsText(selectedFile, 'UTF-8');
+    fileReader.onload = () => {
+     this.uploadedSheet = JSON.parse(fileReader.result.toString());
+     this.displayInfo('char');
+     this.reset();
+    };
+    fileReader.onerror = (error) => {
+      console.log(error);
+    };
+  }
+
+  reset() {
+    this.inputRef.nativeElement.value = '';
   }
 
   private hideDisplaySection() {

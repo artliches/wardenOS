@@ -9,6 +9,7 @@ import { PATCH_TABLE } from '../services/random-tables.constants';
 })
 export class PatchGeneratorComponent implements OnChanges {
   @Input() getPatch = false;
+  @Input() addBorder = false;
   @Output() pageTitle = new EventEmitter<string>();
   patchInfo: any;
 

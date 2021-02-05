@@ -10,6 +10,8 @@ import { TrinketGeneratorComponent } from './trinket-generator/trinket-generator
 import { PatchGeneratorComponent } from './patch-generator/patch-generator.component';
 import { GenericRandomSearchComponent } from './generic-random-search/generic-random-search.component';
 import { ShipGeneratorComponent } from './ship-generator/ship-generator.component';
+import { CharacterGeneratorComponent } from './character-generator/character-generator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import { ShipGeneratorComponent } from './ship-generator/ship-generator.componen
     TrinketGeneratorComponent,
     PatchGeneratorComponent,
     GenericRandomSearchComponent,
-    ShipGeneratorComponent
+    ShipGeneratorComponent,
+    CharacterGeneratorComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

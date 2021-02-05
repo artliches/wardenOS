@@ -1,0 +1,227 @@
+.charSheet-grid {
+    background-color: darkgray;
+    color: black;
+    padding: 0.5rem;
+    grid-gap: 0.5rem;
+
+    .name-job-section {
+        row-gap: 0.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "name name"
+            "rank rank"
+            "level level"
+            "stress resolve"
+            "health health";
+
+        .name-section {
+            grid-area: name;
+        }
+        .level-section {
+            grid-area: level;
+        }
+        .rank-section {
+            grid-area: rank;
+        }
+        .stress-section {
+            grid-area: stress;
+        }
+        .resolve-section {
+            grid-area: resolve;
+        }
+        .health-section {
+            grid-area: health;
+        }
+    }
+
+    .char-subsection {
+        .title-section {
+            padding-left: 0.5rem;
+
+            background-color: white;
+            color: black;
+            // font-weight: bold;
+            font-family: "PT Serif",Times,serif;
+        }
+        .details-section {
+            padding-left: 0.5rem;
+
+            background-color: black;
+            color: white;
+        }
+    }
+
+    .notes-section {
+        grid-template-rows: repeat(2, auto);
+        padding-right: 0.5rem;
+        padding-top: 0.5rem;
+        textarea {
+            background-color: black;
+            color: white;
+            resize: none;
+            border: none;
+        }
+    }
+
+    .skills {
+        grid-gap: 0.5rem;
+
+        .skill-descrip {
+            grid-template-rows: repeat(2, auto);
+        }
+    }
+
+    .loadout {
+        grid-gap: 1rem;
+    }
+}
+
+.stat-saves-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "title mods"
+        "results results";
+    
+    .title {
+        grid-area: title;
+    }
+    .mods-section {
+        place-self: end;
+        grid-area: mods;
+
+        grid-template-columns: 1fr 0.1fr 1fr;
+        grid-template-areas: 
+            "base plus modifier";
+    }
+    .resuts-section {
+        grid-area: results;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .charSheet-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "intro intro"
+            "stress stress"
+            "stats saves"
+            "skills skills"
+            "loadout loadout"
+            "tp tp"
+            "noteXP noteXP";
+        
+        .intro-section {
+            grid-area: intro;
+        }
+        .stress-section {
+            grid-area: stress;
+        }
+        .stats-section {
+            grid-area: stats;
+        }
+        .saves-section {
+            grid-area: saves;
+        }
+        .skills-section {
+            grid-area: skills;
+        }
+        .loadout-section {
+            grid-area: loadout;
+        }
+        .patch-trinket-section {
+            grid-area: tp;
+        }
+        .notes-xp-section {
+            grid-area: noteXP;
+        }
+
+        .name-job-section {
+            grid-template-columns: 2fr repeat(2, 1fr);
+            grid-template-areas:
+                "name level rank"
+                "health stress resolve";
+        }
+    }
+
+    .stat-saves-layout {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "title mods results";
+
+        .result {
+            place-self: end;
+        }
+    }
+}
+
+@media print {
+    .charSheet-grid {
+        .char-subsection {
+            border: solid 0.1rem black;
+            .title-section {
+                border: solid 0.1rem black;
+            }
+            .details-section {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+
+    .charSheet-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "intro intro"
+            "stress stress"
+            "stats saves"
+            "skills skills"
+            "loadout loadout"
+            "tp tp"
+            "noteXP noteXP";
+        
+        .intro-section {
+            grid-area: intro;
+        }
+        .stress-section {
+            grid-area: stress;
+        }
+        .stats-section {
+            grid-area: stats;
+        }
+        .saves-section {
+            grid-area: saves;
+        }
+        .skills-section {
+            grid-area: skills;
+        }
+        .loadout-section {
+            grid-area: loadout;
+        }
+        .patch-trinket-section {
+            grid-area: tp;
+        }
+        .notes-xp-section {
+            grid-area: noteXP;
+        }
+
+        .name-job-section {
+            grid-template-columns: 2fr repeat(2, 1fr);
+            grid-template-areas:
+                "name level rank"
+                "health stress resolve";
+        }
+    }
+
+    .stat-saves-layout {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "title mods results";
+
+        .result {
+            place-self: end;
+        }
+    }
+}

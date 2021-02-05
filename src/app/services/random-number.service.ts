@@ -5,9 +5,13 @@ import { Injectable } from '@angular/core';
 })
 
 export class RandomNumberService {
+    getRandomFromSimpleArray(arr: Array<any>) {
+      return arr[this.getRandomNumber(0, arr.length - 1)];
+    }
     getRandomNumber(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
+
     getRandomNumberArray(min: number, max: number, numDie: number) {
       const dieArray = [];
       for (let i = 0; i < numDie; i++) {

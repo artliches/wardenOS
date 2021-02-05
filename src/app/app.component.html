@@ -10,10 +10,16 @@
 
 <section class='basic-grid warden-homescreen'>
     <section class='basic-grid button-section main-section hidden-print'>
-        <button (click)='displayInfo("patch"); hideButtonSubSection();'>LOOT PATCH</button>
-        <button (click)='displayInfo("trinket"); hideButtonSubSection()'>LOOT TRINKET</button>
+        <button (click)='openSection("mosh")'>PLAYER'S SURVIVAL GUIDE</button>
         <button class='pofTheme' (click)='openSection("pof")'>A POUND OF FLESH</button>
         <button class='deadTheme' (click)='openSection("dead")'>DEAD PLANET</button>
+    </section>
+
+    <section *ngIf='buttonSectionObj["mosh"]' class='basic-grid sub-button mosh-grid hidden-print'>
+        <button class='patch-button' (click)='displayInfo("patch")'>LOOT PATCH</button>
+        <button class='create-button' (click)='clearUploads(); displayInfo("char")'>CREATE A CREW MEMBER</button>
+        <button class='trinket-button' (click)='displayInfo("trinket")'>LOOT TRINKET</button>
+        <button class='upload-button' onclick="document.querySelector('#hiddenInput').click()">UPLOAD A CHARACTER</button>
     </section>
 
     <section *ngIf='buttonSectionObj["pof"]' class='basic-grid sub-button hidden-print'>
@@ -36,24 +42,29 @@
     </section>
 
     <section *ngIf='openDisplaySection' class='display-section main-section'>
-        <app-patch-generator (pageTitle)='getPageTitle($event)' [getPatch]='triggerChanges["patch"]' *ngIf='displaySection["patch"]'></app-patch-generator>
-        <app-trinket-generator (pageTitle)='getPageTitle($event)' [getTrinket]='triggerChanges["trinket"]' *ngIf='displaySection["trinket"]'></app-trinket-generator>
+        <app-patch-generator (pageTitle)='getPageTitle($event)' [getPatch]='triggerChanges["patch"]' [addBorder]='true' *ngIf='displaySection["patch"]'></app-patch-generator>
+        <app-trinket-generator (pageTitle)='getPageTitle($event)' [getTrinket]='triggerChanges["trinket"]' [addBorder]='true' *ngIf='displaySection["trinket"]'></app-trinket-generator>
         <app-space-station-generator (pageTitle)='getPageTitle($event)' [genSpaceStation]='triggerChanges["core"]' [coreOrRim]='false' *ngIf='displaySection["core"]'></app-space-station-generator>
         <app-space-station-generator (pageTitle)='getPageTitle($event)' [genSpaceStation]='triggerChanges["rim"]' [coreOrRim]='true' *ngIf='displaySection["rim"]'></app-space-station-generator>
         <app-generic-random-search (pageTitle)='getPageTitle($event)' [tableToSearch]='tableToSearch' [generateSearch]='triggerChanges["generic"]' [styleToUse]='styleToPass' *ngIf='displaySection["generic"]'></app-generic-random-search>
         <app-ship-generator (pageTitle)='getPageTitle($event)' [genShip]='triggerChanges["ship"]' *ngIf='displaySection["ship"]'></app-ship-generator>
+        <app-character-generator (jsonToDownload)='getUploadedCharSheet($event)' (pageTitle)='getPageTitle($event)' [genChar]='triggerChanges["char"]' [uploadedSheet]='uploadedSheet' *ngIf='displaySection["char"]'></app-character-generator>
     </section>
 
     <section *ngIf='showPrint' class='print-section hidden-print'>
-        <button class='print-button' (click)='print()'>PRINT {{pagePrintTitle}}</button>
+        <button class='print-button hidden-print' (click)='print()'>PRINT {{pagePrintTitle}}</button>
+        <button *ngIf='showDownload' class='print-button hidden-print'>
+            <a id='downloadAnchorElem' (click)='download()'>DOWNLOAD {{pagePrintTitle}}</a>
+        </button>
     </section>
 
     <section class='version-section'>
         <article>
-            v.0.5 - Created sub-sections to reduce clutter.
+            v.0.6 - New version of character sheet.
         </article>
         <article>
             Web app by <a href='https://twitter.com/codeLiches' class='magenta'>@codeLiches</a>
         </article>
     </section>
 </section>
+<input style='display: none' #fileUploadInput type='file' id='hiddenInput' accept=".json, application/json" (change)='uploadFile($event)'>

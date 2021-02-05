@@ -1,6 +1,8 @@
-<section class='basic-card'>
-    <h2 class='card-header'>PATCH</h2>
-    <span class='card-body'>
+<section [ngClass]="{addBorder: addBorder}" class='baseMoshCard'>
+    <section class='title-section'>
+        PATCH
+    </section>
+    <section class='details-section'>
         {{patchInfo.num}} - {{patchInfo.descrip}}
-    </span>
+    </section>
 </section>

@@ -1,6 +1,8 @@
-<section class='basic-card'>
-    <h2 class='card-header'>TRINKET</h2>
-    <span class='card-body'>
+<section [ngClass]="{addBorder: addBorder}" class='baseMoshCard'>
+    <section class='title-section'>
+        TRINKET
+    </section>
+    <section class='details-section'>
         {{trinketInfo.num}} - {{trinketInfo.descrip}}
-    </span>
+    </section>
 </section>

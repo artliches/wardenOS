@@ -3,30 +3,9 @@ $stagger-delay: 100ms;
 body {
     height: 100vh;
     font: 1.3rem Inconsolata, monospace;
-    background-color: var(--bg);
-    color: var(--text);
+    background-color: black;
+    color: white;
     transition: background 500ms ease-in-out, color 1000ms ease-in-out;
-}
-
-:root {
-    --black: black;
-    --white: white;
-    --console: limegreen;
-}
-
-.light {
-    --bg: var(--white);
-    --text: var(--black);
-}
-
-.dark {
-    --bg: var(--black);
-    --text: var(--white);
-}
-
-.console {
-    --bg: var(--black);
-    --text: var(--console);
 }
 
 @keyframes sectionEntrance {
@@ -38,6 +17,36 @@ body {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.tinyText {
+    font-size: 0.9rem;
+}
+
+.print-only {
+    display: none;
+}
+
+.moshInput {
+    background-color: black;
+    color: white;
+    font: 1.3rem Inconsolata, monospace;
+    border: 1px solid white;
+    width: 15rem;
+}
+
+.clickable:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.fail {
+    color: #DC267F;
+}
+
+.pass {
+    color: #FFB000;
 }
 
 .warden-subtext {
@@ -90,12 +99,15 @@ body {
     }
 
     .print-section {
+        display: grid;
+        grid-template-columns: 1fr;
+
         place-self: center;
     }
 
     .version-section {
         font-size: .8rem;
-        color: var(--text);
+        color: var(white);
         grid-area: version-section;
         place-self: center;
 
@@ -105,24 +117,26 @@ body {
     }
 }
 
-.basic-card {
-    display: grid;
-    grid-template-rows: 1fr .5fr;
-    grid-template-columns: 1fr;
-    border: solid darkgrey 0.5rem;
-    .card-header {
+.baseMoshCard {
+    .title-section {
+        padding-left: 0.5rem;
+
         background-color: white;
         color: black;
-        margin-top: 0rem;
-        margin-bottom: 0.5rem;
-        padding-left: 0.5rem;
+        font-family: "PT Serif",Times,serif;
     }
-    .card-body {
+    .details-section {
+        padding-left: 0.5rem;
         background-color: black;
         color: white;
-        padding-left: 0.5rem;
     }
 }
+
+.addBorder {
+    background-color: darkgrey;
+    padding: 0.5rem;
+}
+
 .pofTheme {
     background-color: #f06;
     color: black; 
@@ -135,6 +149,7 @@ body {
 .deadTheme {
     background-color: #bd0000;
     color: white;
+    border-color: black;
 
     &:hover {
         border: solid 0.1rem #bd0000;
@@ -170,11 +185,11 @@ body {
 }
 
 button {
-    color: var(--bg);
-    background-color: var(--text);
+    color: black;
+    background-color: white;
     font-family: 'PT Serif', Times, serif;
     font-size: 1.3rem;
-    border: solid 0.1rem var(--bg);
+    border: solid 0.1rem;
   
     box-shadow: 1px 1px 2px rgba(#fff, .2);
     cursor: pointer;
@@ -183,8 +198,8 @@ button {
     animation-fill-mode: backwards;
 
     &:hover {
-        background-color: var(--bg);
-        color: var(--text);
+        background-color: black;
+        color: white;
         border: solid 0.1rem darkgrey;
     }
 }
@@ -201,13 +216,36 @@ button {
         
         .button-section {
             grid-area: button;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
         }
         .display-section {
             grid-area: display-section;
         }
         .sub-button {
             grid-template-columns: repeat(3, 1fr);
+            &.mosh-grid {
+                grid-template-areas:
+                    "patch crew trinket"
+                    "upload upload upload";
+                .patch-button {
+                    grid-area: patch;
+                }
+                .create-button {
+                    grid-area: crew;
+                }
+                .trinket-button {
+                    grid-area: trinket;
+                }
+                .upload-button {
+                    background-color: #fc0;
+                    grid-area: upload;
+
+                    &:hover {
+                        background-color: black;
+                        border-color: #fc0;
+                    }
+                }
+            }
         }
         .print-section {
             grid-area: print-section;
@@ -218,6 +256,10 @@ button {
 @media print {
     .hidden-print {
         display: none;
+    }
+
+    .print-only {
+        display: block;
     }
 
     body {
@@ -242,4 +284,15 @@ button {
             border: solid 0.1rem black;
         }
     }
+
+    .baseMoshCard {
+        border: solid 0.1rem black;
+        .title-section {
+            border: solid 0.1rem black;
+        }
+        .details-section {
+            color: black;
+        }
+    }
+
 }

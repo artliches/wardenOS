@@ -9,6 +9,7 @@ import { TRINKET_TABLE } from '../services/random-tables.constants';
 })
 export class TrinketGeneratorComponent implements OnChanges {
   @Input() getTrinket = false;
+  @Input() addBorder = false;
   @Output() pageTitle = new EventEmitter<string>();
   trinketInfo: any;
 
