@@ -197,15 +197,59 @@
     </section>
 
     <section class='char-subsection skills-section'>
-        <section class='title-section'>
+        <section class='title-section skill-title basic-grid'>
             SKILLS
+            <button *ngIf='!buySkills; else closeBlock' (click)="openDialog('skills'); buySkills = true">BUY
+            </button>
+            <ng-template #closeBlock>
+                <button (click)='buySkills = false'>CLOSE</button>
+            </ng-template>
+            <span>
+                POINTS:
+                <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event); getBuyableSkills()' [(ngModel)]='charSheet.skillPoints' type="number" min="0">
+                <span class='print-only'>
+                    {{charSheet.skillPoints}}
+                </span>
+            </span>
+        </section>
+
+        <section class='hidden-print details-section basic-grid skills-purchase-section' *ngIf='buySkills'>
+            >> SKILLS AVAILABLE FOR PURCHASE
+            <span *ngIf='buyableSkills.length === 0'>
+                Nothing to buy! Either not enough points, or no prerequisites met...
+            </span>
+            <div class='buyable-section basic-grid' *ngFor='let buyable of buyableSkills | keyvalue; index as i'>
+                <span class='buyable-title basic-grid'>
+                    <button class='small-button' (click)='add(i, buyableSkills, "skills"); getBuyableSkills()'>+</button> 
+                    <span>
+                        <b>{{buyable.value.title | uppercase}}</b> | {{buyable.value.percent}}
+                    </span>
+                </span>
+
+                <span class='tinyText buyable-descrip basic-grid'>
+                    <span>
+                        DESCRIP: {{buyable.value.descrip}}
+                    </span>
+
+                    <span>
+                        COST: {{buyable.value.cost}}
+                        <span *ngIf='buyable.value.pre.length > 0'>
+                            | PRE: {{buyable.value.pre}}
+                        </span>
+                    </span>
+                </span>
+            </div>
         </section>
 
         <section class='details-section skills basic-grid'>
-            <div class='skill-descrip basic-grid' *ngFor='let skill of charSheet.skills | keyvalue'>
-                <span>
-                    >> <b>{{skill.value.title | uppercase}}</b> | {{skill.value.percent}}
-                </span>
+            <div class='skill-descrip basic-grid' *ngFor='let skill of charSheet.skills | keyvalue; index as i'>
+                <section class='remove-section basic-grid'>
+                    <span>
+                        >> <b>{{skill.value.title | uppercase}}</b> | {{skill.value.percent}}
+                    </span>
+                    <button class='small-button' (click)='remove(i, charSheet.skills); getBuyableSkills()'>-</button>
+                </section>
+
                 <span class='tinyText'>{{skill.value.descrip}}</span>
             </div>
         </section>
@@ -214,11 +258,17 @@
     <section class='char-subsection loadout-section'>
         <section class='title-section'>
             {{charSheet.loadoutName | uppercase}} LOADOUT
+            <button (click)="openDialog('equipment')">BUY</button>
         </section>
 
         <section class='loadout basic-grid details-section'>
-            <div *ngFor='let equip of charSheet.loadout | keyvalue'>
-                >> <b>{{equip.value.title | uppercase}}</b>
+            <div *ngFor='let equip of charSheet.loadout | keyvalue; index as i'>
+                <section class='remove-section basic-grid'>
+                    <span>
+                        >> <b>{{equip.value.title | uppercase}}</b> 
+                    </span>
+                    <button class='small-button' (click)='remove(i, charSheet.loadout)'>-</button>
+                </section>
                 <section class='tinyText'>
                     <span *ngIf='equip.value.dmg'>
                         <b>DMG</b>: <span [innerHTML]='equip.value.dmg'></span>

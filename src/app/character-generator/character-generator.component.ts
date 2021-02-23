@@ -25,6 +25,7 @@ export class CharacterGeneratorComponent implements OnChanges {
     loadoutName: '',
     loadout: [],
     skills: [],
+    skillPoints: 0,
     saveMods: {
       armor: 0,
       body: 0,
@@ -50,6 +51,9 @@ export class CharacterGeneratorComponent implements OnChanges {
     level: 0,
     rank: ''
   };
+  availableToBuy = [];
+  buyableSkills = [];
+  buySkills = false;
   jsonObj = {};
 
   savesFlavorText = {
@@ -170,6 +174,8 @@ export class CharacterGeneratorComponent implements OnChanges {
     this.charSheet.xp = 0;
     this.charSheet.credits = 0;
     this.charSheet.notes = '';
+    this.charSheet.skillPoints = 0;
+    this.buySkills = false;
   }
 
   private assignStatsAndCredits() {
@@ -199,6 +205,40 @@ export class CharacterGeneratorComponent implements OnChanges {
     this.charSheet.credits = this.rand.getRandomSum(5, 1, 10) * 10;
   }
 
+  add(toAddIndex: number, arrayToAddFrom: Array<any>, objectToAddTo: any) {
+    switch (objectToAddTo) {
+      case 'skills' : {
+        const costToSubtract = arrayToAddFrom[toAddIndex].cost;
+        this.charSheet.skills.push(arrayToAddFrom[toAddIndex]);
+        this.charSheet.skillPoints -= costToSubtract;
+        break;
+      }
+    }
+  }
+
+  openDialog(addTo: string) {
+    switch (addTo) {
+      case 'skills' : {
+        this.getBuyableSkills();
+        break;
+      }
+      case 'equipment' : {
+        console.log('adding to equipment');
+        break;
+      }
+    }
+  }
+
+  getBuyableSkills() {
+    const currentSkills = this.charSheet.skills.map(skill => skill.title.toLowerCase());
+
+    this.buyableSkills = SKILLS.filter(
+      skill => skill.cost <= this.charSheet.skillPoints &&
+        (skill.pre.some(pre => currentSkills.includes(pre)) || skill.pre.length === 0) &&
+        !currentSkills.includes(skill.title.toLowerCase())
+    );
+  }
+
   changeField(event: any, fieldName?: string) {
     this.createJsonToDowload();
   }
@@ -215,6 +255,10 @@ export class CharacterGeneratorComponent implements OnChanges {
   growWidth(event: any) {
     event.target.style.width = '0px';
     event.target.style.width = (event.target.scrollWidth + 20) + 'px';
+  }
+
+  remove(toRemove: string, removeFrom: any) {
+    removeFrom.splice(toRemove, 1);
   }
 
   rollStatSave(rollKey: string, statOrSave: boolean) {
@@ -262,13 +306,13 @@ export class CharacterGeneratorComponent implements OnChanges {
     let pointsToSpend = startingSkillsObj.points;
     // buy skills
     do {
-      const buyableSkills = SKILLS.filter(
+      this.buyableSkills = SKILLS.filter(
         skill => skill.cost <= pointsToSpend &&
           (skill.pre.some(pre => skillList.includes(pre)) || skill.pre.length === 0) &&
           !skillList.includes(skill.title.toLowerCase())
       );
 
-      skillList.push(buyableSkills[this.rand.getRandomNumber(0, buyableSkills.length - 1)].title.toLowerCase().trim());
+      skillList.push(this.buyableSkills[this.rand.getRandomNumber(0, this.buyableSkills.length - 1)].title.toLowerCase().trim());
       pointsToSpend -= 1;
     } while (pointsToSpend > 0);
 

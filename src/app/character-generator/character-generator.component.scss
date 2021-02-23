@@ -1,3 +1,14 @@
+button {
+    .small-button {
+        height: 5px;
+        width: 5px;
+    }
+}
+
+.skills-purchase-section {
+    margin-bottom: 0.5rem;
+}
+
 .charSheet-grid {
     background-color: darkgray;
     color: black;
@@ -40,14 +51,33 @@
 
             background-color: white;
             color: black;
-            // font-weight: bold;
             font-family: "PT Serif",Times,serif;
+
+            &.skill-title {
+                column-gap: 1rem;
+                grid-template-columns: min-content min-content auto;
+                >span {
+                    place-self: end;
+                }
+            }
         }
         .details-section {
             padding-left: 0.5rem;
 
             background-color: black;
             color: white;
+
+            .buyable-section {
+                margin-bottom: 1rem;
+                .buyable-title {
+                    grid-template-rows: 1fr;
+                    grid-template-columns: min-content auto;
+                    column-gap: 0.5rem;
+                }
+                .buyable-descrip {
+                    grid-template-columns: 1fr;
+                }
+            }
         }
     }
 
@@ -73,6 +103,12 @@
 
     .loadout {
         grid-gap: 1rem;
+    }
+
+    .remove-section {
+        grid-template-columns: auto min-content;
+        background-color: black;
+        color: white;
     }
 }
 
@@ -157,6 +193,9 @@
 }
 
 @media print {
+    button {
+        display: none;
+    }
     .charSheet-grid {
         .char-subsection {
             border: solid 0.1rem black;
