@@ -205,11 +205,11 @@ export class CharacterGeneratorComponent implements OnChanges {
     this.charSheet.credits = this.rand.getRandomSum(5, 1, 10) * 10;
   }
 
-  add(toAddIndex: number, arrayToAddFrom: Array<any>, objectToAddTo: any) {
+  add(objToAdd: any, objectToAddTo: any) {
     switch (objectToAddTo) {
       case 'skills' : {
-        const costToSubtract = arrayToAddFrom[toAddIndex].cost;
-        this.charSheet.skills.push(arrayToAddFrom[toAddIndex]);
+        const costToSubtract = objToAdd.cost;
+        this.charSheet.skills.push(objToAdd);
         this.charSheet.skillPoints -= costToSubtract;
         break;
       }

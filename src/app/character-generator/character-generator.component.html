@@ -218,9 +218,9 @@
             <span *ngIf='buyableSkills.length === 0'>
                 Nothing to buy! Either not enough points, or no prerequisites met...
             </span>
-            <div class='buyable-section basic-grid' *ngFor='let buyable of buyableSkills | keyvalue; index as i'>
+            <div class='buyable-section basic-grid' *ngFor='let buyable of buyableSkills | keyvalue'>
                 <span class='buyable-title basic-grid'>
-                    <button class='small-button' (click)='add(i, buyableSkills, "skills"); getBuyableSkills()'>+</button> 
+                    <button class='small-button' (click)='add(buyable.value, "skills"); getBuyableSkills()'>+</button> 
                     <span>
                         <b>{{buyable.value.title | uppercase}}</b> | {{buyable.value.percent}}
                     </span>
