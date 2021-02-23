@@ -197,27 +197,36 @@
     </section>
 
     <section class='char-subsection skills-section'>
-        <section class='title-section skill-title basic-grid'>
+        <section (click)='collapseSection["skills"] = !collapseSection["skills"]' class='title-section skill-title basic-grid clickable'>
             SKILLS
-            <button *ngIf='!buySkills; else closeBlock' (click)="openDialog('skills'); buySkills = true">BUY
-            </button>
-            <ng-template #closeBlock>
-                <button (click)='buySkills = false'>CLOSE</button>
-            </ng-template>
             <span>
-                POINTS:
-                <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event); getBuyableSkills()' [(ngModel)]='charSheet.skillPoints' type="number" min="0">
+                <span>
+                    POINTS:
+                    <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event); getBuyableSkills()' [(ngModel)]='charSheet.skillPoints' type="number" min="0">
+                </span>
                 <span class='print-only'>
                     {{charSheet.skillPoints}}
                 </span>
             </span>
         </section>
 
-        <section class='hidden-print details-section basic-grid skills-purchase-section' *ngIf='buySkills'>
+        <section *ngIf='!collapseSection["skills"]' class='hidden-print'>
+            <button *ngIf='!buySkills' (click)="openDialog('skills'); buySkills = true">
+                LEARN NEW SKILLS
+            </button>
+            <button *ngIf='buySkills' (click)='buySkills = false'>CLOSE</button>
+        </section>
+
+        <section class='hidden-print details-section basic-grid purchase-section' *ngIf='buySkills && !collapseSection["skills"]'>
             >> SKILLS AVAILABLE FOR PURCHASE
-            <span *ngIf='buyableSkills.length === 0'>
-                Nothing to buy! Either not enough points, or no prerequisites met...
+            <span class='basic-grid search-bar'>
+                FILTER: <input style="width: 99%" class='moshInput hidden-print' (ngModelChange)='skillFilter($event)' [(ngModel)]='filterSkills' type="text">
             </span>
+
+            <span *ngIf='buyableSkills.length === 0'>
+                Nothing to buy! Not enough points/no prerequisites met/filter found nothing
+            </span>
+
             <div class='buyable-section basic-grid' *ngFor='let buyable of buyableSkills | keyvalue'>
                 <span class='buyable-title basic-grid'>
                     <button class='small-button' (click)='add(buyable.value, "skills"); getBuyableSkills()'>+</button> 
@@ -241,13 +250,13 @@
             </div>
         </section>
 
-        <section class='details-section skills basic-grid'>
+        <section *ngIf='!collapseSection["skills"]' class='details-section skills basic-grid'>
             <div class='skill-descrip basic-grid' *ngFor='let skill of charSheet.skills | keyvalue; index as i'>
                 <section class='remove-section basic-grid'>
-                    <span>
-                        >> <b>{{skill.value.title | uppercase}}</b> | {{skill.value.percent}}
-                    </span>
                     <button class='small-button' (click)='remove(i, charSheet.skills); getBuyableSkills()'>-</button>
+                    <span>
+                        <b>{{skill.value.title | uppercase}}</b> | {{skill.value.percent}}
+                    </span>
                 </section>
 
                 <span class='tinyText'>{{skill.value.descrip}}</span>
@@ -256,18 +265,74 @@
     </section>
 
     <section class='char-subsection loadout-section'>
-        <section class='title-section'>
-            {{charSheet.loadoutName | uppercase}} LOADOUT
-            <button (click)="openDialog('equipment')">BUY</button>
+        <section (click)='collapseSection["equip"] = !collapseSection["equip"]' class='title-section skill-title basic-grid clickable'>
+            <section>
+                EQUIPMENT
+            </section>
+
+            <span>
+                CREDITS: 
+                <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.credits' type="number" min="0">
+                <span class='print-only'>
+                    {{charSheet.credits}}
+                </span>
+            </span>
         </section>
 
-        <section class='loadout basic-grid details-section'>
+        <section class='hidden-print' *ngIf='!collapseSection["equip"]'>
+            <button *ngIf='!buyEquipment; else closeBlock' (click)="openDialog('equipment'); buyEquipment = true">BUY EQUIPMENT
+            </button>
+            <ng-template #closeBlock>
+                <button (click)='buyEquipment = false'>CLOSE</button>
+            </ng-template>
+        </section>
+
+        <section *ngIf='buyEquipment && !collapseSection["equip"]' class='details-section purchase-section basic-grid'>
+            >> EQUIPMENT AVAILABLE FOR PURCHASE
+            <span class='basic-grid search-bar'>
+                FILTER: <input style="width: 99%" class='moshInput hidden-print' (ngModelChange)='filterEquipment($event)' [(ngModel)]='filterEquip' type="text">
+            </span>
+            <div class='buyable-section' *ngFor='let items of equipment | keyvalue'>
+                <span class='buyable-title basic-grid'>
+                    <button class='small-button' (click)='add(items.value, "equipment")'>+</button> 
+                    <span>
+                        <b>{{items.value.title | json}}</b>
+                    </span>
+                </span>
+
+                <section class='tinyText'>
+                    <span *ngIf='items.value.dmg'>
+                        <b>DMG</b>: <span [innerHTML]='items.value.dmg'></span>
+                    </span>
+                    <span *ngIf='items.value.crit !== "" && items.value.crit'>
+                        | <b>CRIT</b>: {{items.value.crit}}
+                    </span>
+                    <span *ngIf='items.value.range'>
+                        | <b>RANGE</b>: {{items.value.range}}
+                    </span>
+                    <span *ngIf='items.value.ammo'>
+                        | <b>AMMO</b>: {{items.value.ammo}}
+                    </span>
+                    <span *ngIf='items.value.shots'>
+                        | <b>MAG SIZE</b>: {{items.value.shots}}
+                    </span>
+                    <span *ngIf='items.value.special'>
+                        | <span [innerHTML]='items.value.special'></span>
+                    </span>
+                    <span *ngIf='items.value.descrip'>
+                        <span [innerHTML]='items.value.descrip'></span>
+                    </span>
+                </section>
+            </div>
+        </section>
+
+        <section *ngIf='!collapseSection["equip"]' class='loadout basic-grid details-section'>
             <div *ngFor='let equip of charSheet.loadout | keyvalue; index as i'>
                 <section class='remove-section basic-grid'>
-                    <span>
-                        >> <b>{{equip.value.title | uppercase}}</b> 
-                    </span>
                     <button class='small-button' (click)='remove(i, charSheet.loadout)'>-</button>
+                    <span>
+                        <b>{{equip.value.title | uppercase}}</b> 
+                    </span>
                 </section>
                 <section class='tinyText'>
                     <span *ngIf='equip.value.dmg'>
@@ -293,13 +358,6 @@
                     </span>
                 </section>
             </div>
-            <span>
-                <b>CREDITS</b>: 
-                <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.credits' type="number" min="0">
-                <span class='print-only'>
-                    {{charSheet.credits}}
-                </span>
-            </span>
         </section>
     </section>
 

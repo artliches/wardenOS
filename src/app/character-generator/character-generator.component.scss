@@ -1,11 +1,12 @@
 button {
+    width: 100%;
     .small-button {
         height: 5px;
         width: 5px;
     }
 }
 
-.skills-purchase-section {
+.purchase-section {
     margin-bottom: 0.5rem;
 }
 
@@ -48,17 +49,31 @@ button {
     .char-subsection {
         .title-section {
             padding-left: 0.5rem;
+            border: 1px solid black;
 
             background-color: white;
             color: black;
             font-family: "PT Serif",Times,serif;
 
+            &.clickable:hover {
+                background-color: black;
+                color: white;
+                border-color: white;
+            }
+
             &.skill-title {
                 column-gap: 1rem;
-                grid-template-columns: min-content min-content auto;
+                grid-template-columns: auto max-content;
+                >button {
+                    place-self: end;
+                }
                 >span {
                     place-self: end;
                 }
+            }
+
+            &.loadout-title {
+                grid-template-columns: auto min-content max-content
             }
         }
         .details-section {
@@ -106,9 +121,14 @@ button {
     }
 
     .remove-section {
-        grid-template-columns: auto min-content;
+        column-gap: 0.5rem;
+        grid-template-columns: min-content auto;
         background-color: black;
         color: white;
+    }
+
+    .search-bar {
+        grid-template-columns: min-content auto;
     }
 }
 

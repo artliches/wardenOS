@@ -54,7 +54,16 @@ export class CharacterGeneratorComponent implements OnChanges {
   availableToBuy = [];
   buyableSkills = [];
   buySkills = false;
+  buyEquipment = false;
+  collapseSection = {
+    skills: false,
+    equip: false
+  };
+  equipment = [];
+  filterEquip = '';
+  filterSkills = '';
   jsonObj = {};
+  mainFilteredSkills = [];
 
   savesFlavorText = {
     sanity: 'Rationalization, Logic',
@@ -143,6 +152,7 @@ export class CharacterGeneratorComponent implements OnChanges {
         this.charSheet.stats[key] = this.rand.getRandomSum(6, 1, 10);
       });
       this.charSheet.skills = this.getSkills(job);
+      this.charSheet.notes = `>> BEGAN WITH ${this.charSheet.loadoutName.toUpperCase()} LOADOUT`;
 
       this.assignStatsAndCredits();
     }
@@ -213,6 +223,10 @@ export class CharacterGeneratorComponent implements OnChanges {
         this.charSheet.skillPoints -= costToSubtract;
         break;
       }
+      case 'equipment' : {
+        this.charSheet.loadout.push(objToAdd);
+        break;
+      }
     }
   }
 
@@ -223,7 +237,7 @@ export class CharacterGeneratorComponent implements OnChanges {
         break;
       }
       case 'equipment' : {
-        console.log('adding to equipment');
+        this.equipment = ITEMS;
         break;
       }
     }
@@ -237,6 +251,8 @@ export class CharacterGeneratorComponent implements OnChanges {
         (skill.pre.some(pre => currentSkills.includes(pre)) || skill.pre.length === 0) &&
         !currentSkills.includes(skill.title.toLowerCase())
     );
+
+    this.mainFilteredSkills = [...this.buyableSkills];
   }
 
   changeField(event: any, fieldName?: string) {
@@ -245,6 +261,14 @@ export class CharacterGeneratorComponent implements OnChanges {
 
   createJsonToDowload() {
     this.jsonToDownload.emit(this.charSheet);
+  }
+
+  filterEquipment(event: any) {
+    this.equipment = ITEMS.filter(
+      item => {
+        return item.title.toLowerCase().includes(event.toLowerCase());
+      }
+    );
   }
 
   growTextArea(event: any) {
@@ -280,6 +304,14 @@ export class CharacterGeneratorComponent implements OnChanges {
         : roll[0] === roll[1] || numberOfRoll === 99 ? 'CRIT FAIL' : 'FAIL';
       this.savesResults[rollKey].display = true;
     }
+  }
+
+  skillFilter(event: any) {
+    this.buyableSkills = this.mainFilteredSkills.filter(
+      skill => {
+        return skill.title.toLowerCase().includes(event.toLowerCase());
+      }
+    );
   }
 
   private getSkills(job: any) {
