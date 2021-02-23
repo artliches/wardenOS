@@ -107,6 +107,7 @@ body {
     }
 
     .version-section {
+        display: grid;
         font-size: .8rem;
         color: var(white);
         grid-area: version-section;
