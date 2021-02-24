@@ -1,4 +1,6 @@
 $stagger-delay: 100ms;
+$futura: Futura,Trebuchet MS,Arial,sans-serif;
+$helvetica: Helvetica,Arial,sans-serif;
 
 body {
     height: 100vh;
@@ -130,12 +132,13 @@ body {
 
         background-color: white;
         color: black;
-        font-family: "PT Serif",Times,serif;
+        font-family: $futura;
     }
     .details-section {
         padding-left: 0.5rem;
         background-color: black;
         color: white;
+        font-family: $helvetica;
     }
 }
 

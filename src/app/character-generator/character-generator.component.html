@@ -197,15 +197,17 @@
     </section>
 
     <section class='char-subsection skills-section'>
-        <section (click)='collapseSection["skills"] = !collapseSection["skills"]' class='title-section skill-title basic-grid clickable'>
-            SKILLS
+        <section class='title-section skill-title basic-grid'>
+            <section (click)='collapseSection["skills"] = !collapseSection["skills"]' class='clickable'>
+                SKILLS
+            </section>
             <span>
-                <span>
+                <span class='hidden-print'>
                     POINTS:
                     <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event); getBuyableSkills()' [(ngModel)]='charSheet.skillPoints' type="number" min="0">
                 </span>
                 <span class='print-only'>
-                    {{charSheet.skillPoints}}
+                    POINTS: {{charSheet.skillPoints}}
                 </span>
             </span>
         </section>
@@ -218,13 +220,13 @@
         </section>
 
         <section class='hidden-print details-section basic-grid purchase-section' *ngIf='buySkills && !collapseSection["skills"]'>
-            >> SKILLS AVAILABLE FOR PURCHASE
+            >> SKILLS AVAILABLE TO LEARN
             <span class='basic-grid search-bar'>
                 FILTER: <input style="width: 99%" class='moshInput hidden-print' (ngModelChange)='skillFilter($event)' [(ngModel)]='filterSkills' type="text">
             </span>
 
-            <span *ngIf='buyableSkills.length === 0'>
-                Nothing to buy! Not enough points/no prerequisites met/filter found nothing
+            <span class='tinyText' *ngIf='buyableSkills.length === 0'>
+                Nothing to learn! Not enough points/no prerequisites met/filter found nothing
             </span>
 
             <div class='buyable-section basic-grid' *ngFor='let buyable of buyableSkills | keyvalue'>
@@ -237,13 +239,13 @@
 
                 <span class='tinyText buyable-descrip basic-grid'>
                     <span>
-                        DESCRIP: {{buyable.value.descrip}}
+                        <b>DESCRIP</b>: {{buyable.value.descrip}}
                     </span>
 
                     <span>
-                        COST: {{buyable.value.cost}}
+                    <b>COST</b>: {{buyable.value.cost}}
                         <span *ngIf='buyable.value.pre.length > 0'>
-                            | PRE: {{buyable.value.pre}}
+                            | <b>PRE</b>: {{buyable.value.pre}}
                         </span>
                     </span>
                 </span>
@@ -253,9 +255,9 @@
         <section *ngIf='!collapseSection["skills"]' class='details-section skills basic-grid'>
             <div class='skill-descrip basic-grid' *ngFor='let skill of charSheet.skills | keyvalue; index as i'>
                 <section class='remove-section basic-grid'>
-                    <button class='small-button' (click)='remove(i, charSheet.skills); getBuyableSkills()'>-</button>
-                    <span>
-                        <b>{{skill.value.title | uppercase}}</b> | {{skill.value.percent}}
+                    <button class='small-button' (click)='remove(skill.value, charSheet.skills); getBuyableSkills()'>-</button>
+                    <span class='print-title'>
+                        <b class='item-title'>{{skill.value.title | uppercase}}</b> | <span class='item-title'>{{skill.value.percent}}</span>
                     </span>
                 </section>
 
@@ -265,16 +267,16 @@
     </section>
 
     <section class='char-subsection loadout-section'>
-        <section (click)='collapseSection["equip"] = !collapseSection["equip"]' class='title-section skill-title basic-grid clickable'>
-            <section>
+        <section class='title-section skill-title basic-grid'>
+            <section (click)='collapseSection["equip"] = !collapseSection["equip"]' class='clickable'>
                 EQUIPMENT
             </section>
 
             <span>
-                CREDITS: 
+                <span class='hidden-print'>CREDITS:</span>
                 <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.credits' type="number" min="0">
                 <span class='print-only'>
-                    {{charSheet.credits}}
+                    CREDITS: {{charSheet.credits}}
                 </span>
             </span>
         </section>
@@ -329,9 +331,14 @@
         <section *ngIf='!collapseSection["equip"]' class='loadout basic-grid details-section'>
             <div *ngFor='let equip of charSheet.loadout | keyvalue; index as i'>
                 <section class='remove-section basic-grid'>
-                    <button class='small-button' (click)='remove(i, charSheet.loadout)'>-</button>
-                    <span>
-                        <b>{{equip.value.title | uppercase}}</b> 
+                    <button class='small-button' (click)='remove(equip.value, charSheet.loadout)'>-</button>
+                    <span class='print-title'>
+                        <b class='item-title'>
+                            {{equip.value.title | uppercase}}
+                            <span *ngIf='equip.value.amount > 1'>
+                                (X{{equip.value.amount}})
+                            </span>
+                        </b> 
                     </span>
                 </section>
                 <section class='tinyText'>
@@ -373,10 +380,10 @@
         <section class='details-section notes-section basic-grid'>
             <textarea (ngModelChange)='changeField($event)' (keyup)='growTextArea($event)' [(ngModel)]='charSheet.notes'></textarea>
             <span>
-                XP: 
+                <span class='hidden-print'>XP:</span>
                 <input style='width: 5rem' class='moshInput hidden-print' (ngModelChange)='changeField($event)' [(ngModel)]='charSheet.xp' type="number" min="0">
                 <span class='print-only'>
-                    {{charSheet.xp}}
+                    XP: {{charSheet.xp}}
                 </span>
             </span>
         </section>

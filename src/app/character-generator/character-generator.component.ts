@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
-import { FIRST_NAMES, ITEMS, JOBS, LAST_NAMES, LOADOUTS, SAVES, SKILLS,
+import { FIRST_NAMES, ITEMS, JOBS, LAST_NAMES, LOADOUTS, LOADOUT_EXTRAS, SAVES, SKILLS,
   STARTING_SKILLS, STRESS_PANIC } from '../services/random-tables.constants';
 
 @Component({
@@ -148,6 +148,18 @@ export class CharacterGeneratorComponent implements OnChanges {
       // tslint:disable-next-line: no-string-literal
       this.charSheet.loadout = loadoutArray.map(name => ITEMS.find(item => item['title'].toLowerCase().trim() === name.toLowerCase()));
 
+      // go through loadout extras, finding each in the loadout and adding the amount
+      const extraSupplies = LOADOUT_EXTRAS[this.charSheet.loadoutName];
+      if (extraSupplies) {
+        Object.keys(extraSupplies).forEach(item => {
+          const index = this.charSheet.loadout.findIndex(load => {
+            return load.title.toUpperCase().trim() === item.toUpperCase().trim();
+          });
+
+          this.charSheet.loadout[index].amount += extraSupplies[item];
+        });
+      }
+
       Object.keys(this.charSheet.stats).forEach(key => {
         this.charSheet.stats[key] = this.rand.getRandomSum(6, 1, 10);
       });
@@ -224,7 +236,12 @@ export class CharacterGeneratorComponent implements OnChanges {
         break;
       }
       case 'equipment' : {
-        this.charSheet.loadout.push(objToAdd);
+        if (this.charSheet.loadout.includes(objToAdd)) {
+          const index = this.charSheet.loadout.findIndex(item => item === objToAdd);
+          this.charSheet.loadout[index].amount ++;
+        } else {
+          this.charSheet.loadout.push(objToAdd);
+        }
         break;
       }
     }
@@ -281,8 +298,12 @@ export class CharacterGeneratorComponent implements OnChanges {
     event.target.style.width = (event.target.scrollWidth + 20) + 'px';
   }
 
-  remove(toRemove: string, removeFrom: any) {
-    removeFrom.splice(toRemove, 1);
+  remove(toRemove: any, removeFrom: any) {
+    if (toRemove.amount > 1) {
+      toRemove.amount --;
+    } else {
+      removeFrom.splice(removeFrom.indexOf(toRemove), 1);
+    }
   }
 
   rollStatSave(rollKey: string, statOrSave: boolean) {
