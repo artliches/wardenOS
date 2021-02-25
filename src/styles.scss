@@ -110,11 +110,14 @@ body {
 
     .version-section {
         display: grid;
+        grid-gap: 0.5rem;
         font-size: .8rem;
         color: var(white);
         grid-area: version-section;
-        place-self: center;
 
+        article {
+            place-self: center;
+        }
         a {
             color: magenta;
         }
@@ -133,6 +136,8 @@ body {
         background-color: white;
         color: black;
         font-family: $futura;
+        font-weight: bold;
+        font-size: 1.5rem;
     }
     .details-section {
         padding-left: 0.5rem;

@@ -216,7 +216,7 @@
             <button *ngIf='!buySkills' (click)="openDialog('skills'); buySkills = true">
                 LEARN NEW SKILLS
             </button>
-            <button *ngIf='buySkills' (click)='buySkills = false'>CLOSE</button>
+            <button *ngIf='buySkills' (click)='buySkills = false; filterSkills = ""'>CLOSE</button>
         </section>
 
         <section class='hidden-print details-section basic-grid purchase-section' *ngIf='buySkills && !collapseSection["skills"]'>
@@ -285,7 +285,7 @@
             <button *ngIf='!buyEquipment; else closeBlock' (click)="openDialog('equipment'); buyEquipment = true">BUY EQUIPMENT
             </button>
             <ng-template #closeBlock>
-                <button (click)='buyEquipment = false'>CLOSE</button>
+                <button (click)='buyEquipment = false; filterEquip = ""; resetCreditsMessage()'>CLOSE</button>
             </ng-template>
         </section>
 
@@ -295,14 +295,22 @@
                 FILTER: <input style="width: 99%" class='moshInput hidden-print' (ngModelChange)='filterEquipment($event)' [(ngModel)]='filterEquip' type="text">
             </span>
             <div class='buyable-section' *ngFor='let items of equipment | keyvalue'>
-                <span class='buyable-title basic-grid'>
+                <span class='buyable-title equip-buyable basic-grid'>
                     <button class='small-button' (click)='add(items.value, "equipment")'>+</button> 
+                    <button class='small-button' (click)='add(items.value, "equipment", true)'>$$$</button>
                     <span>
                         <b>{{items.value.title | uppercase}}</b>
+
+                        <span class='tinyText fail' *ngIf='items.value.notEnoughCredits'>
+                             | <b>{{notEnoughCreditsMessage}}</b>
+                        </span>
                     </span>
                 </span>
 
                 <section class='tinyText'>
+                    <span>
+                        <b>COST</b>: {{items.value.cost}} credits | 
+                    </span>
                     <span *ngIf='items.value.dmg'>
                         <b>DMG</b>: <span [innerHTML]='items.value.dmg'></span>
                     </span>
@@ -368,10 +376,9 @@
         </section>
     </section>
 
-    <section class='char-subsection patch-trinket-section'>
-        <app-patch-generator [getPatch]='genChar'></app-patch-generator>
-        <app-trinket-generator [getTrinket]='genChar'></app-trinket-generator>
-    </section>
+    <app-patch-generator class='patch' [getPatch]='genChar'></app-patch-generator>
+
+    <app-trinket-generator class='trinket' [getTrinket]='genChar'></app-trinket-generator>
 
     <section class='char-subsection notes-xp-section'>
         <section class='title-section'>

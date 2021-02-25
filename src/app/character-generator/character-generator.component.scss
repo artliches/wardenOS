@@ -1,4 +1,4 @@
-$futura: Futura,Trebuchet MS,Arial,sans-serif;
+$futura: Futura,Arial,sans-serif;
 $helvetica: Helvetica,Arial,sans-serif;
 button {
     font-family: $futura; 
@@ -60,7 +60,9 @@ input {
 
             background-color: white;
             color: black;
-            font-family: $futura; 
+            font-family: $futura;
+            font-weight: bold; 
+            font-size: 1.5rem;
 
             section.clickable:hover {
                 background-color: black;
@@ -96,6 +98,10 @@ input {
                     grid-template-rows: 1fr;
                     grid-template-columns: min-content auto;
                     column-gap: 0.5rem;
+
+                    &.equip-buyable {
+                        grid-template-columns: repeat(2, min-content) auto;
+                    }
                 }
                 .buyable-descrip {
                     grid-template-columns: 1fr;
@@ -117,7 +123,7 @@ input {
     }
 
     .skills {
-        grid-gap: 0.5rem;
+        grid-gap: 1rem;
 
         .skill-descrip {
             grid-template-rows: repeat(2, auto);
@@ -173,7 +179,7 @@ input {
             "stats saves"
             "skills skills"
             "loadout loadout"
-            "tp tp"
+            "patch trinket"
             "noteXP noteXP";
         
         .intro-section {
@@ -184,9 +190,23 @@ input {
         }
         .stats-section {
             grid-area: stats;
+            .stats-grid {
+                padding-bottom: 1rem;
+
+                &:last-child {
+                    padding-bottom: 0rem;
+                }
+            }
         }
         .saves-section {
             grid-area: saves;
+            .saves-grid {
+                padding-bottom: 1rem;
+
+                &:last-child {
+                    padding-bottom: 0rem;
+                }
+            }
         }
         .skills-section {
             grid-area: skills;
@@ -194,9 +214,15 @@ input {
         .loadout-section {
             grid-area: loadout;
         }
-        .patch-trinket-section {
-            grid-area: tp;
+
+        .patch {
+            grid-area: patch;
         }
+
+        .trinket {
+            grid-area: trinket;
+        }
+
         .notes-xp-section {
             grid-area: noteXP;
         }

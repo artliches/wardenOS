@@ -64,6 +64,7 @@ export class CharacterGeneratorComponent implements OnChanges {
   filterSkills = '';
   jsonObj = {};
   mainFilteredSkills = [];
+  notEnoughCreditsMessage = 'Not enough credits.';
 
   savesFlavorText = {
     sanity: 'Rationalization, Logic',
@@ -227,7 +228,7 @@ export class CharacterGeneratorComponent implements OnChanges {
     this.charSheet.credits = this.rand.getRandomSum(5, 1, 10) * 10;
   }
 
-  add(objToAdd: any, objectToAddTo: any) {
+  add(objToAdd: any, objectToAddTo: any, subtractCredits?: boolean) {
     switch (objectToAddTo) {
       case 'skills' : {
         const costToSubtract = objToAdd.cost;
@@ -236,11 +237,21 @@ export class CharacterGeneratorComponent implements OnChanges {
         break;
       }
       case 'equipment' : {
-        if (this.charSheet.loadout.includes(objToAdd)) {
-          const index = this.charSheet.loadout.findIndex(item => item === objToAdd);
-          this.charSheet.loadout[index].amount ++;
-        } else {
-          this.charSheet.loadout.push(objToAdd);
+        let disablePurchase = false;
+        if (subtractCredits) {
+          const creditsSubtraction = this.charSheet.credits - objToAdd.cost;
+          objToAdd.notEnoughCredits = creditsSubtraction < 0;
+          disablePurchase = objToAdd.notEnoughCredits;
+
+          this.charSheet.credits = disablePurchase ? this.charSheet.credits : creditsSubtraction;
+        }
+        if (!disablePurchase) {
+          if (this.charSheet.loadout.includes(objToAdd)) {
+            const index = this.charSheet.loadout.findIndex(item => item === objToAdd);
+            this.charSheet.loadout[index].amount ++;
+          } else {
+            this.charSheet.loadout.push(objToAdd);
+          }
         }
         break;
       }
@@ -304,6 +315,12 @@ export class CharacterGeneratorComponent implements OnChanges {
     } else {
       removeFrom.splice(removeFrom.indexOf(toRemove), 1);
     }
+  }
+
+  resetCreditsMessage() {
+    Object.keys(this.equipment).forEach(key => {
+      this.equipment[key].notEnoughCredits = false;
+    });
   }
 
   rollStatSave(rollKey: string, statOrSave: boolean) {
