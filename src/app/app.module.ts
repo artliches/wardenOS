@@ -11,8 +11,9 @@ import { PatchGeneratorComponent } from './patch-generator/patch-generator.compo
 import { GenericRandomSearchComponent } from './generic-random-search/generic-random-search.component';
 import { ShipGeneratorComponent } from './ship-generator/ship-generator.component';
 import { CharacterGeneratorComponent } from './character-generator/character-generator.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CbRedMockComponent } from './cb-red-mock/cb-red-mock.component';
+import { AddCustomComponent } from './add-custom/add-custom.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,11 @@ import { CbRedMockComponent } from './cb-red-mock/cb-red-mock.component';
     GenericRandomSearchComponent,
     ShipGeneratorComponent,
     CharacterGeneratorComponent,
-    CbRedMockComponent
+    CbRedMockComponent,
+    AddCustomComponent
   ],
   imports: [
+    ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,

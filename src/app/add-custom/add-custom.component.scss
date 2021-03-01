@@ -1,0 +1,22 @@
+.basic-grid {
+    row-gap: 1rem;
+    padding-bottom: 1rem;
+    label {
+        display: grid;
+        grid-template-columns: auto max-content;
+        grid-template-rows: min-content;
+    }
+}
+
+.baseMoshCard {
+    border: 1px solid black;
+}
+
+.equipment-section {
+    padding-bottom: 0rem;
+}
+
+.moshInput {
+    background-color: white;
+    color: black;
+}

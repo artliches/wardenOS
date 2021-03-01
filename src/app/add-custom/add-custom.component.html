@@ -1,0 +1,68 @@
+<section class='baseMoshCard'>
+    <form [formGroup]='genericForm' (ngSubmit)='onSubmit()'>
+        <section class='title-section'>Create New Skill/Equipment</section>
+        <span class='details-section main-section basic-grid'>
+            <label>
+                Title:
+                <input class='moshInput' formControlName='title' type='text'>
+            </label>
+        
+            <label>
+                Description:
+                <input class='moshInput' class='moshInput' formControlName='descrip' type='text'>
+            </label>
+        </span>
+        
+        <span class='basic-grid details-section' formGroupName='skills'>
+            <label>
+                Point Cost:
+                <input class='moshInput' type='number' min='0' formControlName='pointsCost'>
+            </label>
+    
+            <label>
+                Percent:
+                <span>
+                    <input class='moshInput' type='number' min='0' formControlName='percent'>
+                </span>
+            </label>
+        </span>
+    
+        <span class='details-section equipment-section basic-grid' formGroupName='equipment'>
+            <label>
+                Cost:
+                <span>
+                    <input class='moshInput' type='number' min='0' formControlName='cost'>
+                </span>
+            </label>
+    
+            <label>
+                Damage:
+                <input class='moshInput' type='text' formControlName='dmg'>
+            </label>
+    
+            <label>
+                Critical Effect:
+                <input class='moshInput' type='text' formControlName='critEffect'>
+            </label>
+    
+            <label>
+                Range:
+                <input class='moshInput' type='text' formControlName='range'>
+            </label>
+    
+            <label>
+                Ammo:
+                <input class='moshInput' type='text' formControlName='ammo'>
+            </label>
+    
+            <label>
+                Magazine Size:
+                <input class='moshInput' type='text' formControlName='magSize'>
+            </label>
+        </span>
+        <section class='details-section basic-grid'>
+            <button type='submit' [disabled]='!genericForm.valid'>Create</button>
+        </section>
+    </form>
+</section>
+
