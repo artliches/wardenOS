@@ -1,0 +1,69 @@
+<em style="font-size: 0.8rem" class='hidden-print'>
+    Funnel character rules from <a href='https://www.drivethrurpg.com/product/360430/The-Drain' class='magenta'>The Drain</a> by <a href="https://ian-yusem.itch.io/" class='magenta'>Ian Yusem</a>.
+</em>
+
+<section class='funnel-card-grid grid'>
+    <div class='funnel-card grid' *ngFor='let card of funnelArray | keyvalue: originalOrder'>
+        <span *ngFor='let data of card.value | keyvalue: originalOrder'
+            [ngClass]="{
+                'name': data.key === 'name',
+                'hp': data.key === 'hp',
+                'stress': data.key === 'stress',
+                'stats stats-saves-grid': data.key === 'stats',
+                'saves stats-saves-grid': data.key === 'saves',
+                'skill': data.key === 'SKILL',
+                'crime': data.key === 'CRIME',
+                'mat': data.key === 'MATERIAL'
+            }">
+            <span>
+                <span *ngIf='data.key === "stats" || data.key === "saves"; else notObj'>
+                    <span class='title'>
+                        <span *ngIf='data.key === "stats"; else savesTitle'>
+                            STATS
+                        </span>
+                        <ng-template #savesTitle>
+                            SAVES
+                        </ng-template>
+                    </span>
+
+                    <span *ngFor='let statSaves of data.value | keyvalue: originalOrder'>
+                        <strong>{{statSaves.key}}</strong>: {{statSaves.value}}
+                    </span>
+                </span>
+            </span>
+
+            <ng-template #notObj>
+                <span class='name' *ngIf='data.key === "name"'>
+                    {{data.value}}
+                </span>
+
+                <span [ngClass]="{'hp-layout': data.key === 'hp'}" *ngIf='data.key === "hp" || data.key === "stress"'>
+                    <strong>{{data.key | uppercase}}:</strong>
+                    <div *ngIf='data.key === "hp"' class='empty-box'></div>
+                    <span *ngIf='data.key === "hp"'>/</span>
+                    <span>
+                        {{data.value}}
+                    </span>
+                </span>
+
+                <span class='skill-layout grid' *ngIf="data.key === 'SKILL'">
+                    <strong>{{data.key}}</strong>
+                    <em>{{data.value}}</em>
+                </span>
+
+                <div *ngIf='data.key === "CRIME"'>
+                    <div>
+                        <strong>CRIME:</strong> <em>{{data.value.crime}}</em>
+                    </div>
+                </div>
+
+                <div *ngIf='data.key === "MATERIAL"'>
+                    <strong>EQUIPMENT:</strong>
+                    <div *ngFor='let equip of data.value | keyvalue: originalOrder'>
+                        <em>{{equip.value}}</em>
+                    </div>
+                </div>
+            </ng-template>
+        </span>
+    </div>
+</section>

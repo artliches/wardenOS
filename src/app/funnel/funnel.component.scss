@@ -1,0 +1,136 @@
+.funnel-card-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;    
+    grid-gap: 0.5rem;
+}
+
+.funnel-card {
+    font-size: 1rem;
+    padding: 1rem;
+    border: 5px solid goldenrod;
+
+    grid-gap: inherit;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "name name hp"
+        "crime crime stress"
+        "stats stats stats"
+        "saves saves saves"
+        "skill skill skill"
+        "mat mat mat";
+
+    .name {
+        grid-area: name;
+        justify-self: start;
+    }
+    .hp {
+        grid-area: hp;
+    }
+
+    .stats-saves-grid {
+        &>span>span {
+            display: grid;
+            grid-template-areas:
+                "title title title title"
+                "saves saves saves saves";
+            grid-template-columns: repeat(4, 1fr);
+
+            .title {
+                grid-area: title;
+                background-color: white;
+                color: black;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .stats {
+        grid-area: stats;
+        &>span>span {
+            display: grid;
+            grid-template-areas:
+                "title title title title"
+                "saves saves saves saves";
+            grid-template-columns: repeat(4, 1fr);
+
+            .title {
+                grid-area: title;
+                background-color: white;
+                color: black;
+                font-weight: bold;
+            }
+        }
+    }
+    .saves {
+        grid-area: saves;
+
+    }
+    .crime {
+        grid-area: crime;
+    }
+    .mat {
+        grid-area: mat;
+    }
+    .stress {
+        grid-area: stress;
+    }
+    .skill {
+        grid-area: skill;
+    }
+
+    em {
+        font-size: 0.9rem;
+    }
+}
+
+.hp-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.empty-box {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .funnel-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: min-content;    
+    }
+}
+
+@media print {
+    .funnel-card-grid {
+        height: 11in;
+        width: 8.5in;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: min-content;
+        grid-gap: 0rem;    
+    }
+    .funnel-card {
+        height: 2.5in;
+        width: 5in;
+        border: 5px solid black;
+
+        .name {
+            color: lightgrey;
+        }
+
+        .stats-saves-grid {
+            &>span>span {    
+                .title {
+                    border-bottom: 3px solid black;
+                }
+            }
+        }
+
+        .stats {
+            &>span>span {    
+                .title {
+                    border-bottom: 3px solid black;
+                }
+            }
+        }
+    }
+}

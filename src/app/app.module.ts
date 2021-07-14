@@ -14,6 +14,7 @@ import { CharacterGeneratorComponent } from './character-generator/character-gen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CbRedMockComponent } from './cb-red-mock/cb-red-mock.component';
 import { AddCustomComponent } from './add-custom/add-custom.component';
+import { FunnelComponent } from './funnel/funnel.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddCustomComponent } from './add-custom/add-custom.component';
     ShipGeneratorComponent,
     CharacterGeneratorComponent,
     CbRedMockComponent,
-    AddCustomComponent
+    AddCustomComponent,
+    FunnelComponent
   ],
   imports: [
     ReactiveFormsModule,

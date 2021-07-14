@@ -1600,7 +1600,8 @@ export const FIRST_NAMES = [
   ' CARTER',
   ' JACKSON',
    'KHANH',
-   'CHICAGO'
+   'CHICAGO',
+   'USA',
 ];
 
 export const LAST_NAMES = [
@@ -1704,7 +1705,8 @@ export const LAST_NAMES = [
   'HARRISON',
   'DUKES',
   'LAO',
-  'BONES'
+  'BONES',
+  '- G'
 ];
 
 export const JOBS = [
@@ -1897,3 +1899,49 @@ export const STARTING_SKILLS = {
     points: 3
   }
 };
+
+export const CONVICTIONS = [
+  ...Array(5).fill({crime: 'Crimes Against Nature', item: 'Tibetan Book of the Dead'}),
+  ...Array(5).fill({crime: 'Mayhem', item: 'Tuna Knife'}),
+  ...Array(5).fill({crime: 'Art Forgery', item: 'Eye Loupe'}),
+  ...Array(5).fill({crime: 'Failure to Comply', item: 'Body Cam'}),
+  ...Array(5).fill({crime: 'Treason', item: 'Cyanide Capsule'}),
+  ...Array(5).fill({crime: 'Desecration of a Corpse', item: 'Bag of M-80s'}),
+  ...Array(5).fill({crime: 'Defacing Petroglyphs', item: 'Gold Leaf'}),
+  ...Array(5).fill({crime: 'Equine Tipping', item: 'Vial Collodion'}),
+  ...Array(5).fill({crime: 'Cyber Crime', item: 'Holopet Slickware'}),
+  ...Array(5).fill({crime: 'Hoaxes', item: 'Weather Balloon (Deflated)'}),
+  ...Array(5).fill({crime: 'Terrorism', item: 'Bottle of Shampoo (6oz)'}),
+  ...Array(5).fill({crime: 'Fortune Telling', item: 'Electronic ID Scraper'}),
+  ...Array(5).fill({crime: 'Piracy', item: 'Calling Cards'}),
+  ...Array(5).fill({crime: 'Unlawful Use of Crane Games', item: 'Gyrostabilizer'}),
+  ...Array(5).fill({crime: 'Sleeving', item: 'Captive Bolt Pistol'}),
+  ...Array(5).fill({crime: 'Self-Jailbreaking (Android)', item: 'HappyHour Disk'}),
+  ...Array(5).fill({crime: 'Domestic Insufficiency (Android)', item: 'Flyswatter'}),
+  ...Array(5).fill({crime: 'Impersonating a Human (Android)', item: 'IV Bag of Blood'}),
+  ...Array(5).fill({crime: 'Computer-Assisted Gambling (Android)', item: 'Cockfighting Spurs'}),
+  ...Array(5).fill({crime: '0 Degree Murder (Android)', item: 'Rare Earth Magnet'}),
+];
+
+export const MATERIAL = [
+  ...Array(5).fill('Artillery Shell (1d5 MDMG)'),
+  ...Array(5).fill('Shovel'),
+  ...Array(5).fill('Crowbar'),
+  ...Array(5).fill('Scalpel'),
+  ...Array(5).fill('Flare Gun'),
+  ...Array(5).fill('Nail Gun (5 shots)'),
+  ...Array(5).fill('Magazine (Pulse Rifle)'),
+  ...Array(5).fill('Frag Grenade (x1)'),
+  ...Array(5).fill('Short-range Comms'),
+  ...Array(5).fill('Flashlight'),
+  ...Array(5).fill('Gas Mask'),
+  ...Array(5).fill('Boots'),
+  ...Array(5).fill('Automed (x1)'),
+  ...Array(5).fill('Pain Pills (x1)'),
+  ...Array(5).fill('Stimpak (x1)'),
+  ...Array(5).fill('Angel Wings (Costume)'),
+  ...Array(5).fill('Bottle Communion Wine'),
+  ...Array(5).fill('Oversized Rosary (Flotation Device)'),
+  ...Array(5).fill('Wooden Cross (Grave marker)'),
+  ...Array(5).fill('Votive Candle and Lighter'),
+];

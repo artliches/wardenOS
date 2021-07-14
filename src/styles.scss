@@ -21,6 +21,14 @@ body {
     }
 }
 
+.magenta {
+    color: magenta;
+}
+
+.grid {
+    display: grid;
+}
+
 .tinyText {
     font-size: 0.9rem;
 }
@@ -74,9 +82,8 @@ body {
     grid-template-areas:
         "button"
         "sub-button"
-        "display-section"
         "print-section"
-        "cb-red"
+        "display-section"
         "version-section";
     
     .button-section {
@@ -88,6 +95,10 @@ body {
                 animation-delay: calc(#{$i} * #{$stagger-delay});
             }
         }
+    }
+
+    .display-section {
+        grid-area: display-section;
     }
 
     .sub-button {
@@ -225,9 +236,8 @@ button {
         grid-template-areas: 
             ". button ."
             ". sub-button ."
-            ". display-section ."
             ". print-section ."
-            "cb-red cb-red cb-red"
+            ". display-section ."
             ". version-section .";
         
         .button-section {
@@ -253,7 +263,7 @@ button {
                     grid-area: trinket;
                 }
                 .upload-button {
-                    background-color: goldenrod;
+                    // background-color: goldenrod;
                     grid-area: upload;
 
                     &:hover {

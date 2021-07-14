@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     ship: false,
     char: false,
     cb: false,
+    funnel: false,
   };
 
   buttonSectionObj = {
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
     rim: false,
     generic: false,
     char: false,
+    funnel: false,
   };
   jsonToDownload: any;
   previousSaying = [];
