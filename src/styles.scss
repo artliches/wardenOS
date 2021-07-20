@@ -95,10 +95,6 @@ body {
                 animation-delay: calc(#{$i} * #{$stagger-delay});
             }
         }
-
-        .the-drain {
-            grid-column: 2;
-        }
     }
 
     .display-section {
@@ -254,6 +250,10 @@ button {
         .button-section {
             grid-area: button;
             grid-template-columns: repeat(3, 1fr);
+
+            .the-drain {
+                grid-column: 2;
+            }
         }
         .display-section {
             grid-area: display-section;
