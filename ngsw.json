@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1626806783672,
+  "timestamp": 1626807182117,
   "index": "/wardenOS/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "/wardenOS/polyfills-es5.0290b245fbcca09184ac.js",
         "/wardenOS/runtime-es2015.cdfb0ddb511f65fdc0a0.js",
         "/wardenOS/runtime-es5.cdfb0ddb511f65fdc0a0.js",
-        "/wardenOS/styles.c520b9287ae0f69d003c.css"
+        "/wardenOS/styles.b7f7524814b469bc1e27.css"
       ],
       "patterns": []
     },
@@ -61,7 +61,7 @@
     "/wardenOS/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/wardenOS/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/wardenOS/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/wardenOS/index.html": "012c3ae6306bca803fc4a19bf9a1f71c12f2e4d6",
+    "/wardenOS/index.html": "aaaf363302d1dfbd1fd82e2e53602722c10361c7",
     "/wardenOS/main-es2015.4d19f83d40e319359860.js": "5e88e41a7d2adadc92bce9f0bc0250493c3f5a03",
     "/wardenOS/main-es5.4d19f83d40e319359860.js": "209ffaeb156492a170251963717dce98e45d65e4",
     "/wardenOS/manifest.webmanifest": "b1873e7a7170ff9c3c602dabe2d075d98da54275",
@@ -69,7 +69,7 @@
     "/wardenOS/polyfills-es5.0290b245fbcca09184ac.js": "a7bfe75cfe39caaf5bc4c64b35dd9f1f0918a25f",
     "/wardenOS/runtime-es2015.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/wardenOS/runtime-es5.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/wardenOS/styles.c520b9287ae0f69d003c.css": "fce19617355f0c2439a1dfc40afedfce64a79242"
+    "/wardenOS/styles.b7f7524814b469bc1e27.css": "270dd05917617c49682213dd1ef13a377e3e941a"
   },
   "navigationUrls": [
     {
