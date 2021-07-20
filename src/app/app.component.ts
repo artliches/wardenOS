@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
     this.isClicked = !this.isClicked;
   }
 
-  displayInfo(name: string, searchString?: string, styleToPass?: string, charUpload?: any) {
+  displayInfo(name: string, searchString?: string, styleToPass?: string) {
     this.showDownload = false;
     this.openDisplaySection = true;
     this.pagePrintTitle = '';

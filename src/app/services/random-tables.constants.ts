@@ -1908,7 +1908,7 @@ export const CONVICTIONS = [
   ...Array(5).fill({crime: 'Treason', item: 'Cyanide Capsule'}),
   ...Array(5).fill({crime: 'Desecration of a Corpse', item: 'Bag of M-80s'}),
   ...Array(5).fill({crime: 'Defacing Petroglyphs', item: 'Gold Leaf'}),
-  ...Array(5).fill({crime: 'Equine Tipping', item: 'Vial Collodion'}),
+  ...Array(5).fill({crime: 'Equine Tipping', item: 'Vial Collodion (caustic acid, explosive, cyanide gas if burned)'}),
   ...Array(5).fill({crime: 'Cyber Crime', item: 'Holopet Slickware'}),
   ...Array(5).fill({crime: 'Hoaxes', item: 'Weather Balloon (Deflated)'}),
   ...Array(5).fill({crime: 'Terrorism', item: 'Bottle of Shampoo (6oz)'}),
@@ -1916,7 +1916,7 @@ export const CONVICTIONS = [
   ...Array(5).fill({crime: 'Piracy', item: 'Calling Cards'}),
   ...Array(5).fill({crime: 'Unlawful Use of Crane Games', item: 'Gyrostabilizer'}),
   ...Array(5).fill({crime: 'Sleeving', item: 'Captive Bolt Pistol'}),
-  ...Array(5).fill({crime: 'Self-Jailbreaking (Android)', item: 'HappyHour Disk'}),
+  ...Array(5).fill({crime: 'Self-Jailbreaking (Android)', item: 'HappyHour Disk (emulates inebriation in androids)'}),
   ...Array(5).fill({crime: 'Domestic Insufficiency (Android)', item: 'Flyswatter'}),
   ...Array(5).fill({crime: 'Impersonating a Human (Android)', item: 'IV Bag of Blood'}),
   ...Array(5).fill({crime: 'Computer-Assisted Gambling (Android)', item: 'Cockfighting Spurs'}),
@@ -1944,4 +1944,92 @@ export const MATERIAL = [
   ...Array(5).fill('Oversized Rosary (Flotation Device)'),
   ...Array(5).fill('Wooden Cross (Grave marker)'),
   ...Array(5).fill('Votive Candle and Lighter'),
+];
+
+export const DRAIN_ENCOUNTERS = [
+  '<strong>Artificial Sun Dies.</strong> 1d10 minutes before sputtering to life.',
+  '<strong>Gravity Fluctuation.</strong> Doused in blood and oil all accumulated in zero-G on the cone\'s axis.',
+  '<strong>Pumping, Horse-Shaped Blur.</strong> <em>[H:3(50) C:70 Trample <u>1d10dmg</u> or Bite 5d10dmg and Infected I:80]</em> Charges the weak, wounded and straggling. Furious red eyes illuminate flaring gills and trailing, elegantly woven intestines. <em>A last hope, dashed.</em>',
+  '<strong>Command Collar Malfunction.</strong> 10 minutes incessant beeping. Sanity Save (1d5 Stress)',
+  '<strong>Hazard Suits Pour from an Unmarked Van.</strong> 1d10 Corporate Harvesters <em>[H:2(35) C:40 Traq Pistol or Catch Pole I:45]</em>, fishing for free-range test subjects. Peel out after single kidnapping, removing fresh subjects\' collars.',
+  '<strong>Prison Soldier Army.</strong> <em>[H:1(20) C:25 Nail Gun 2d10dmg or Crowbar 1d10dmg I:20]</em> Celebrates victory atop brutalized corpses in semi-fortified position. Cathartic gunfire masks a survivor calling in a railgun strike on their own position.',
+  '<strong>Ambush!</strong> 1d5 Corporate Operators <em>[H:3(40) C:50 Pulse Rifle 5d10dmg, Grenades <u>1d10dmg</u> I:40]</em> camouflaged amdist a field of dead, mangy sheep.',
+  '<strong>Wagon Train.</strong> Full of crying children. Pleading spouses clutch at 1d10 resolute Pilgrim Irregulars <em>[H:2(20) C:30 Heirloom Rifle 5d10dmg (1 shot) I:20]</em>.',
+  '<strong>Dust Devils.</strong> Scraping synthetic dirt from bare hull, rusted metal chips singing madly.',
+  '<strong>Momentary Rainbow.</strong> Sprinklers suddenly hiss to life.',
+];
+
+export const DRAIN_BILLBOARDS = [
+  'Pastoral scene. Sniper\'s nest. A glint behind spinning windmill sails <em>[H:2(20) C:50 Smart Rifle <u>1d10dmg</u> I:45]</em>',
+  '"[X]km to salvation!" <em>[X = distance to Command].</em>',
+  'Buzzing blue error screen.',
+  'Transmitting a marine\'s body cam, rifle blazing',
+  'String of consecutive signs: "He lit a match / to check the tank / that\'s why / they call him / Skinless Frank"',
+  '"Justice Herman Shewhart, 9th Sector Court of Appeals." Stern face, wire routing numbers.',
+  '"Her teeth a flock of shorn ewes. Her neck, a tower"',
+  'Aggressively animated ad obscured by red flecked white paint: "Unity!"',
+  'Space girl sips cola atop stylized rocket. Glitchy animated wink "Refreshing!"',
+  '"In crisis? We can help." Comm frequency, martyrdom tales played on repeat: "His lips spake with the Holy Spirit until he was sawn in twain..."'
+];
+
+export const DRAIN_ZONES = [
+  '<strong>1A</strong>: Furrow Trenches',
+  '<strong>2A</strong>: Church',
+  '<strong>3A</strong>: Shackled Dropship',
+  '<strong>4A</strong>: Orchid',
+  '<strong>5B</strong>: Collapsed Silo',
+  '<strong>6B</strong>: Bunker',
+  '<strong>7B</strong>: Syntetic Sun',
+  '<strong>8C</strong>: Barn',
+  '<strong>9C</strong>: Amusement Park',
+  '<strong>10D</strong>: Crashed Sleeve Ship'
+];
+
+export const DRAIN_RADIO = [
+  'Desperate request for reinforcements, gunfire closing in.',
+  'Incoherent whimpering, prayers, pleas of forgiveness.',
+  'Solar wind\'s harmonious droning, occasional vaccsuit depressurization warning.',
+  'Staticky ravings of a far-right conspiracy jockey.',
+  'Buzzing flies, a death rattle.',
+  'Science fiction radio play. Tense but optimistic first contact.',
+  'Troop movement commands drowned by a solemn church organ.',
+  'Chugging, arrhythmic heartbeat, cavernous sloshing.',
+  'Foundering warship distress signals cacophonously layered.',
+  'Sweetly strained voices preach new gospel in unison. Old words twisted beyond meaning. Unless immediately switched off, Sanity Save (1d10 Stress).'
+];
+
+export const DRAIN_SEARCH = [
+  ...Array(5).fill('Jury-rigged tattoo gun'),
+  ...Array(5).fill('Lockpick Set (damaged by shrapnel, useless unless repaired)'),
+  ...Array(5).fill('Zip gun (2d10dmg, 1 shot)'),
+  ...Array(5).fill('Paper polyhedral dice, flattened'),
+  ...Array(5).fill('PATCH: "Property of the Joint" (Illustration: Behind Bars)'),
+  ...Array(5).fill('PATCH: "Fallen Angel" (Illustration: Wings)'),
+  ...Array(5).fill('PATCH: "Farmer\'s Gold" (Illustration: Cow Pie)'),
+  ...Array(5).fill('PATCH: "Almanac" (Illustration: Labeled Floppy Disk)'),
+  ...Array(5).fill('<strong>Silver Tongue</strong> synthetic chewing tobacco'),
+  ...Array(5).fill('Tarnished brass hand bell'),
+  ...Array(5).fill('Straw doll, candies hidden within'),
+  ...Array(5).fill('Illustrated copy Thunder Perfect Mind "DISPLAY COPY | NOT FOR SALE"'),
+  ...Array(5).fill('Half-finished embroidery (dead tree with single fruit)'),
+  ...Array(5).fill('Metal rake, teeth freshly sharpened'),
+  ...Array(5).fill('<strong>Noah\'s Arc</strong> dietary gummies (each two animals, fused)'),
+  ...Array(5).fill('Disposable <strong>InstaCrop</strong> seed injector (as a weapon: 2d10dmg and death by internal plant growth in 1d10 days)'),
+  ...Array(5).fill('Hand-knit baby carrier, empty'),
+  ...Array(5).fill('Leather-sleeved flask (wheel pattern), 1/3 full moonshine'),
+  ...Array(5).fill('Tin fruit cans connected by 5m string'),
+  ...Array(5).fill('Deed to the <em>Wheel</em>'),
+];
+
+export const DRAIN_CACHE = [
+  'Binoculars, Camping Gear, MREs, Vibechete, Long Range Comms',
+  'Foam Gun, Riot Shield, Portable Turret (area denial heat ray)',
+  'Hand Welder, Welding Goggles, Wired Laser Cutter (20m cable, plugs into buildings or ship infrastructure)',
+  'Hydraulic Stilts (telescope to 5m), Hazard Suit, Pesticide Spray Backpack (toxic, flammable)',
+  'Improvised Artillery (section grain auger, 50% chance of exploding if used), 3 Shells (1d5 MDMG)',
+  'Tractor Technical with Heavy MG (<u>2d10dmg</u>)',
+  'Military Supply Canister pierces hull: <strong>10</strong> biometrics-locked Pulse Rifles (resquires corporate DNA), 1d5 Tear Gas Grenades',
+  '10 ft. Feed Hook, Saddle, Wire Brush with bent and twisted bristles',
+  'Crate Explosives: 1d5 Incendiary Grenades (<u>1d10dmg</u>/round), RPG (1 shot, <u>2d10dmg</u>), 1 anti-tank mine (1d10 MDMG)',
+  'Attack Dog Crate "FRONT TOWARD ENEMY" (laser targeting system, low growling), Chainmail Gloves, Muzzle (spare)'
 ];

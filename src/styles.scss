@@ -95,6 +95,10 @@ body {
                 animation-delay: calc(#{$i} * #{$stagger-delay});
             }
         }
+
+        .the-drain {
+            grid-column: 2;
+        }
     }
 
     .display-section {
@@ -208,6 +212,13 @@ body {
         background-color: black;
         padding: 0.5rem;
     }
+
+    &.drain {
+        b, strong {
+            color: goldenrod
+        }
+        background-color: goldenrod;
+    }
 }
 
 button {
@@ -249,6 +260,12 @@ button {
         }
         .sub-button {
             grid-template-columns: repeat(3, 1fr);
+            &.drain-grid {
+                .section-info {
+                    grid-area: 1 / span 3;
+                    justify-self: center;
+                }
+            }
             &.mosh-grid {
                 grid-template-areas:
                     "patch crew trinket"

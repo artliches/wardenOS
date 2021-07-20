@@ -13,7 +13,7 @@
         <button (click)='openSection("mosh")'>PLAYER'S SURVIVAL GUIDE</button>
         <button class='pofTheme' (click)='openSection("pof")'>A POUND OF FLESH</button>
         <button class='deadTheme' (click)='openSection("dead")'>DEAD PLANET</button>
-        <button class='print-button' (click)='openSection("funnel"); displayInfo("funnel")'>CREATE FUNNEL CARDS</button>
+        <button class='print-button the-drain' (click)='openSection("funnel")'>THE DRAIN</button>
     </section>
 
     <section *ngIf='buttonSectionObj["mosh"]' class='basic-grid sub-button mosh-grid hidden-print'>
@@ -43,6 +43,18 @@
         <!-- <button (click)='displayInfo("cb")'>FLINTWYRM DESIGN MOCK, NOT RELATED TO WARDEN</button> -->
     </section>
 
+    <section *ngIf='buttonSectionObj["funnel"]' class='basic-grid sub-button drain-grid hidden-print'>
+        <em style="font-size: 0.8rem" class='hidden-print section-info'>
+            Funnel character rules and tables from <a href='https://www.drivethrurpg.com/product/360430/The-Drain' class='magenta'>The Drain</a> by <a href="https://ian-yusem.itch.io/" class='magenta'>Ian Yusem</a>.
+        </em>
+        <button class='print-button' (click)='displayInfo("funnel")'>CREATE FUNNEL CARDS</button>
+        <button class='print-button' (click)='displayInfo("generic", "drainRand", "drain")'>RANDOM ENCOUNTER</button>
+        <button class='print-button' (click)='displayInfo("generic", "billboard", "drain")'>READ BILLBOARD</button>
+        <button class='print-button' (click)='displayInfo("generic", "radio", "drain")'>RANDOM RADIO CHATTER</button>
+        <button class='print-button' (click)='displayInfo("generic", "drainLoot", "drain")'>SCAVENGE THE AREA</button>
+        <button class='print-button' (click)='displayInfo("generic", "drainCache", "drain")'>LOOT THE CACHE</button>
+    </section>
+
     <section *ngIf='openDisplaySection' class='display-section main-section'>
         <app-patch-generator (pageTitle)='getPageTitle($event)' [getPatch]='triggerChanges["patch"]' [addBorder]='true' *ngIf='displaySection["patch"]'></app-patch-generator>
         <app-trinket-generator (pageTitle)='getPageTitle($event)' [getTrinket]='triggerChanges["trinket"]' [addBorder]='true' *ngIf='displaySection["trinket"]'></app-trinket-generator>
@@ -55,7 +67,7 @@
     </section>
 
     <section *ngIf='showPrint' class='print-section hidden-print'>
-        <button class='hidden-print' (click)='print()'>PRINT {{pagePrintTitle}}</button>
+        <button class='hidden-print' (click)='print()'>SAVE {{pagePrintTitle}}</button>
         <button *ngIf='showDownload' class='hidden-print'>
             <a id='downloadAnchorElem' (click)='download()'>DOWNLOAD {{pagePrintTitle}}</a>
         </button>
@@ -65,7 +77,7 @@
 
     <section class='version-section hidden-print'>
         <article class='hidden-print'>
-            v.1.0 - Development on character sheet scrapped, added funnel character generators for <a href='https://www.drivethrurpg.com/product/360430/The-Drain' class='magenta'>The Drain</a>.
+            v.1.1 - Added funnel table generators for <a href='https://www.drivethrurpg.com/product/360430/The-Drain' class='magenta'>The Drain</a>.
         </article>
         <article class='hidden-print'>
             Web app by <a href='https://twitter.com/codeLiches' class='magenta'>@codeLiches</a>

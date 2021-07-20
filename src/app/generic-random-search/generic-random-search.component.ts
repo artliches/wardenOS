@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation, } from '@angular/core';
 import { RandomNumberService } from '../services/random-number.service';
 // tslint:disable-next-line: max-line-length
-import { LOOT_POF, CYBERNETIC_MUTATIONS, CACHE, WARP_DRIVE, WARP_WEIRD, VAULT, NIGHTMARES, DEAD_SEARCH, MOON_COLONY, RED_TOWER, NECROPOLIS } from '../services/random-tables.constants';
+import { LOOT_POF, CYBERNETIC_MUTATIONS, CACHE, WARP_DRIVE, WARP_WEIRD, VAULT, NIGHTMARES, DEAD_SEARCH, MOON_COLONY, RED_TOWER, NECROPOLIS, DRAIN_ENCOUNTERS, DRAIN_BILLBOARDS, DRAIN_ZONES, DRAIN_RADIO, DRAIN_SEARCH, DRAIN_CACHE } from '../services/random-tables.constants';
 
 
 @Component({
@@ -103,6 +103,47 @@ export class GenericRandomSearchComponent implements OnChanges {
           this.results[key] = this.randNum.rollStringDice
             (value[this.randNum.getRandomNumber(0, value.length - 1)]);
         }
+        break;
+      }
+      case 'drainRand': {
+        this.title = 'Random Encounter Within the Wheel';
+        this.results = DRAIN_ENCOUNTERS
+          [this.randNum.getRandomNumber(0, DRAIN_ENCOUNTERS.length - 1)];
+        this.results = this.randNum.rollStringDice(this.results, 'd1', true);
+        break;
+      }
+
+      case 'billboard': {
+        this.title = 'The Billboard Flickers to Life';
+        this.results = DRAIN_BILLBOARDS
+          [this.randNum.getRandomNumber(0, DRAIN_BILLBOARDS.length - 1)];
+        if (this.results.includes('Transmitting')) {
+          this.results += `, displaying <strong>Zone</strong> ${DRAIN_ZONES[this.randNum.getRandomNumber(0, DRAIN_ZONES.length - 1)]}`;
+        }
+        break;
+      }
+
+      case 'radio': {
+        this.title = 'Chatter on the Radio';
+        this.results = DRAIN_RADIO
+          [this.randNum.getRandomNumber(0, DRAIN_RADIO.length - 1)];
+        this.results = this.randNum.rollStringDice(this.results, 'd1');
+        break;
+      }
+
+      case 'drainLoot': {
+        this.title = 'Loot from The Wheel';
+        this.results = DRAIN_SEARCH
+          [this.randNum.getRandomNumber(0, DRAIN_SEARCH.length - 1)];
+        this.results = this.randNum.rollStringDice(this.results, 'd1');
+        break;
+      }
+
+      case 'drainCache': {
+        this.title = 'Wheel Cache Contents';
+        this.results = DRAIN_CACHE
+          [this.randNum.getRandomNumber(0, DRAIN_CACHE.length - 1)];
+        this.results = this.randNum.rollStringDice(this.results, 'd1', true);
         break;
       }
     }

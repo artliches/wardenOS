@@ -1,7 +1,3 @@
-<em style="font-size: 0.8rem" class='hidden-print'>
-    Funnel character rules from <a href='https://www.drivethrurpg.com/product/360430/The-Drain' class='magenta'>The Drain</a> by <a href="https://ian-yusem.itch.io/" class='magenta'>Ian Yusem</a>.
-</em>
-
 <section class='funnel-card-grid grid'>
     <div class='funnel-card grid' *ngFor='let card of funnelArray | keyvalue: originalOrder'>
         <span *ngFor='let data of card.value | keyvalue: originalOrder'

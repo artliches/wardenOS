@@ -17,4 +17,13 @@
     &.pof-card {
         background-color: #bd0000;
     }
+
+    .drain {
+        b {
+            color: goldenrod;
+        }
+        &.pof-card {
+            background-color: goldenrod;
+        }
+    }
 }

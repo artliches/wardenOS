@@ -1,6 +1,7 @@
 <section [ngClass]="{
     pof: styleToUse === 'pof',
-    dead: styleToUse === 'dead'
+    dead: styleToUse === 'dead',
+    drain: styleToUse === 'drain'
     }" class='pof-card'>
     <h2 class='pof-card-inner'>{{title}}</h2>
     <article *ngIf='tableToSearch !== "necro"; else NECROBLOCK' class='pof-card-inner-dark' [innerHTML]='results'></article>
